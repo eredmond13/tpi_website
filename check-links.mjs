@@ -41,6 +41,25 @@ try {
   }
 } catch {}
 
+// An article's "category" decides whether it lands on News or Publications.
+// A typo would otherwise send it silently to the wrong page.
+const VALID_CATEGORIES = [
+  "News", "Policy analysis", "Event",
+  "Report", "Op-ed", "Policy brief", "Policy infographic",
+];
+
+try {
+  for (const f of readdirSync("articles").filter((n) => n.endsWith(".md"))) {
+    const text = readFileSync(`articles/${f}`, "utf8");
+    const m = text.match(/^category:\s*"?([^"\n]+)"?/m);
+    if (!m) {
+      problems.push(`articles/${f}  ->  no "category:" line (use one of: ${VALID_CATEGORIES.join(", ")})`);
+    } else if (!VALID_CATEGORIES.includes(m[1].trim())) {
+      problems.push(`articles/${f}  ->  category: "${m[1].trim()}" is not valid. Use one of: ${VALID_CATEGORIES.join(", ")}`);
+    }
+  }
+} catch {}
+
 if (problems.length) {
   console.error("\nMissing files referenced by content:\n");
   problems.forEach((p) => console.error("  " + p));

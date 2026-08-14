@@ -9,31 +9,10 @@ const navGroups = [
     links: [
       ["All Research Hubs", "research.html"],
       ["Critical Infrastructure", "research.html#critical-infrastructure"],
-      ["DoD Semiconductor Project", "research.html#semiconductors"],
-      ["AI Governance and Defense", "research.html#ai-governance"],
       ["Drones and Robotics", "research.html#drones"],
+      ["AI Governance and Defense", "research.html#ai-governance"],
       ["Cryptocurrencies", "research.html#cryptocurrencies"],
       ["Geopolitics and Technology", "research.html#geopolitics"]
-    ]
-  },
-  {
-    id: "publications",
-    label: "Publications",
-    href: "publications.html",
-    links: [
-      ["All Publications", "publications.html"],
-      ["The Militarization of Outer Space", "report-outer-space.html"],
-      ["Dark Skies", "publications.html#dark-skies"],
-      ["Defending America's Skies", "publications.html#defending-skies"]
-    ]
-  },
-  {
-    id: "projects",
-    label: "Projects",
-    href: "projects.html",
-    links: [
-      ["All Projects", "projects.html"],
-      ["DoD Semiconductor Project", "projects.html#semiconductor-project"]
     ]
   },
   {
@@ -43,17 +22,19 @@ const navGroups = [
     links: [
       ["Full Directory", "people.html"],
       ["Leadership", "people.html#leadership"],
-      ["Research Fellows", "people.html#research"],
-      ["Staff", "people.html#staff"]
+      ["Staff", "people.html#staff"],
+      ["Senior Fellows", "people.html#senior-fellows"],
+      ["Fellows", "people.html#fellows"],
+      ["Junior Fellows", "people.html#junior-fellows"],
+      ["Alumni", "people.html#alumni"]
     ]
   },
   {
-    id: "events",
-    label: "Events",
-    href: "events.html",
+    id: "publications",
+    label: "Publications",
+    href: "publications.html",
     links: [
-      ["Events and Courses", "events.html"],
-      ["Courses", "events.html#courses"]
+      ["All Publications", "publications.html"]
     ]
   },
   {
@@ -61,12 +42,8 @@ const navGroups = [
     label: "News",
     href: "news.html",
     links: [
-      ["News and Policy", "news.html"],
-      ["News", "news.html#news"],
-      ["Policy Briefs", "news.html#policy-briefs"],
-      ["Policy Infographics", "news.html#policy-infographics"],
-      ["Policy Interviews", "news.html#policy-interviews"],
-      ["Brooks School Magazine", "news.html#brooks-school-magazine"],
+      ["All News", "news.html"],
+      ["Events and Seminars", "news.html#events"],
       ["Newsletter", "news.html#newsletter"]
     ]
   },
@@ -78,6 +55,7 @@ const navGroups = [
       ["About the Institute", "about.html"],
       ["Mission", "about.html#mission"],
       ["Vision", "about.html#vision"],
+      ["Courses", "courses.html"],
       ["Annual Reports", "about.html#annual-reports"],
       ["Grants", "about.html#grants"],
       ["Job Opportunities", "about.html#jobs"],
@@ -181,7 +159,7 @@ const archiveEntries = [
     title: "DoD Semiconductor Project",
     type: "Research project",
     summary: "A $3 million Department of Defense project on semiconductor supply-chain resilience.",
-    href: "projects.html#semiconductor-project"
+    href: "research.html#critical-infrastructure"
   },
   {
     title: "AI Governance and Defense",
@@ -233,9 +211,9 @@ const archiveEntries = [
   },
   {
     title: "Courses",
-    type: "Events",
-    summary: "Disruptive and Emerging Technologies, Global Policy Challenges, Contemporary Security Policy, and Country Risk Analysis.",
-    href: "events.html#courses"
+    type: "Teaching",
+    summary: "Contemporary Security Policy, AI Law Ethics and Policy, and Global Policy Challenges.",
+    href: "courses.html"
   }
 ];
 
@@ -353,6 +331,8 @@ function shouldIntercept(link) {
 
 function navigateWithTransition(event) {
   const link = event.currentTarget;
+  // The wipe only plays when leaving the home page. Every other
+  // navigation on the site is a plain, immediate link.
   if (!shouldIntercept(link) || prefersReducedMotion) return;
   if (currentPage !== "home") return;
 
@@ -378,9 +358,10 @@ function navigateWithTransition(event) {
   }, 320);
 }
 
-document.querySelectorAll("a[href]").forEach((link) => {
-  link.addEventListener("click", navigateWithTransition);
-});
+// Page-transition wipe removed. Links now navigate normally.
+// document.querySelectorAll("a[href]").forEach((link) => {
+//   link.addEventListener("click", navigateWithTransition);
+// });
 
 function applyIncomingTransition() {
   if (prefersReducedMotion) return;
@@ -446,13 +427,14 @@ function scheduleDrift() {
 }
 
 setActiveNavigation();
-applyIncomingTransition();
+// applyIncomingTransition();
 
 if (!prefersReducedMotion) {
   updateImageDrift();
   document.addEventListener("scroll", scheduleDrift, { passive: true });
   window.addEventListener("resize", scheduleDrift);
 }
+
 /* ---------------------------------------------------------------------------
    Clear the page-transition overlay when arriving via the back or forward
    button. The browser restores a cached copy of the page without re-running
@@ -472,12 +454,14 @@ function resetTransitionState() {
   sessionStorage.removeItem("btpi-transition");
 }
 
+// Fired on back/forward. event.persisted is true for a restored page.
 window.addEventListener("pageshow", (event) => {
   if (event.persisted) resetTransitionState();
 });
 
 window.addEventListener("popstate", resetTransitionState);
 
+// Safety net. If navigation is blocked or slow, never leave the page covered.
 window.setInterval(() => {
   const layer = document.querySelector(".page-transition.is-active");
   if (layer && !document.body.classList.contains("is-leaving")) {
