@@ -14,7 +14,7 @@ permalink: /news.html
 <section class="news-archive" id="news">
 {%- for post in collections.article | newest %}
   <article>
-    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image }}"></a>{% endif %}
+    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
