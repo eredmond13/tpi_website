@@ -1,6 +1,6 @@
 ---
 title: "Defending America Against Drones"
-date: 2026-06-18
+date: 2026-02-11
 category: Policy brief
 author: "Paul Lushenko and Joseph Amoroso"
 summary: A whole-of-government approach to countering the domestic drone threat.
