@@ -2,26 +2,27 @@
 layout: base.njk
 navId: news
 title: News and Policy
-description: News, policy briefs, and analysis from the Cornell Brooks Tech Policy Institute.
+description: News and analysis from the Cornell Brooks Tech Policy Institute.
 permalink: /news.html
+newsCategories: ["News", "Policy analysis"]
 ---
 <section class="page-hero">
   <p class="eyebrow">News and policy</p>
   <h1>News and Policy</h1>
   <p class="dek">Analysis, announcements, and coverage from across the institute.</p>
 </section>
-
 <section class="news-archive" id="news">
 {%- for post in collections.article | newest %}
+{%- if post.data.category in newsCategories %}
   <article>
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
   </article>
+{%- endif %}
 {%- endfor %}
 </section>
-
 <section class="page-block" id="newsletter">
   <div class="section-header compact">
     <p class="section-label">Stay informed</p>
