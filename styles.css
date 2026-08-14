@@ -2011,6 +2011,7 @@ body.is-entering main {
 .nl-archive {
   display: grid;
   gap: 1.6rem;
+  max-width: var(--measure);
   margin-top: 1.8rem;
 }
 
@@ -2040,11 +2041,11 @@ body.is-entering main {
 .nl-months span {
   display: grid;
   place-items: center;
-  padding: 0.55rem 0.2rem;
+  padding: 0.5rem 0.1rem;
   font-family: var(--font-section);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   text-transform: uppercase;
 }
 
