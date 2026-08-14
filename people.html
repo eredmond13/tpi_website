@@ -1,0 +1,25 @@
+---
+layout: base.njk
+navId: people
+title: People
+description: Faculty, fellows, and staff of the Cornell Brooks Tech Policy Institute.
+permalink: /people.html
+---
+<section class="page-hero">
+  <p class="eyebrow">Our team</p>
+  <h1>People</h1>
+  <p class="dek">Faculty, fellows, and staff working across technology and public policy.</p>
+</section>
+
+<section class="people-directory" id="leadership">
+{%- for person in collections.person | byOrder %}
+  <article class="person-profile">
+    <figure><img alt="{{ person.data.name }}" src="{{ person.data.photo }}"></figure>
+    <div>
+      <p class="eyebrow">{{ person.data.role }}</p>
+      <h2>{{ person.data.name }}</h2>
+      {{ person.templateContent | safe }}
+    </div>
+  </article>
+{%- endfor %}
+</section>

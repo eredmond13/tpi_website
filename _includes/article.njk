@@ -1,0 +1,50 @@
+---
+layout: base.njk
+navId: news
+---
+<article class="article-main">
+  <p class="eyebrow">{{ category or "News" }}</p>
+  <h1>{{ title }}</h1>
+  {% if summary %}<p class="dek">{{ summary }}</p>{% endif %}
+
+  <p class="article-credits">
+    {% if author %}By {{ author }} &middot; {% endif %}
+    <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+  </p>
+
+  {% if image %}
+  <figure class="article-feature-media">
+    <img alt="{{ imageAlt or title }}" src="{{ image | url }}">
+    {% if imageCredit %}<figcaption>{{ imageCredit }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  {% if content %}
+  <div class="article-prose">
+    {{ content | safe }}
+  </div>
+  {% endif %}
+
+  {% if pdf %}
+  <section class="pdf-block">
+    <p class="eyebrow">Full document</p>
+    <h2>{{ pdfTitle or title }}</h2>
+    <p class="pdf-detail">
+      PDF{% if pdfPages %} &middot; {{ pdfPages }} pages{% endif %}{% if pdfSize %} &middot; {{ pdfSize }}{% endif %}
+    </p>
+    <p class="link-row">
+      <a href="{{ pdf | url }}" target="_blank" rel="noopener">Open the PDF</a>
+      <a href="{{ pdf | url }}" download>Download</a>
+    </p>
+
+    <object class="pdf-viewer" data="{{ pdf }}#view=FitH" type="application/pdf">
+      <p class="pdf-fallback">
+        Your browser cannot display the PDF inline.
+        <a href="{{ pdf | url }}" target="_blank" rel="noopener">Open it in a new tab</a>.
+      </p>
+    </object>
+  </section>
+  {% endif %}
+
+  <p class="link-row"><a href="{{ "/news.html" | url }}">All news</a></p>
+</article>

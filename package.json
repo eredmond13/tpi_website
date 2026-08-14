@@ -1,0 +1,13 @@
+{
+  "name": "btpi-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "node check-links.mjs && eleventy",
+    "check": "node check-links.mjs"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}
