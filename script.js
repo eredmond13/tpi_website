@@ -354,6 +354,7 @@ function shouldIntercept(link) {
 function navigateWithTransition(event) {
   const link = event.currentTarget;
   if (!shouldIntercept(link) || prefersReducedMotion) return;
+  if (currentPage !== "home") return;
 
   const href = link.href;
   const targetPage = pageFromHref(href);
