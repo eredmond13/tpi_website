@@ -38,10 +38,28 @@ newsCategories: ["News", "Policy analysis", "Event"]
 
 <section class="page-block" id="newsletter">
   <div class="section-header compact">
-    <p class="section-label">Stay informed</p>
+    <p class="section-label">Newsletter</p>
     <div>
-      <h2>Newsletter</h2>
-      <p>Occasional updates on institute research, events, and policy work.</p>
+      <h2>Monthly newsletter</h2>
+      <p>Research, events, publications, and what the team has been up to. Sent
+      monthly, and archived here.</p>
+
+      <div class="nl-archive">
+      {%- for row in collections.newsletter | byYearAndMonth %}
+        <div class="nl-year">
+          <p class="nl-year-label">{{ row.year }}</p>
+          <div class="nl-months">
+          {%- for issue in row.months %}
+            {%- if issue %}
+            <a href="{{ issue.url | url }}">{{ loop.index0 | monthShort }}</a>
+            {%- else %}
+            <span aria-hidden="true">{{ loop.index0 | monthShort }}</span>
+            {%- endif %}
+          {%- endfor %}
+          </div>
+        </div>
+      {%- endfor %}
+      </div>
     </div>
   </div>
 </section>

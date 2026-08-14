@@ -1,0 +1,52 @@
+---
+layout: base.njk
+navId: news
+---
+<article class="article-main newsletter">
+  <p class="eyebrow">Newsletter{% if issue %} &middot; Issue {{ issue }}{% endif %}</p>
+  <h1>{{ title }}</h1>
+  {% if intro %}<p class="dek">{{ intro }}</p>{% endif %}
+
+  <p class="article-credits">
+    <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+  </p>
+
+  {% for section in sections %}
+  <section class="nl-section">
+    <h2>{{ section.heading }}</h2>
+    {% if section.note %}<p class="nl-note">{{ section.note }}</p>{% endif %}
+
+    {# A section is either a list of items, or a run of short updates. #}
+    {% if section.items %}
+    <div class="nl-items">
+      {% for item in section.items %}
+      <article class="nl-item">
+        {% if item.image %}<figure><img alt="{{ item.imageAlt or item.title }}" src="{{ item.image | url }}"></figure>{% endif %}
+        <div>
+          {% if item.meta %}<p class="nl-meta">{{ item.meta }}</p>{% endif %}
+          <h3>{{ item.title }}</h3>
+          {% if item.text %}<p>{{ item.text }}</p>{% endif %}
+          {% if item.link %}<p class="link-row"><a href="{{ item.link }}">{{ item.linkLabel or "Read more" }}</a></p>{% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if section.updates %}
+    <div class="nl-updates">
+      {% for u in section.updates %}
+      <div class="nl-update">
+        <p class="nl-who">{{ u.who }}</p>
+        <p>{{ u.what | safe }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </section>
+  {% endfor %}
+
+  {% if content %}<div class="article-prose">{{ content | safe }}</div>{% endif %}
+
+  <p class="link-row"><a href="{{ "/news.html#newsletter" | url }}">All newsletters</a></p>
+</article>

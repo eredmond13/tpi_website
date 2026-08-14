@@ -122,6 +122,71 @@ The build checks every image and PDF before publishing. If one is missing you
 get a message naming the file and the line, and the live site keeps showing
 the previous version until you fix it.
 
+## News or Publications?
+
+The `category` line decides which page an article appears on. Nothing else does.
+
+| Category | Appears on |
+|---|---|
+| `News` | News |
+| `Policy analysis` | News |
+| `Report` | Publications |
+| `Policy brief` | Publications |
+| `Policy infographic` | Publications |
+
+Spelling and capitals must match exactly. If they do not, the build stops and
+tells you the valid options, rather than quietly putting the item on the wrong
+page.
+
+## Adding a newsletter issue
+
+Create a file in the `newsletters` folder named by year and month, for example
+`2026-03.md`. Everything is optional except the title and date, so a month
+with no events simply leaves that section out.
+
+```
+---
+title: March 2026
+date: 2026-03-15
+issue: "3"
+intro: One or two sentences of welcome.
+
+sections:
+  - heading: Research news
+    items:
+      - title: Name of the piece
+        text: >-
+          Two or three sentences about it.
+        link: https://example.com
+        linkLabel: Read the article
+
+  - heading: Community updates
+    updates:
+      - who: Sarah Kreps
+        what: Quoted in the <em>Associated Press</em> on export controls.
+      - who: James Patton Rogers
+        what: Spoke at the Arctic Circle Assembly in Reykjavik.
+
+  - heading: Upcoming events
+    items:
+      - title: Name of the event
+        meta: 14 March &middot; 12:00pm &middot; Uris Hall G08
+        text: One line on what it covers.
+        link: https://example.com
+        linkLabel: Register
+---
+```
+
+A section uses either `items` or `updates`, not both. Use `items` when each
+entry has a headline and a paragraph. Use `updates` for the short one-line
+run of who did what, which renders as a two-column list.
+
+Indentation matters here. Each `- ` starts a new entry, and the lines under it
+line up beneath the first letter after the dash. The `>-` marks a paragraph
+that runs across several lines.
+
+The issue appears in the archive on `news.html` by itself.
+
 ## Adding a person
 
 Create a file in the `people` folder, for example `jane-doe.md`.

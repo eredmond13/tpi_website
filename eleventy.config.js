@@ -26,6 +26,29 @@ export default function (cfg) {
 
   cfg.addFilter("isoDate", (d) => new Date(d).toISOString().slice(0, 10));
 
+  // Arranges newsletter issues into a year-by-month grid, newest year first.
+  // Months with no issue come back empty so the gaps stay visible.
+  cfg.addFilter("byYearAndMonth", (issues) => {
+    const years = {};
+    for (const issue of issues) {
+      const d = new Date(issue.data.date);
+      const y = d.getUTCFullYear();
+      years[y] = years[y] || Array.from({ length: 12 }, () => null);
+      years[y][d.getUTCMonth()] = issue;
+    }
+    return Object.keys(years)
+      .sort((a, b) => b - a)
+      .map((year) => ({ year, months: years[year] }));
+  });
+
+  cfg.addFilter("monthName", (i) =>
+    ["January","February","March","April","May","June",
+     "July","August","September","October","November","December"][i]);
+
+  cfg.addFilter("monthShort", (i) =>
+    ["Jan","Feb","Mar","Apr","May","Jun",
+     "Jul","Aug","Sep","Oct","Nov","Dec"][i]);
+
   return {
     pathPrefix,
     dir: { input: ".", includes: "_includes", data: "_data", output: "_site" },
