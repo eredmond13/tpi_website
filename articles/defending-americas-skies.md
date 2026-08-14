@@ -4,8 +4,11 @@ date: 2025-04-01
 category: Policy brief
 author: "Paul Lushenko"
 summary: Public support for homeland counter-drone operations.
-image: /pictures/news/defending-skies.jpg
-imageAlt: A small drone in flight in front of an American flag
+image: /pictures/publications/defending-americas-skies.jpg
+imageAlt: A drone in flight in front of an American flag
+pdf: /files/defending-americas-skies.pdf
+pdfPages: 14
+pdfSize: 1.6 MB
 ---
 
 Non-Resident Senior Fellow Dr. Paul Lushenko and Dr. Jennifer Spindel of the University of New
