@@ -38,6 +38,7 @@
   --gutter: 2.5rem;
   --shell: min(100% - var(--gutter), 78rem);
   --measure: 68ch;
+  --content-col: 50rem;
 
   /* Distance from the shell edge to the viewport edge. Drives full-bleed
      bands. Must use 100vw, not 100%, or the maths resolves against the
@@ -2138,7 +2139,6 @@ body.is-entering main {
    ========================================================================== */
 
 .block-header {
-  max-width: var(--measure);
   margin-bottom: 2rem;
   padding-top: 1.4rem;
   border-top: 2px solid var(--ink);
@@ -2156,4 +2156,13 @@ body.is-entering main {
   color: var(--ink-body);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+/* Every block on a listing page shares one content column, so the left and
+   right edges line up down the whole page rather than section by section. */
+.block-header,
+.news-archive,
+.news-list,
+.nl-archive {
+  max-width: var(--content-col);
 }

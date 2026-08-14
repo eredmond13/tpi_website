@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.url == "/" %}{{ site.name }}{% else %}{{ title }} | {{ site.name }}{% endif %}</title>
 <meta name="description" content="{{ description or site.description }}">
+<link rel="icon" href="{{ "/pictures/favicon.ico" | url }}" sizes="any">
 <link rel="icon" href="{{ "/pictures/favicon.png" | url }}" type="image/png">
+<link rel="apple-touch-icon" href="{{ "/pictures/apple-touch-icon.png" | url }}">
 <link rel="stylesheet" href="{{ "/styles.css" | url }}">
 <script>document.documentElement.classList.add("js-enabled");</script>
 </head>
