@@ -4,7 +4,7 @@ date: 2026-06-18
 category: Policy brief
 author: Paul Lushenko and Joseph Amoroso
 summary: A whole-of-government approach to countering the domestic drone threat.
-image: /assets/news/defending-skies.jpg
+image: /pictures/news/defending-skies.jpg
 imageAlt: A small drone flying in front of an American flag
 pdf: /files/defending-america-against-drones.pdf
 pdfTitle: "Defending America Against Drones: A Whole-of-Government Approach"

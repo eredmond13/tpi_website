@@ -3,7 +3,7 @@ title: Former Iceland president Johannesson visits Cornell for Messenger lecture
 date: 2026-03-15
 category: News
 summary: Gudni Thorlacius Johannesson delivered three Messenger Lectures at Cornell last week.
-image: /assets/news/iceland-president.jpg
+image: /pictures/news/iceland-president.jpg
 imageAlt: Lecture hall at Cornell University
 ---
 

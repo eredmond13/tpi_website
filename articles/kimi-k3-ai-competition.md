@@ -4,7 +4,7 @@ date: 2026-08-04
 category: Policy analysis
 author: Fiona Neibart
 summary: A frontier open-weight model from China reframes the debate over export controls and American technology leadership.
-image: /assets/news/kimi-k3-ai-policy.jpg
+image: /pictures/news/kimi-k3-ai-policy.jpg
 imageAlt: Semiconductor wafer under inspection
 ---
 

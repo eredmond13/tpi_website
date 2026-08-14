@@ -4,7 +4,7 @@ date: 2026-07-20
 category: Policy analysis
 author: Fiona Neibart
 summary: How the 2025 U.S. National Security Strategy reframes technical standards as an instrument of great power competition.
-image: /assets/news/technology-standards.jpg
+image: /pictures/news/technology-standards.jpg
 imageAlt: Abstract network of connected nodes
 ---
 
