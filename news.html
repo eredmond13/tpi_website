@@ -27,11 +27,11 @@ newsCategories: ["News", "Policy analysis"]
 </section>
 
 <section class="page-block" id="events">
-  <div class="section-header compact">
+  <div class="block-header">
     <p class="section-label">Events</p>
-    <div>
-      <h2>Events and Seminars</h2>
-      <p>Talks, seminars, and simulations hosted by the institute.</p>
+    <h2>Events and Seminars</h2>
+    <p>Talks, seminars, and simulations hosted by the institute.</p>
+  </div>
 
       <div class="news-list">
       {%- for post in collections.article | newest %}
@@ -45,18 +45,16 @@ newsCategories: ["News", "Policy analysis"]
         </article>
       {%- endif %}
       {%- endfor %}
-      </div>
-    </div>
   </div>
 </section>
 
 <section class="page-block" id="newsletter">
-  <div class="section-header compact">
+  <div class="block-header">
     <p class="section-label">Newsletter</p>
-    <div>
-      <h2>Monthly newsletter</h2>
-      <p>Research, events, publications, and what the team has been up to. Sent
-      monthly, and archived here.</p>
+    <h2>Monthly newsletter</h2>
+    <p>Research, events, publications, and what the team has been up to. Sent
+    monthly, and archived here.</p>
+  </div>
 
       <div class="nl-archive">
       {%- for row in collections.newsletter | byYearAndMonth %}
@@ -73,7 +71,5 @@ newsCategories: ["News", "Policy analysis"]
           </div>
         </div>
       {%- endfor %}
-      </div>
-    </div>
   </div>
 </section>

@@ -2130,3 +2130,29 @@ body.is-entering main {
     aspect-ratio: 16 / 10;
   }
 }
+
+/* ==========================================================================
+   Section headers that sit flush left, matching the page hero above them.
+   Used where a two-column header would push the heading off the left edge.
+   ========================================================================== */
+
+.block-header {
+  max-width: var(--measure);
+  margin-bottom: 2rem;
+  padding-top: 1.4rem;
+  border-top: 2px solid var(--ink);
+}
+
+.block-header h2 {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-section);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.block-header p:not(.section-label) {
+  margin: 0.6rem 0 0;
+  color: var(--ink-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
