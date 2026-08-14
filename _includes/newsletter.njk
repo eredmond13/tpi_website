@@ -26,7 +26,7 @@ navId: news
           {% if item.meta %}<p class="nl-meta">{{ item.meta }}</p>{% endif %}
           <h3>{{ item.title }}</h3>
           {% if item.text %}<p>{{ item.text }}</p>{% endif %}
-          {% if item.link %}<p class="link-row"><a href="{{ item.link }}">{{ item.linkLabel or "Read more" }}</a></p>{% endif %}
+          {% if item.link %}<p class="link-row"><a href="{{ item.link | url }}">{{ item.linkLabel or "Read more" }}</a></p>{% endif %}
         </div>
       </article>
       {% endfor %}
@@ -37,7 +37,7 @@ navId: news
     <div class="nl-updates">
       {% for u in section.updates %}
       <div class="nl-update">
-        <p class="nl-who">{{ u.who }}</p>
+        <p class="nl-who">{{ u.who | linkPeople(collections.person) | safe }}</p>
         <p>{{ u.what | safe }}</p>
       </div>
       {% endfor %}

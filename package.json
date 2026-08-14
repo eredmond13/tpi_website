@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "node check-links.mjs && eleventy",
+    "build": "node check-links.mjs && eleventy && node check-built-links.mjs",
     "check": "node check-links.mjs"
   },
   "devDependencies": {
