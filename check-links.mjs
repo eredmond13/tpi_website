@@ -3,7 +3,7 @@
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 
 const problems = [];
-const dirs = ["articles", "people", "publications"];
+const dirs = ["articles", "people"];
 
 for (const dir of dirs) {
   let files = [];
@@ -21,6 +21,25 @@ for (const dir of dirs) {
     }
   }
 }
+
+// A person's "group" must match one of the sections on people.html.
+// A typo would otherwise make them silently vanish from the site.
+const VALID_GROUPS = [
+  "Leadership", "Staff", "Senior Fellows",
+  "Fellows", "Junior Fellows", "Alumni",
+];
+
+try {
+  for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
+    const text = readFileSync(`people/${f}`, "utf8");
+    const m = text.match(/^group:\s*"?([^"\n]+)"?/m);
+    if (!m) {
+      problems.push(`people/${f}  ->  no "group:" line (add one of: ${VALID_GROUPS.join(", ")})`);
+    } else if (!VALID_GROUPS.includes(m[1].trim())) {
+      problems.push(`people/${f}  ->  group: "${m[1].trim()}" is not a section. Use one of: ${VALID_GROUPS.join(", ")}`);
+    }
+  }
+} catch {}
 
 if (problems.length) {
   console.error("\nMissing files referenced by content:\n");

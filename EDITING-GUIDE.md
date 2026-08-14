@@ -30,6 +30,21 @@ Step 6 is the only thing that is new. Under the **Actions** tab you will see a
 green tick when it has published. A red X means something needs fixing, and
 the live site keeps showing the previous version until it is sorted.
 
+## Where things live
+
+| Folder | What goes in it |
+|---|---|
+| `articles/` | News posts and policy briefs, one Markdown file each |
+| `people/` | Team profiles, one Markdown file each |
+| `pictures/people/` | Headshots, named after the person |
+| `pictures/news/` | Photos for articles |
+| `pictures/home/` | Homepage imagery |
+| `pictures/logos/` | Brand marks |
+| `files/` | PDFs |
+
+Every image lives under `pictures`, in the subfolder that says what it is
+for. Nothing lives in two places.
+
 ## Adding a news article
 
 Create one new file in the `articles` folder. Name it with dashes and end it
@@ -42,7 +57,7 @@ date: 2026-08-14
 category: News
 author: Fiona Neibart
 summary: One or two sentences that appear in the news list.
-image: /assets/news/arctic.jpg
+image: /pictures/news/arctic.jpg
 imageAlt: Description of the photo for screen readers
 ---
 
@@ -74,7 +89,7 @@ date: 2026-08-14
 category: Policy brief
 author: Paul Lushenko
 summary: One or two sentences for the news list.
-image: /assets/news/arctic-workshop.jpg
+image: /pictures/news/arctic-workshop.jpg
 imageAlt: Researchers around a table at the Svalbard workshop
 pdf: /files/arctic-security-brief.pdf
 pdfPages: 18
@@ -123,6 +138,14 @@ Her biography goes here.
 ```
 
 `order` controls where she appears. Lower numbers come first.
+
+`group` must be exactly one of these six, spelling and capitals included:
+
+`Leadership`, `Staff`, `Senior Fellows`, `Fellows`, `Junior Fellows`, `Alumni`
+
+Get it wrong and the build stops with a message telling you so, rather than
+quietly dropping the person from the page.
+
 
 ## Writing text
 

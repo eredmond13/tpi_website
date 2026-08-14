@@ -6,7 +6,6 @@
 const pathPrefix = process.env.PATH_PREFIX || "/";
 
 export default function (cfg) {
-  cfg.addPassthroughCopy("assets");
   cfg.addPassthroughCopy("pictures");
   cfg.addPassthroughCopy("files");
   cfg.addPassthroughCopy("styles.css");
