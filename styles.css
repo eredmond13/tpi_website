@@ -1727,3 +1727,57 @@ body.is-entering main {
 .person-profile.no-photo {
   grid-template-columns: 1fr;
 }
+
+/* ==========================================================================
+   Publications listing. Even two-column grid with fixed-ratio thumbnails,
+   so cards line up regardless of how tall the source images are.
+   ========================================================================== */
+
+.publication-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3.5rem 3rem;
+  align-items: start;
+}
+
+.publication-feature {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+
+.publication-feature > .article-thumb {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+
+.publication-feature > .article-thumb img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.publication-feature h2 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.publication-feature .metadata {
+  margin-top: 0.9rem;
+}
+
+.publication-feature .link-row {
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 820px) {
+  .publication-layout {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+}

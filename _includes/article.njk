@@ -1,6 +1,5 @@
 ---
 layout: base.njk
-navId: news
 ---
 <article class="article-main">
   <p class="eyebrow">{{ category or "News" }}</p>
@@ -46,5 +45,5 @@ navId: news
   </section>
   {% endif %}
 
-  <p class="link-row"><a href="{{ "/news.html" | url }}">All news</a></p>
+  <p class="link-row"><a href="{{ backHref | url }}">{{ backLabel }}</a></p>
 </article>

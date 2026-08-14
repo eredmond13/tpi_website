@@ -26,6 +26,10 @@ pubCategories: ["Report", "Policy brief", "Policy infographic"]
       {% if post.data.author %}<div><dt>Authors</dt><dd>{{ post.data.author }}</dd></div>{% endif %}
       {% if post.data.pdfPages %}<div><dt>Length</dt><dd>{{ post.data.pdfPages }} pages</dd></div>{% endif %}
     </dl>
+    <p class="link-row">
+      <a href="{{ post.url | url }}">Read more</a>
+      {% if post.data.pdf %}<a href="{{ post.data.pdf | url }}" target="_blank" rel="noopener">Open the PDF</a>{% endif %}
+    </p>
   </article>
 {%- endif %}
 {%- endfor %}
