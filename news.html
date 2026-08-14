@@ -4,7 +4,7 @@ navId: news
 title: News and Policy
 description: News, policy briefs, and analysis from the Cornell Brooks Tech Policy Institute.
 permalink: /news.html
-newsCategories: ["News", "Policy analysis", "Event"]
+newsCategories: ["News", "Policy analysis"]
 ---
 <section class="page-hero">
   <p class="eyebrow">News and policy</p>
@@ -30,8 +30,19 @@ newsCategories: ["News", "Policy analysis", "Event"]
     <p class="section-label">Events</p>
     <div>
       <h2>Events and Seminars</h2>
-      <p>PLACEHOLDER. Upcoming and past events still need adding. Each one is an
-      article with <code>category: Event</code>.</p>
+      <p>Talks, seminars, and simulations hosted by the institute.</p>
+
+      <div class="news-list">
+      {%- for post in collections.article | newest %}
+      {%- if post.data.category == "Event" %}
+        <article>
+          <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+          <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+          <p>{{ post.data.summary }}</p>
+        </article>
+      {%- endif %}
+      {%- endfor %}
+      </div>
     </div>
   </div>
 </section>
