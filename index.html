@@ -45,7 +45,7 @@ permalink: /index.html
   <div class="news-list">
   {%- for post in collections.article | newest | limit(3) %}
     <article>
-      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image }}"></a>{% endif %}
+      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
       <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
       <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
       <p>{{ post.data.summary }}</p>
