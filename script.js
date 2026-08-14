@@ -1,4 +1,12 @@
 const currentPage = document.body.dataset.page || "home";
+
+/* The site is served from a subfolder, and pages like /newsletters/2025-10.html
+   sit one level down. Relative links such as "people.html" would resolve
+   against that folder and 404, so every nav link is built from the site root
+   the page tells us about. */
+const siteRoot = document.body.dataset.root || "/";
+const rootedHref = (href) =>
+  /^(https?:|mailto:|#|\/)/.test(href) ? href : siteRoot + href;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const navGroups = [
@@ -271,9 +279,11 @@ function setSearchResults(query = "") {
     .join("");
 }
 
+/* Builds a link from the site root rather than the current folder. The old
+   version stepped up one level only for /articles/, so pages in any other
+   subfolder got relative links that 404. */
 function localPath(path) {
-  if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("#")) return path;
-  return window.location.pathname.includes("/articles/") ? `../${path}` : path;
+  return rootedHref(path);
 }
 
 function openSearch() {
