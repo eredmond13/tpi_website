@@ -1,6 +1,6 @@
 ---
 title: "Who Draws the Line on Dual-Use Defense Technology?"
-date: 2026-05-20
+date: 2026-07-30
 category: Policy brief
 author: "Sumajja Denysiuk"
 summary: Where the line falls between a commercial drone and an unmanned combat aerial vehicle, and who gets to draw it.
