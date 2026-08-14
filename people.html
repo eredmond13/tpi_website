@@ -14,7 +14,7 @@ permalink: /people.html
 <section class="people-directory" id="leadership">
 {%- for person in collections.person | byOrder %}
   <article class="person-profile">
-    <figure><img alt="{{ person.data.name }}" src="{{ person.data.photo }}"></figure>
+    <figure><img alt="{{ person.data.name }}" src="{{ person.data.photo | url }}"></figure>
     <div>
       <p class="eyebrow">{{ person.data.role }}</p>
       <h2>{{ person.data.name }}</h2>
