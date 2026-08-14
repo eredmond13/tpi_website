@@ -2,10 +2,31 @@
 layout: base.njk
 navId: publications
 title: Publications
+description: Reports, policy briefs, and infographics from the Cornell Brooks Tech Policy Institute.
 permalink: /publications.html
+pubCategories: ["Report", "Policy brief", "Policy infographic"]
 ---
 <section class="page-hero">
   <p class="eyebrow">Publications</p>
-  <h1>Publications</h1>
-  <p class="dek">Placeholder. Content for this page still needs migrating from the Cornell site.</p>
+  <h1>Reports and policy briefs.</h1>
+  <p class="dek">Research from across the institute's hubs, written for policymakers and
+  practitioners.</p>
+</section>
+
+<section class="publication-layout">
+{%- for post in collections.article | newest %}
+{%- if post.data.category in pubCategories %}
+  <article class="publication-feature">
+    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
+    <span>{{ post.data.category }}</span>
+    <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+    <p>{{ post.data.summary }}</p>
+    <dl class="metadata inline">
+      <div><dt>Published</dt><dd>{{ post.data.date | readableDate }}</dd></div>
+      {% if post.data.author %}<div><dt>Authors</dt><dd>{{ post.data.author }}</dd></div>{% endif %}
+      {% if post.data.pdfPages %}<div><dt>Length</dt><dd>{{ post.data.pdfPages }} pages</dd></div>{% endif %}
+    </dl>
+  </article>
+{%- endif %}
+{%- endfor %}
 </section>
