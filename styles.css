@@ -2087,3 +2087,46 @@ body.is-entering main {
     gap: 0.25rem;
   }
 }
+
+/* ==========================================================================
+   Image placeholders. Shown when a news item has no photo yet, so the
+   layout holds. Adding an "image:" line to the file replaces it.
+   ========================================================================== */
+
+.article-thumb.is-placeholder,
+.article-feature-media.is-placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--paper-soft);
+  outline: 1px solid var(--rule);
+}
+
+.article-thumb.is-placeholder {
+  aspect-ratio: 1 / 1;
+}
+
+.article-feature-media.is-placeholder {
+  aspect-ratio: 16 / 9;
+}
+
+.article-thumb.is-placeholder span,
+.article-feature-media.is-placeholder span {
+  padding: 0 0.6rem;
+  color: #b8b8b8;
+  font-family: var(--font-section);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.article-feature-media.is-placeholder span {
+  font-size: 0.78rem;
+}
+
+@media (max-width: 560px) {
+  .article-thumb.is-placeholder {
+    aspect-ratio: 16 / 10;
+  }
+}

@@ -16,7 +16,8 @@ newsCategories: ["News", "Policy analysis"]
 {%- for post in collections.article | newest %}
 {%- if post.data.category in newsCategories %}
   <article>
-    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
+    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
@@ -36,6 +37,8 @@ newsCategories: ["News", "Policy analysis"]
       {%- for post in collections.article | newest %}
       {%- if post.data.category == "Event" %}
         <article>
+          {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+          {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
           <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
           <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
           <p>{{ post.data.summary }}</p>

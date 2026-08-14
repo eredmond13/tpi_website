@@ -16,6 +16,8 @@ layout: base.njk
     <img alt="{{ imageAlt or title }}" src="{{ image | url }}">
     {% if imageCredit %}<figcaption>{{ imageCredit }}</figcaption>{% endif %}
   </figure>
+  {% else %}
+  <div class="article-feature-media is-placeholder" aria-hidden="true"><span>{{ category }}</span></div>
   {% endif %}
 
   {% if content %}

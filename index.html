@@ -19,7 +19,7 @@ permalink: /index.html
         <p class="link-row"><a href="{{ "/people.html" | url }}">Meet the team</a><a href="{{ "/research.html" | url }}">Research hubs</a></p>
       </div>
       <figure class="lead-media">
-        <img alt="Institute research session" src="{{ "/assets/home/server-infrastructure.jpg" | url }}">
+        <img alt="Institute research session" src="{{ "/pictures/home/server-infrastructure.jpg" | url }}">
       </figure>
     </article>
 
@@ -45,7 +45,8 @@ permalink: /index.html
   <div class="news-list">
   {%- for post in collections.article | newest | limit(3) %}
     <article>
-      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
+      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
       <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
       <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
       <p>{{ post.data.summary }}</p>
