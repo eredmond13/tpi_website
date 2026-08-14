@@ -452,3 +452,34 @@ if (!prefersReducedMotion) {
   document.addEventListener("scroll", scheduleDrift, { passive: true });
   window.addEventListener("resize", scheduleDrift);
 }
+/* ---------------------------------------------------------------------------
+   Clear the page-transition overlay when arriving via the back or forward
+   button. The browser restores a cached copy of the page without re-running
+   this script, so the wipe panel would otherwise stay frozen over the page.
+   --------------------------------------------------------------------------- */
+
+function resetTransitionState() {
+  const layer = document.querySelector(".page-transition");
+  if (layer) layer.className = "page-transition";
+
+  document.body.classList.remove("is-leaving", "is-entering");
+  Array.from(document.body.classList)
+    .filter((name) => name.startsWith("leave-") || name.startsWith("enter-"))
+    .forEach((name) => document.body.classList.remove(name));
+
+  delete document.body.dataset.targetPage;
+  sessionStorage.removeItem("btpi-transition");
+}
+
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) resetTransitionState();
+});
+
+window.addEventListener("popstate", resetTransitionState);
+
+window.setInterval(() => {
+  const layer = document.querySelector(".page-transition.is-active");
+  if (layer && !document.body.classList.contains("is-leaving")) {
+    resetTransitionState();
+  }
+}, 2000);
