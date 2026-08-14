@@ -116,11 +116,12 @@ function hydrateHeaderNavigation() {
 
   document.querySelectorAll(".nav-group summary").forEach((summary) => {
     summary.addEventListener("click", (event) => {
-      const link = event.target.closest(".nav-top-link");
-      if (!link) return;
+      // On a touch screen there is no hover, so the first tap opens the menu
+      // and the panel behaves normally. With a mouse, a click navigates.
+      if (!window.matchMedia("(hover: hover)").matches) return;
       event.preventDefault();
-      event.stopPropagation();
-      window.location.href = link.getAttribute("href");
+      const link = summary.querySelector(".nav-top-link");
+      if (link) window.location.href = link.getAttribute("href");
     });
   });
 
@@ -469,11 +470,35 @@ window.setInterval(() => {
   }
 }, 2000);
 
-/* Dropdowns follow the pointer. Moving away from a group closes it, so a
-   menu opened by click or keyboard cannot be left hanging over the page. */
+/* Dropdowns open on hover. The nav uses <details> elements, and browsers hide
+   the contents of a closed <details> in a way CSS cannot reliably override, so
+   the open state is set directly rather than through a :hover rule. A short
+   close delay lets the pointer travel from the label down into the menu. */
+const canHover = window.matchMedia("(hover: hover)").matches;
+
 document.querySelectorAll(".nav-group").forEach((group) => {
-  group.addEventListener("mouseleave", () => {
-    if (group.open) group.open = false;
+  if (!canHover) return;
+  let closeTimer = null;
+
+  const open = () => {
+    window.clearTimeout(closeTimer);
+    document.querySelectorAll(".nav-group[open]").forEach((other) => {
+      if (other !== group) other.open = false;
+    });
+    group.open = true;
+  };
+
+  const close = () => {
+    closeTimer = window.setTimeout(() => {
+      group.open = false;
+    }, 120);
+  };
+
+  group.addEventListener("mouseenter", open);
+  group.addEventListener("mouseleave", close);
+  group.addEventListener("focusin", open);
+  group.addEventListener("focusout", (event) => {
+    if (!group.contains(event.relatedTarget)) close();
   });
 });
 
