@@ -2,6 +2,7 @@
 title: "Detect and Deter: Drone Threats, Governance Gaps, and the Future of Icelandic Defence"
 date: 2026-06-11
 category: Report
+author: "Elizabeth H Redmond, Dr. James Patton Rogers, Sólrún H. Guðmundsdóttir Proppé and Kristinn Árni L. Hróbjartsson"
 summary: Published with the Icelandic think tank Varda, on drone threats and the governance gaps facing Arctic defence.
 image: /pictures/publications/detect-and-deter.jpg
 imageAlt: A drone flying over an Icelandic glacial lagoon
