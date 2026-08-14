@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.url == "/" %}{{ site.name }}{% else %}{{ title }} | {{ site.name }}{% endif %}</title>
 <meta name="description" content="{{ description or site.description }}">
-<link rel="icon" href="{{ "/assets/favicon.png" | url }}" type="image/png">
+<link rel="icon" href="{{ "/pictures/favicon.png" | url }}" type="image/png">
 <link rel="stylesheet" href="{{ "/styles.css" | url }}">
 <script>document.documentElement.classList.add("js-enabled");</script>
 </head>
@@ -15,7 +15,7 @@
 
 <header class="site-header">
   <a class="brand" data-nav="home" href="{{ "/index.html" | url }}">
-    <span class="brand-mark logo-mark"><img alt="" src="{{ "/assets/logos/tpi-starburst-black.svg" | url }}"></span>
+    <span class="brand-mark logo-mark"><img alt="" src="{{ "/pictures/logos/tpi-starburst-black.svg" | url }}"></span>
     <span class="brand-text">
       <span>{{ site.name }}</span>
       <span>{{ site.parent }}</span>
@@ -41,13 +41,13 @@
 <footer class="site-footer">
   <div>
     <a class="brand footer-brand" data-nav="home" href="{{ "/index.html" | url }}">
-      <span class="brand-mark logo-mark"><img alt="" src="{{ "/assets/logos/tpi-starburst-black.svg" | url }}"></span>
+      <span class="brand-mark logo-mark"><img alt="" src="{{ "/pictures/logos/tpi-starburst-black.svg" | url }}"></span>
       <span class="brand-text">
         <span>{{ site.name }}</span>
         <span>{{ site.parent }}</span>
       </span>
     </a>
-    <img alt="Cornell Brooks Public Policy Tech Policy Institute" class="footer-cobrand-logo" src="{{ "/assets/logos/tpi-brooks-logo-clean.png" | url }}">
+    <img alt="Cornell Brooks Public Policy Tech Policy Institute" class="footer-cobrand-logo" src="{{ "/pictures/logos/tpi-brooks-logo-clean.png" | url }}">
     <p>{{ site.address | safe }}</p>
   </div>
   <div class="footer-links">
