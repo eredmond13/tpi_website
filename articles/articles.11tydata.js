@@ -1,7 +1,7 @@
 // Anything in this folder is an article. Its category decides whether it
 // belongs to News or Publications, which sets the highlighted nav item and
 // the "back to" link at the foot of the page.
-const PUBLICATION_CATEGORIES = ["Report", "Policy brief", "Policy infographic"];
+const PUBLICATION_CATEGORIES = ["Report", "Op-ed", "Policy brief", "Policy infographic"];
 
 const isPublication = (data) =>
   PUBLICATION_CATEGORIES.includes(data.category);

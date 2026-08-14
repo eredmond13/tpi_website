@@ -52,7 +52,7 @@ const navGroups = [
     label: "About",
     href: "about.html",
     links: [
-      ["About the Institute", "about.html"],
+      ["Who we are", "about.html#who-we-are"],
       ["Mission", "about.html#mission"],
       ["Vision", "about.html#vision"],
       ["Courses", "courses.html"],
@@ -468,3 +468,21 @@ window.setInterval(() => {
     resetTransitionState();
   }
 }, 2000);
+
+/* Dropdowns follow the pointer. Moving away from a group closes it, so a
+   menu opened by click or keyboard cannot be left hanging over the page. */
+document.querySelectorAll(".nav-group").forEach((group) => {
+  group.addEventListener("mouseleave", () => {
+    if (group.open) group.open = false;
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  document.querySelectorAll(".nav-group[open]").forEach((g) => (g.open = false));
+});
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".nav-group")) return;
+  document.querySelectorAll(".nav-group[open]").forEach((g) => (g.open = false));
+});

@@ -343,18 +343,31 @@ h3 {
   color: var(--red);
 }
 
+/* The menu sits flush against the label with its gap made from padding, so
+   the mouse never crosses dead space on the way down and the hover holds. */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.5rem);
+  top: 100%;
   left: 50%;
   z-index: 45;
   display: none;
   min-width: 17rem;
-  padding: 0.4rem 0;
+  margin-top: 0;
+  padding: 0.9rem 0 0.4rem;
+  transform: translateX(-50%);
+}
+
+.dropdown-menu::before {
+  position: absolute;
+  top: 0.75rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  content: "";
   border: 1px solid var(--rule-strong);
   background: #fff;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
-  transform: translateX(-50%);
 }
 
 .nav-group:hover .dropdown-menu,
