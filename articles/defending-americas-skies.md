@@ -1,6 +1,6 @@
 ---
 title: "Defending America's Skies"
-date: 2025-04-01
+date: 2025-03-12
 category: Policy brief
 author: "Paul Lushenko"
 summary: Public support for homeland counter-drone operations.
