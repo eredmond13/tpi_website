@@ -1,6 +1,6 @@
 ---
 title: "The Militarization of Outer Space"
-date: 2025-10-30
+date: 2025-10-28
 category: Report
 author: "Harrison Mellor"
 summary: Legal, ethical, and strategic implications of commercial interests in space.
