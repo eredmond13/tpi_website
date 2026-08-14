@@ -1,6 +1,6 @@
 ---
 title: "Detect and Deter: Drone Threats, Governance Gaps, and the Future of Icelandic Defence"
-date: 2025-09-15
+date: 2026-06-11
 category: Report
 summary: Published with the Icelandic think tank Varda, on drone threats and the governance gaps facing Arctic defence.
 image: /pictures/publications/detect-and-deter.jpg
