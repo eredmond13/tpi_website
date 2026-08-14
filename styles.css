@@ -35,7 +35,10 @@
   --font-body: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SFMono-Regular", Consolas, Menlo, monospace;
 
-  --gutter: 2.5rem;
+  /* Total horizontal breathing room, split either side of the shell. Scales
+     with the viewport so the margin does not collapse once the window drops
+     below the 78rem cap. */
+  --gutter: clamp(2.5rem, 9vw, 10rem);
   --shell: min(100% - var(--gutter), 78rem);
   --measure: 68ch;
   --content-col: 50rem;
@@ -1514,7 +1517,7 @@ body.is-entering main {
 
 @media (max-width: 820px) {
   :root {
-    --gutter: 2rem;
+    --gutter: clamp(2rem, 8vw, 4rem);
   }
 
   body {
