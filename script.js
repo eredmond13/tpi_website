@@ -69,6 +69,7 @@ const navGroups = [
     links: [
       ["All News", "news.html"],
       ["Events and Seminars", "news.html#events"],
+      ["Interviews", "interviews.html"],
       ["Newsletter", "news.html#newsletter"]
     ]
   },
