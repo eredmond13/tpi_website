@@ -3,6 +3,7 @@ title: "New brief finds public support for homeland counter-drone operations"
 date: 2025-03-12
 category: News
 summary: Policymakers fear a backlash over counter-drone operations at home. New experimental evidence from Paul Lushenko and Jennifer Spindel suggests Americans broadly support them.
+hubs: ["drones"]
 ---
 
 Despite the proliferation of drones across America, policymakers and defence officials have been

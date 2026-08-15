@@ -4,6 +4,7 @@ date: 2026-01-23
 category: Event
 author: John Miller
 summary: Director's Fellow John Miller on how drone warfare has evolved over the past decade, and what it means for future conflict.
+hubs: ["drones"]
 ---
 
 On Friday 23rd January, Director's Fellow John Miller gave a seminar on how drone warfare has

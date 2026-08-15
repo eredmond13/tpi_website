@@ -4,6 +4,7 @@ date: 2025-04-14
 category: Interview
 interviewer: "Basim Ali"
 summary: "Brooks Tech Policy Institute (BTPI) Fellow Basim Ali sat down with semiconductor expert Dr. Jon McCandless,(founder and CEO of Gallox Semiconductors), to discuss the importance of Gallium in the semiconductor industry."
+hubs: ["critical-infrastructure"]
 ---
 Brooks Tech Policy Institute (BTPI) Fellow Basim Ali sat down with semiconductor expert Dr. Jon McCandless,(founder and CEO of Gallox Semiconductors), to discuss the importance of Gallium in the semiconductor industry.
 

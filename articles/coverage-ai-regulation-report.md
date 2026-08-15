@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2024/11/btpi-releases-new-report-a
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["ai-governance"]
 ---

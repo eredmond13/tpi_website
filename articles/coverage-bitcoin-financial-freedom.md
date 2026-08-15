@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2024/05/btpi-will-research-relatio
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["cryptocurrencies"]
 ---

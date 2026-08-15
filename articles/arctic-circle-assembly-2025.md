@@ -3,6 +3,7 @@ title: "TPI hosts high-level panel on Arctic science and technology cooperation"
 date: 2025-10-17
 category: Event
 summary: The institute convened Soft Power, Hard Questions at the Arctic Circle Assembly in Reykjavik.
+hubs: ["geopolitics"]
 ---
 
 The institute convened the panel *Soft Power, Hard Questions: Debates in Arctic Science and

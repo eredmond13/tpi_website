@@ -4,6 +4,7 @@ date: 2023-08-29
 category: Interview
 interviewer: "Sarah Kreps"
 summary: "TPI Director Professor Sarah Kreps sat down with space policy expert, Avishai Melamed, to discuss the history of space exploration and the reasons behind the current race to land on the moon."
+hubs: ["space"]
 ---
 TPI Director Professor Sarah Kreps sat down with space policy expert, Avishai Melamed, to discuss the history of space exploration and the reasons behind the current race to land on the moon.
 

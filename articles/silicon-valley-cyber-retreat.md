@@ -3,6 +3,7 @@ title: "TPI leads global dialogue on cyber and tech policy in Silicon Valley"
 date: 2025-11-13
 category: News
 summary: Executive Director James Patton Rogers delivered the keynote at the Cyber and Tech Retreat, a forum bringing senior diplomats from more than 25 countries to Silicon Valley.
+hubs: ["drones"]
 ---
 
 Denmark and Australia recently co-hosted the Cyber and Tech Retreat at the World Economic Forum in

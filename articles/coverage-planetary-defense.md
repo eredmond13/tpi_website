@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2022/09/student-team-will-seek-pub
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["space"]
 ---

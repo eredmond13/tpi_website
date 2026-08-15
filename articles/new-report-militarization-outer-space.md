@@ -3,6 +3,7 @@ title: "New report on the militarization of outer space and commercial interests
 date: 2025-10-28
 category: News
 summary: As governments lean on commercial space systems for military advantage, private companies face an impossible bind, and the rules governing them are decades out of date.
+hubs: ["space"]
 ---
 
 A new report from the institute examines what happens when governments grow dependent on commercial

@@ -1,0 +1,94 @@
+---
+layout: base.njk
+navId: research
+pagination:
+  data: hubs
+  size: 1
+  alias: hub
+permalink: "/research/{{ hub.slug }}.html"
+eleventyComputed:
+  title: "{{ hub.name }}"
+  description: "{{ hub.dek }}"
+---
+<section class="page-hero">
+  <p class="eyebrow">Research hub {{ hub.number }}</p>
+  <h1>{{ hub.name }}</h1>
+  <p class="dek">{{ hub.dek }}</p>
+</section>
+
+<section class="page-block" id="about-hub">
+  <div class="hub-intro">
+    <div class="hub-body">
+      {%- for para in hub.body %}
+      <p>{{ para }}</p>
+      {%- endfor %}
+      {% if hub.leads %}<p class="hub-leads">{{ hub.leads }}</p>{% endif %}
+    </div>
+    <div class="hub-side">
+      <p class="section-label">Focus</p>
+      <ul class="hub-nodes">
+        {%- for node in hub.nodes %}
+        <li>{{ node }}</li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{%- set hubPubs = [] %}
+{%- set hubNews = [] %}
+{%- for post in collections.article | newest %}
+  {%- if hub.slug in (post.data.hubs or []) %}
+    {%- if post.data.category in ["Report", "Op-ed", "Policy brief", "Policy infographic"] %}
+      {%- set hubPubs = (hubPubs.push(post), hubPubs) %}
+    {%- else %}
+      {%- set hubNews = (hubNews.push(post), hubNews) %}
+    {%- endif %}
+  {%- endif %}
+{%- endfor %}
+
+{% if hubPubs.length %}
+<section class="page-block" id="publications">
+  <div class="block-header">
+    <p class="section-label">Publications</p>
+    <h2>From this hub</h2>
+  </div>
+  <div class="news-list">
+  {%- for post in hubPubs %}
+    <article>
+      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
+      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      <p class="article-tag">{{ post.data.category }}</p>
+      <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+      <p>{{ post.data.summary }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if hubNews.length %}
+<section class="page-block" id="news">
+  <div class="block-header">
+    <p class="section-label">News</p>
+    <h2>News and events</h2>
+  </div>
+  <div class="news-list">
+  {%- for post in hubNews %}
+    <article>
+      {%- set href = post.data.externalUrl if post.data.externalUrl else (post.data.interviewLink | url if post.data.interviewLink else post.url | url) %}
+      {%- set away = ' target="_blank" rel="noopener"' if post.data.externalUrl else "" %}
+      {% if post.data.image %}<a class="article-thumb" href="{{ href }}"{{ away | safe }}><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+      {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
+      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      <p class="article-tag">{{ post.data.category }}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
+      <h3><a href="{{ href }}"{{ away | safe }}>{{ post.data.title }}</a></h3>
+      <p>{{ post.data.summary }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
+{% endif %}
+
+<p class="link-row"><a href="{{ "/research.html" | url }}">All research hubs</a></p>

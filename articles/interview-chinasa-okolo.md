@@ -4,6 +4,7 @@ date: 2025-06-30
 category: Interview
 interviewer: "Kayla Schechter"
 summary: "Brooks Technology Institute (BTPI) Junior Fellow Kayla Schechter spoke with Chinasa T. Okolo, a Cornell alumna and current policy advisor on artificial intelligence (AI) governance, to discuss her research and insights into the promise..."
+hubs: ["ai-governance"]
 ---
 **Interview Transcript:** Chinasa T. Okolo
 

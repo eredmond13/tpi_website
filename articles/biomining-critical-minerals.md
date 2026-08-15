@@ -9,6 +9,7 @@ imageAlt: An open-pit mine seen from above
 pdf: /files/biomining-critical-minerals.pdf
 pdfPages: 35
 pdfSize: 1.6 MB
+hubs: ["critical-infrastructure"]
 ---
 
 Critical minerals such as rare earths, cobalt, nickel, and lithium are indispensable to U.S. defence

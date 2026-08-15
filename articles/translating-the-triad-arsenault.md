@@ -4,6 +4,7 @@ date: 2025-04-29
 category: Interview
 interviewer: "Basim Ali"
 summary: "Brooks Tech Policy Institute (BTPI) Fellow Basim Ali engaged in an interview with Amelia Arsenault, also a BTPI Fellow and a Doctoral candidate at Cornell University’s Department of Government, specializing in the International..."
+hubs: ["ai-governance", "geopolitics"]
 ---
 Brooks Tech Policy Institute (BTPI) Fellow Basim Ali engaged in an interview with Amelia Arsenault, also a BTPI Fellow and a Doctoral candidate at Cornell University’s Department of Government, specializing in the International Relations subfield, to discuss the implications of Artificial Intelligence (AI) on geopolitics and the international political economy.
 

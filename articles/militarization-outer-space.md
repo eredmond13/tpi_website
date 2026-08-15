@@ -9,6 +9,7 @@ imageAlt: Earth seen from orbit with the sun rising over the horizon
 pdf: /files/militarization-outer-space.pdf
 pdfPages: 11
 pdfSize: 1.1 MB
+hubs: ["space"]
 ---
 
 As governments grow increasingly dependent on commercial space systems for military advantage,

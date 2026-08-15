@@ -9,6 +9,7 @@ imageAlt: A semiconductor wafer being inspected under gold light
 pdf: /files/responsible-ai-trust.pdf
 pdfPages: 7
 pdfSize: 1.9 MB
+hubs: ["ai-governance"]
 ---
 
 For much of the past year the debate over AI has been framed as a contest between regulation and

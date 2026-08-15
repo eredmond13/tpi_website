@@ -4,6 +4,7 @@ date: 2023-09-13
 category: Interview
 interviewer: "James Patton Rogers"
 summary: "At the core of TPI is the mission to educate and support the next generation of tech policy leaders. Our Future Leaders Program partners talented students with our expert academic mentors to work on innovative projects that help give..."
+hubs: ["ai-governance"]
 ---
 At the core of TPI is the mission to educate and support the next generation of tech policy leaders. Our Future Leaders Program partners talented students with our expert academic mentors to work on innovative projects that help give them the experience they need to thrive.
 

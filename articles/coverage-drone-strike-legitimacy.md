@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2022/11/public-views-drone-strikes
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["drones"]
 ---

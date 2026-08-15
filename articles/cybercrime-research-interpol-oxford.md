@@ -3,6 +3,7 @@ title: "Junior Fellow advances cybercrime research with INTERPOL and the Univers
 date: 2025-09-15
 category: News
 summary: Cynthia Tan spent nine weeks at Oxford mapping how law enforcement agencies collaborate on cybercrime, and found cryptocurrency in nearly three-quarters of U.S. financial cybercrime indictments since 2020.
+hubs: ["cryptocurrencies"]
 ---
 
 Junior Fellow Cynthia Tan travelled to the United Kingdom this summer as a Visiting Scholar at

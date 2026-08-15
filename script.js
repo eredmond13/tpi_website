@@ -33,11 +33,12 @@ const navGroups = [
     href: "research.html",
     links: [
       ["All Research Hubs", "research.html"],
-      ["Critical Infrastructure", "research.html#critical-infrastructure"],
-      ["Drones and Robotics", "research.html#drones"],
-      ["AI Governance and Defense", "research.html#ai-governance"],
-      ["Cryptocurrencies", "research.html#cryptocurrencies"],
-      ["Geopolitics and Technology", "research.html#geopolitics"]
+      ["Critical Infrastructure", "research/critical-infrastructure.html"],
+      ["Drones and Robotics", "research/drones.html"],
+      ["AI Governance and Defense", "research/ai-governance.html"],
+      ["Cryptocurrencies", "research/cryptocurrencies.html"],
+      ["Geopolitics and Technology", "research/geopolitics.html"],
+      ["Space Security", "research/space.html"]
     ]
   },
   {

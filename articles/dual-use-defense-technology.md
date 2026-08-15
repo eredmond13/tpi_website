@@ -9,6 +9,7 @@ imageAlt: A drone carrying a payload over open ground
 pdf: /files/dual-use-defense-technology.pdf
 pdfPages: 7
 pdfSize: 1.0 MB
+hubs: ["drones"]
 ---
 
 There is a line somewhere between a commercial drone and an unmanned combat aerial vehicle, between a

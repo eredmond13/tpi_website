@@ -6,6 +6,7 @@ author: "Fiona Neibart"
 summary: How the 2025 U.S. National Security Strategy reframes technical standards as an instrument of great power competition, and why fragmentation makes unintended conflict more likely.
 image: /pictures/news/technology-standards.jpg
 imageAlt: Abstract network of connected nodes
+hubs: ["geopolitics"]
 ---
 
 The Trump administration's November 2025 National Security Strategy reframes technological innovation

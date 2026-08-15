@@ -9,6 +9,7 @@ imageAlt: A drone in flight in front of an American flag
 pdf: /files/defending-americas-skies.pdf
 pdfPages: 14
 pdfSize: 1.6 MB
+hubs: ["drones"]
 ---
 
 Non-Resident Senior Fellow Dr. Paul Lushenko and Dr. Jennifer Spindel of the University of New

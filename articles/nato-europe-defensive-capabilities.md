@@ -3,6 +3,7 @@ title: "A conversation about NATO and Europe's defensive capabilities with Dr. J
 date: 2025-09-16
 category: Event
 summary: A discussion of why European defence needs predictable, long-term industrial and procurement planning, and how doctrine and logistics must align with new platforms.
+hubs: ["geopolitics"]
 ---
 
 On September 15, 2025, the institute hosted Dr. Jean-François Bélanger of the Royal Danish Defence

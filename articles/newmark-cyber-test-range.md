@@ -3,6 +3,7 @@ title: "Craig Newmark Philanthropies supports the TPI Cyber Test Range"
 date: 2025-11-02
 category: News
 summary: A $140,000 award to support the Cyber Test Range, designed to detect hidden cyber vulnerabilities in critical hardware.
+hubs: ["critical-infrastructure"]
 ---
 
 Craig Newmark Philanthropies has awarded the institute $140,000 to support its Cyber Test Range,

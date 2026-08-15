@@ -3,6 +3,7 @@ title: TPI takes bipartisan security simulation to Capitol Hill
 date: 2025-07-21
 category: Event
 summary: A national security simulation developed with the Institute of Politics and Global Affairs, taken to Congress in July.
+hubs: ["geopolitics"]
 ---
 
 What happens in the Arctic doesn't stay in the Arctic, especially as climate change, nuclear

@@ -8,6 +8,7 @@ imageAlt: An aerial view of a drone above a correctional facility
 pdf: /files/dark-skies-prisons.pdf
 pdfPages: 21
 pdfSize: 0.5 MB
+hubs: ["drones"]
 ---
 
 This brief examines the growing use of unmanned aerial vehicles by serious and organised criminal

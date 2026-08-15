@@ -3,6 +3,7 @@ title: "New report: the U.S. must invest in biomining to secure mineral independ
 date: 2025-09-10
 category: News
 summary: A new institute report urges federal action on biomining, the use of microorganisms to extract metals from ores and waste streams.
+hubs: ["critical-infrastructure"]
 ---
 
 The institute has released a new report urging federal action to advance biomining, the use of

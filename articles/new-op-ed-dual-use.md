@@ -3,6 +3,7 @@ title: "New op-ed: who draws the line on dual-use defense technology?"
 date: 2026-07-30
 category: News
 summary: Junior Fellow Sumajja Denysiuk argues that the boundary between commercial and military technology is set largely by the firms being regulated, and that this is an accountability problem.
+hubs: ["drones"]
 ---
 
 There is a line somewhere between a commercial drone and an unmanned combat aerial vehicle, between

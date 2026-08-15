@@ -3,6 +3,7 @@ title: "TPI helps to secure NATO allies from the threat of drones"
 date: 2026-08-01
 category: News
 summary: The institute and the Icelandic think tank Varða publish Detect and Deter, on drone threats, governance gaps, and the future of Icelandic defence.
+hubs: ["drones"]
 ---
 
 The Tech Policy Institute and the Icelandic think tank Varða have published *Detect and Deter: Drone

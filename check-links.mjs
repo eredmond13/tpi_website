@@ -48,6 +48,25 @@ const VALID_CATEGORIES = [
   "Report", "Op-ed", "Policy brief", "Policy infographic",
 ];
 
+// Every hub named on an article must be a real hub, or the article quietly
+// appears on no hub page at all.
+const HUBS = JSON.parse(readFileSync("_data/hubs.json", "utf8")).map((h) => h.slug);
+
+try {
+  for (const f of readdirSync("articles").filter((n) => n.endsWith(".md"))) {
+    const text = readFileSync(`articles/${f}`, "utf8");
+    const hm = text.match(/^hubs:\s*\[([^\]]*)\]/m);
+    if (hm) {
+      for (const raw of hm[1].split(",")) {
+        const slug = raw.trim().replace(/^["']|["']$/g, "");
+        if (slug && !HUBS.includes(slug)) {
+          problems.push(`articles/${f}  ->  hubs: "${slug}" is not a hub. Use one of: ${HUBS.join(", ")}`);
+        }
+      }
+    }
+  }
+} catch {}
+
 try {
   for (const f of readdirSync("articles").filter((n) => n.endsWith(".md"))) {
     const text = readFileSync(`articles/${f}`, "utf8");

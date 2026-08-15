@@ -6,6 +6,7 @@ author: Fiona Neibart
 summary: A frontier open-weight model from China reframes the debate over export controls and American technology leadership.
 image: /pictures/news/kimi-k3-ai-policy.jpg
 imageAlt: Semiconductor wafer under inspection
+hubs: ["ai-governance", "geopolitics"]
 ---
 
 In July, China's Moonshot AI released Kimi K3, a 2.8 trillion-parameter language model that [demonstrated](https://artificialanalysis.ai/models/kimi-k3) technical capabilities on par with leading American systems such as OpenAI's GPT-5.5 and Anthropic's Claude Opus 4.8. The release was significant for two reasons. First, Moonshot achieved frontier performance despite U.S. export controls designed to restrict China's access to advanced AI chips. Second, Kimi was released as an open-weight model, making its core parameters freely available for developers around the world to download, modify, and build upon.

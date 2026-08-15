@@ -3,6 +3,7 @@ title: "New brief sets out a whole-of-government approach to defending America a
 date: 2026-02-11
 category: News
 summary: From Hamas on October 7 to Ukraine's Operation Spider Web, drones now open wars. Paul Lushenko and Joseph Amoroso argue the U.S. must defend against them everywhere and all the time.
+hubs: ["drones"]
 ---
 
 On October 7, 2023, Hamas used drones to initiate its attack on Israel. On June 1, 2025, Ukraine

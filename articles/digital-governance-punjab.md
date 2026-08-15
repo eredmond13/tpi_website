@@ -4,6 +4,7 @@ date: 2025-07-23
 category: Interview
 interviewer: "Basim Ali"
 summary: "BTPI Fellow Basim Ali sat down with Suresh Kumar, a senior Indian civil servant and former Chief Principal Secretary to the Chief Minister of Punjab – a northern Indian state with significant administrative and geopolitical relevance –..."
+hubs: ["drones", "geopolitics"]
 ---
 BTPI Fellow Basim Ali sat down with Suresh Kumar, a senior Indian civil servant and former Chief Principal Secretary to the Chief Minister of Punjab – a northern Indian state with significant administrative and geopolitical relevance – to discuss the interplay between internal security, digital governance, and participatory policymaking.
 

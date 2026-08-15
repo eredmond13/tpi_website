@@ -9,6 +9,7 @@ imageAlt: A drone flying over an Icelandic glacial lagoon
 pdf: /files/detect-and-deter.pdf
 pdfPages: 24
 pdfSize: 1.3 MB
+hubs: ["drones"]
 ---
 
 Published with the Icelandic think tank Varða, this report sets Iceland's position within the

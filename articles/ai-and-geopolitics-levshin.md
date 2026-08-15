@@ -3,6 +3,7 @@ title: "Two events on AI and geopolitics with Dr Anatoly Levshin"
 date: 2025-05-05
 category: Event
 summary: How artificial intelligence may catalyse systemic transformations, and what abductive AI could mean for command and operational decisions on the future battlefield.
+hubs: ["ai-governance"]
 ---
 
 On Thursday May 1st the institute welcomed Dr Anatoly Levshin of Harvard University for two events

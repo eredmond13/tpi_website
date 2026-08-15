@@ -3,6 +3,7 @@ title: Tech Policy Institute launches two-year study on financial privacy
 date: 2026-02-06
 category: News
 summary: A collaboration with the Bitcoin Policy Institute and Fedi, examining how public policy and enforcement shape behaviour around privacy technologies.
+hubs: ["cryptocurrencies"]
 ---
 
 The Bitcoin Policy Institute, the Cornell Tech Policy Institute, and Fedi are leading a new

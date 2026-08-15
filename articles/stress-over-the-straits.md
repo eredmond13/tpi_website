@@ -3,6 +3,7 @@ title: "Stress Over the Straits: wargaming Sino-American relations in an era of 
 date: 2025-08-20
 category: Event
 summary: Fellow Joshua Greenberg joined a three-day wargaming conference in the Adirondacks examining the political, diplomatic, economic, and military objectives of the People's Liberation Army.
+hubs: ["geopolitics"]
 ---
 
 From August 16th to 18th, Joshua Greenberg, a fellow of the institute and a PhD student in

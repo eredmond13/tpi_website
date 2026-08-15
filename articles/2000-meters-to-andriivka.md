@@ -3,6 +3,7 @@ title: "2000 Meters to Andriivka"
 date: 2026-03-02
 category: Event
 summary: A screening of Mstyslav Chernov's front-line documentary at Cornell Cinema, followed by a panel with Executive Director James Patton Rogers.
+hubs: ["geopolitics"]
 ---
 
 *2000 Meters to Andriivka*, a film by Mstyslav Chernov, follows Ukrainian soldiers fighting for every

@@ -2415,3 +2415,48 @@ body.is-entering main {
   .grant-amount { grid-column: 2; }
   .grant-period { grid-column: 1 / -1; }
 }
+
+/* Individual research hub pages. Description on the left, focus list beside it. */
+.hub-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(12rem, 0.5fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.hub-body p {
+  margin: 0 0 1.1rem;
+  max-width: 44rem;
+}
+
+.hub-leads {
+  padding-top: 1rem;
+  border-top: 1px solid #d8d8d8;
+  color: var(--ink-body, #444);
+}
+
+.hub-nodes {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.hub-nodes li {
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid #e4e4e4;
+  font-family: var(--font-section);
+  font-size: 0.84rem;
+}
+
+.hub-link {
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .hub-intro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.8rem;
+  }
+}

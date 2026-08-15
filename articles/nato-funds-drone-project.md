@@ -3,6 +3,7 @@ title: "Institute awarded NATO funds for drone project"
 date: 2024-05-07
 category: News
 summary: The NATO Science for Peace and Security Programme awarded $65,000 to analyse the development and use of military drone technologies across air, land, and sea.
+hubs: ["drones"]
 ---
 
 In April the NATO Science for Peace and Security Programme awarded the institute $65,000 to analyse

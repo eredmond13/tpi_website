@@ -3,6 +3,7 @@ title: "Cornell names President Guðni Th. Jóhannesson of Iceland as 2026 Messe
 date: 2025-12-16
 category: News
 summary: The Messenger Lectures are the University's highest recognition of scholarship. The award was secured through the institute's Geopolitics and Technology Hub.
+hubs: ["geopolitics"]
 ---
 
 Cornell has named President Guðni Th. Jóhannesson of Iceland as its 2026 Messenger Lecturer.

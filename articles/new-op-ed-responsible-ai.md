@@ -3,6 +3,7 @@ title: "New op-ed: when trust in AI becomes scarce"
 date: 2026-07-30
 category: News
 summary: Junior Fellow Fiona Neibart argues that the regulation-versus-innovation framing misses how trust is becoming infrastructure, and how it could harden into a competitive moat.
+hubs: ["ai-governance"]
 ---
 
 For much of the past year, the debate over AI has been framed as a contest between regulation and

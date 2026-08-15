@@ -3,6 +3,7 @@ title: TPI Senior Fellows guide bipartisan Arctic security simulation on Capitol
 date: 2026-02-11
 category: Event
 summary: Paul Lushenko and Keith Carter led congressional staffers through a simulation on great power competition in the Arctic Ocean.
+hubs: ["geopolitics"]
 ---
 
 Earlier this semester, Senior Fellows Paul Lushenko and Keith Carter guided a bipartisan national

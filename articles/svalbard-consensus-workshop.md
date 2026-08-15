@@ -3,6 +3,7 @@ title: TPI simulation tests Arctic technology and security risks
 date: 2025-12-16
 category: Event
 summary: The Svalbard Consensus? workshop in London, funded by the Royal Navy and held with Loughborough University.
+hubs: ["geopolitics"]
 ---
 
 The institute co-hosted *The Svalbard Consensus?* workshop in London on November 19th and 20th.

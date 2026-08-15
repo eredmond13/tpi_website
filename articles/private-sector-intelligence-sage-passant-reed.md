@@ -4,6 +4,7 @@ date: 2025-05-27
 category: Interview
 interviewer: "Basim Ali"
 summary: "Brooks Tech Policy Institute (BTPI) Fellow Basim Ali sat down with private sector intelligence experts Colin Reed and Dr. Lewis Sage Passant to discuss the growing role of private sector intelligence in countering nation-state threats...."
+hubs: ["geopolitics"]
 ---
 Brooks Tech Policy Institute (BTPI) Fellow Basim Ali sat down with private sector intelligence experts Colin Reed and Dr. Lewis Sage Passant to discuss the growing role of private sector intelligence in countering nation-state threats. The conversation also delved into Dr. Passant’s latest book “Beyond States and Spies: The Security Intelligence Services of the Private Sector”, that explores the history, practices, and implications of intelligence services operated by private sector organizations and challenges the idea that intelligence is solely the domain of nation states.
 

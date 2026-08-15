@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2024/09/btpi-leads-nato-policy-wor
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["drones"]
 ---

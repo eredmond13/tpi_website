@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2023/03/whole-message-ai-communica
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["ai-governance"]
 ---

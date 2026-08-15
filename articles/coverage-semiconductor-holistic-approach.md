@@ -6,4 +6,5 @@ summary: "Sarah Kreps, Richard Clark, and Adi Rao argue for deepening high-tech 
 externalUrl: https://www.brookings.edu/articles/a-holistic-approach-to-strengthening-the-semiconductor-supply-chain
 sourceName: Brookings TechStream
 permalink: false
+hubs: ["critical-infrastructure"]
 ---

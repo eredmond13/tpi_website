@@ -3,6 +3,7 @@ title: "Sarah Kreps featured in TechCrunch's Women in AI"
 date: 2024-03-28
 category: News
 summary: The series profiled our founder and director on her route into AI, her research on AI-generated disinformation, and her views on responsible development.
+hubs: ["ai-governance"]
 ---
 
 On March 8th our founder and director, Professor Sarah Kreps, was profiled by TechCrunch as part of

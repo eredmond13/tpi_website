@@ -3,6 +3,7 @@ title: "The institute hosts officers from the US Army War College"
 date: 2025-04-02
 category: Event
 summary: A roundtable in the Eisenhower Series on the value of alliances in a new era of geopolitics, with four officers from the US Army War College.
+hubs: ["geopolitics"]
 ---
 
 The institute hosted officers from the US Army War College as part of the Eisenhower Series. The

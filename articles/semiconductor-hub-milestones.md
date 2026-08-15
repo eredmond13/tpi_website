@@ -4,6 +4,7 @@ date: 2025-02-12
 category: News
 author: "Ojasvi Rana"
 summary: The hub's cyber test range reached initial operating capacity and is now analysing threats to semiconductor technologies, integrated circuits, and the supply chain behind them.
+hubs: ["critical-infrastructure"]
 ---
 
 The U.S. Semiconductor Research Hub, led by Principal Investigators Dr. Sarah Kreps at the institute

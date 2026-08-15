@@ -9,6 +9,7 @@ imageAlt: A small drone silhouetted against an American flag
 pdf: /files/defending-america-against-drones.pdf
 pdfPages: 9
 pdfSize: 1.4 MB
+hubs: ["drones"]
 ---
 
 On October 7, 2023, Hamas used drones to initiate its attack on Israel. On June 1, 2025, Ukraine

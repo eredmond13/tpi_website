@@ -4,6 +4,7 @@ date: 2025-04-02
 category: News
 author: Paul Lushenko and Robert Sparrow
 summary: The first experimental evidence of how much cadets trust AI-enabled military technology, testing the common assumption that junior personnel are trusting "digital natives".
+hubs: ["drones", "ai-governance"]
 ---
 
 Research often assumes that junior military personnel will trust AI in future wars, and trust it more

@@ -3,6 +3,7 @@ title: "Securing Semiconductor Supply Chains 2025 Research Grant"
 date: 2025-03-24
 category: News
 summary: A grant opportunity for Cornell graduate students researching semiconductors and semiconductor supply chains, with awards up to $10,000. This round has now closed.
+hubs: ["critical-infrastructure"]
 ---
 
 The institute announced a grant opportunity supporting Cornell students and faculty conducting

@@ -3,6 +3,7 @@ title: "Cornell hosts Indonesian economic leader on critical minerals and the ge
 date: 2025-11-21
 category: Event
 summary: Septian Hario Seto of Indonesia's National Economic Council set out the country's shift from raw-ore extraction to higher-value manufacturing, using nickel as the focal case.
+hubs: ["critical-infrastructure", "geopolitics"]
 ---
 
 On November 10, Septian Hario Seto, Executive Secretary of the National Economic Council of the

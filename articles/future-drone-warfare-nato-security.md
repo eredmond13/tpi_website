@@ -3,6 +3,7 @@ title: "The Future of Drone Warfare and NATO Security"
 date: 2024-11-15
 category: Event
 summary: Defence experts convened at Cornell for Full Spectrum Drone Warfare 2050, a workshop on drone deployment across all domains, funded by the NATO Science for Peace and Security Programme.
+hubs: ["drones"]
 ---
 
 In late August, leading defence experts convened at Cornell to address the future of drone warfare

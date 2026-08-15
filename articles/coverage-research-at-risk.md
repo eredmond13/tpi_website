@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2025/05/research-risk-protecting-n
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["critical-infrastructure"]
 ---

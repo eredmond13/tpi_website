@@ -7,4 +7,5 @@ externalUrl: https://news.cornell.edu/stories/2023/03/drones-modern-war-evolutio
 sourceName: Cornell Chronicle
 permalink: false
 dateApprox: true
+hubs: ["drones"]
 ---
