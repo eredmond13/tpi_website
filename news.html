@@ -102,6 +102,8 @@ feedCategories: ["News", "Policy analysis", "Event"]
   var start = (location.hash || "").replace("#", "");
   var known = chips.some(function (chip) { return chip.dataset.filter === start; });
   apply(known ? start : "all");
-  if (known && start !== "all") bar.scrollIntoView({ block: "start" });
+  if (known && start !== "all" && typeof bar.scrollIntoView === "function") {
+    bar.scrollIntoView({ block: "start" });
+  }
 })();
 </script>

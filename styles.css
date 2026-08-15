@@ -1041,6 +1041,13 @@ figcaption,
   align-items: start;
 }
 
+/* The filter hides items with the hidden attribute. The browser default for
+   that is display:none, but the rule above sets display:grid and wins, so the
+   items stay on screen. This puts it back. */
+.news-archive article[hidden] {
+  display: none;
+}
+
 .news-archive article > .article-thumb {
   grid-column: 1;
   grid-row: 1 / span 2;
