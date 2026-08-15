@@ -23,12 +23,16 @@ feedCategories: ["News", "Policy analysis", "Event"]
 {%- for post in collections.article | newest %}
 {%- if post.data.category in feedCategories %}
 {%- set group = "events" if post.data.category == "Event" else "news" %}
+{#- Coverage written by someone else has an externalUrl and no page of its own,
+    so every link on the row points at the original instead. -#}
+{%- set href = post.data.externalUrl if post.data.externalUrl else post.url | url %}
+{%- set away = ' target="_blank" rel="noopener"' if post.data.externalUrl else "" %}
   <article data-group="{{ group }}">
-    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-    {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
+    {% if post.data.image %}<a class="article-thumb" href="{{ href }}"{{ away | safe }}><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">{{ post.data.category }}</p>
-    <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+    <p class="article-tag">{{ post.data.category }}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
+    <h2><a href="{{ href }}"{{ away | safe }}>{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
   </article>
 {%- endif %}
@@ -63,46 +67,103 @@ feedCategories: ["News", "Policy analysis", "Event"]
   </div>
 </section>
 
+<nav class="pager" aria-label="News pages"></nav>
+
 <script>
-/* Filters the one combined list above. Everything is in the page already, so
-   this only hides and shows; with JavaScript off the full list still reads
-   correctly in date order. */
+/* One list, filtered and paged in the browser. Every item is already in the
+   page, so with JavaScript off the full list still reads correctly in date
+   order. Filtering runs first, then the surviving items are paged, which is
+   why changing the filter sends you back to page one. */
 (function () {
+  var PER_PAGE = 10;
+
   var bar = document.querySelector(".filter-bar");
   var archive = document.getElementById("news");
-  if (!bar || !archive) return;
+  var pager = document.querySelector(".pager");
+  if (!bar || !archive || !pager) return;
 
   var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
   var items = Array.prototype.slice.call(archive.querySelectorAll("article"));
   var empty = document.querySelector(".filter-empty");
 
-  function apply(name) {
-    var shown = 0;
+  var filter = "all";
+  var page = 1;
+
+  function matching() {
+    return items.filter(function (item) {
+      return filter === "all" || item.dataset.group === filter;
+    });
+  }
+
+  function render() {
+    var shown = matching();
+    var pages = Math.max(1, Math.ceil(shown.length / PER_PAGE));
+    if (page > pages) page = pages;
+
+    var first = (page - 1) * PER_PAGE;
+    var last = first + PER_PAGE;
+
+    items.forEach(function (item) { item.hidden = true; });
+    shown.slice(first, last).forEach(function (item) { item.hidden = false; });
+
     chips.forEach(function (chip) {
-      var on = chip.dataset.filter === name;
+      var on = chip.dataset.filter === filter;
       chip.classList.toggle("is-active", on);
       chip.setAttribute("aria-pressed", on ? "true" : "false");
     });
-    items.forEach(function (item) {
-      var show = name === "all" || item.dataset.group === name;
-      item.hidden = !show;
-      if (show) shown++;
-    });
-    if (empty) empty.hidden = shown !== 0;
+
+    if (empty) empty.hidden = shown.length !== 0;
+    drawPager(pages, shown.length);
+  }
+
+  function pageButton(label, target, current, disabled) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "pager-link" + (current ? " is-current" : "");
+    b.textContent = label;
+    if (current) b.setAttribute("aria-current", "page");
+    if (disabled) {
+      b.disabled = true;
+    } else {
+      b.addEventListener("click", function () {
+        page = target;
+        render();
+        archive.scrollIntoView ? archive.scrollIntoView({ block: "start" }) : null;
+      });
+    }
+    return b;
+  }
+
+  function drawPager(pages, total) {
+    pager.textContent = "";
+    if (pages < 2) return;
+
+    pager.appendChild(pageButton("Previous", page - 1, false, page === 1));
+    for (var n = 1; n <= pages; n++) {
+      pager.appendChild(pageButton(String(n), n, n === page, false));
+    }
+    pager.appendChild(pageButton("Next", page + 1, false, page === pages));
+
+    var count = document.createElement("p");
+    count.className = "pager-count";
+    count.textContent = "Page " + page + " of " + pages + ", " + total + " items";
+    pager.appendChild(count);
   }
 
   chips.forEach(function (chip) {
     chip.addEventListener("click", function () {
-      apply(chip.dataset.filter);
-      history.replaceState(null, "", chip.dataset.filter === "all" ? "#news" : "#" + chip.dataset.filter);
+      filter = chip.dataset.filter;
+      page = 1;
+      render();
+      history.replaceState(null, "", filter === "all" ? "#news" : "#" + filter);
     });
   });
 
   /* news.html#events from the header dropdown opens on that filter. */
   var start = (location.hash || "").replace("#", "");
-  var known = chips.some(function (chip) { return chip.dataset.filter === start; });
-  apply(known ? start : "all");
-  if (known && start !== "all" && typeof bar.scrollIntoView === "function") {
+  if (chips.some(function (chip) { return chip.dataset.filter === start; })) filter = start;
+  render();
+  if (filter !== "all" && typeof bar.scrollIntoView === "function") {
     bar.scrollIntoView({ block: "start" });
   }
 })();

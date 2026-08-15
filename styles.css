@@ -1127,6 +1127,58 @@ figcaption,
   color: var(--ink-body, #333);
 }
 
+/* Page numbers below the list. Text links rather than boxed buttons, matching
+   the filter row above. */
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin: 3rem 0 0;
+  padding: 1.2rem 0 0;
+  border-top: 2px solid #000;
+}
+
+.pager:empty {
+  display: none;
+}
+
+.pager-link {
+  padding: 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--red);
+  font-family: var(--font-section);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.pager-link:hover:not(:disabled) {
+  border-bottom-color: var(--red);
+}
+
+.pager-link.is-current {
+  color: #000;
+  border-bottom-color: #000;
+  cursor: default;
+}
+
+.pager-link:disabled {
+  color: #9a9a9a;
+  cursor: default;
+}
+
+.pager-count {
+  flex-basis: 100%;
+  margin: 0.4rem 0 0;
+  color: var(--ink-body, #333);
+  font-size: 0.85rem;
+}
+
 .publication-layout {
   display: grid;
   grid-template-columns: minmax(18rem, 0.85fr) minmax(18rem, 1fr);
