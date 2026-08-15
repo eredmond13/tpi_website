@@ -91,4 +91,76 @@ eleventyComputed:
 </section>
 {% endif %}
 
+
+{#- Hub team. A person joins a hub with a "hubs:" line in their profile, and
+    leads it with a "hubLead:" line. Leads come first, then everyone else in
+    order of seniority, using the same group order as the People page. -#}
+{%- set SENIORITY = ["Leadership", "Staff", "Senior Fellows", "Fellows", "Junior Fellows", "Alumni"] %}
+{%- set leads = [] %}
+{%- set members = [] %}
+{%- for rank in SENIORITY %}
+  {%- for person in collections.person | byOrder %}
+    {%- if person.data.group == rank %}
+      {%- if hub.slug in (person.data.hubLead or []) %}
+        {%- set leads = (leads.push(person), leads) %}
+      {%- elif hub.slug in (person.data.hubs or []) %}
+        {%- set members = (members.push(person), members) %}
+      {%- endif %}
+    {%- endif %}
+  {%- endfor %}
+{%- endfor %}
+{%- set team = leads.concat(members) %}
+
+{% if team.length %}
+<section class="page-block" id="team">
+  <div class="block-header">
+    <p class="section-label">Team</p>
+    <h2>Who works on this</h2>
+  </div>
+
+  <div class="team-strip{% if team.length > 5 %} is-slider{% endif %}">
+    <div class="team-track">
+    {%- for person in team %}
+      <a class="team-card" href="{{ "/people.html" | url }}#{{ person.fileSlug }}">
+        {% if person.data.photo %}<img alt="{{ person.data.name }}" src="{{ person.data.photo | url }}">
+        {% else %}<span class="team-nophoto" aria-hidden="true"></span>{% endif %}
+        <p class="team-name">{{ person.data.name }}</p>
+        <p class="team-role">{% if hub.slug in (person.data.hubLead or []) %}Hub Lead{% else %}{{ person.data.role }}{% endif %}</p>
+      </a>
+    {%- endfor %}
+    </div>
+    {% if team.length > 5 %}
+    <div class="team-controls">
+      <button type="button" class="team-arrow" data-dir="-1" aria-label="Scroll team left">&larr;</button>
+      <button type="button" class="team-arrow" data-dir="1" aria-label="Scroll team right">&rarr;</button>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+/* The strip scrolls natively, so it works without this. The arrows just make
+   that obvious on a desktop where there is no touch to swipe with. */
+(function () {
+  document.querySelectorAll(".team-strip.is-slider").forEach(function (strip) {
+    var track = strip.querySelector(".team-track");
+    strip.querySelectorAll(".team-arrow").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        track.scrollBy({ left: Number(btn.dataset.dir) * track.clientWidth * 0.8, behavior: "smooth" });
+      });
+    });
+    function sync() {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      strip.querySelectorAll(".team-arrow").forEach(function (b) {
+        b.disabled = Number(b.dataset.dir) < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max;
+      });
+    }
+    track.addEventListener("scroll", sync);
+    window.addEventListener("resize", sync);
+    sync();
+  });
+})();
+</script>
+{% endif %}
+
 <p class="link-row"><a href="{{ "/research.html" | url }}">All research hubs</a></p>

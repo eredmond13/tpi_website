@@ -2460,3 +2460,100 @@ body.is-entering main {
     gap: 1.8rem;
   }
 }
+
+/* Hub team. A short team lays out as a normal row. Once it passes five people
+   the strip scrolls sideways, which is native browser scrolling, so it still
+   works if the arrow script never runs. */
+.team-strip {
+  position: relative;
+}
+
+.team-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(9.5rem, 1fr);
+  gap: 1.6rem;
+}
+
+.team-strip.is-slider .team-track {
+  grid-auto-columns: 9.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 0;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+}
+
+.team-strip.is-slider .team-card {
+  scroll-snap-align: start;
+}
+
+.team-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.team-card img,
+.team-nophoto {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #efefef;
+  filter: grayscale(100%);
+  transition: filter 0.2s ease;
+}
+
+.team-card:hover img {
+  filter: grayscale(0%);
+}
+
+.team-name {
+  margin: 0.7rem 0 0.15rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.25;
+}
+
+.team-card:hover .team-name {
+  color: var(--red);
+}
+
+.team-role {
+  margin: 0;
+  font-family: var(--font-section);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-body, #555);
+}
+
+.team-controls {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.team-arrow {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--red);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.team-arrow:disabled {
+  color: #b9b9b9;
+  cursor: default;
+}
+
+@media (max-width: 820px) {
+  .team-track,
+  .team-strip.is-slider .team-track {
+    grid-auto-columns: 8rem;
+    overflow-x: auto;
+  }
+}

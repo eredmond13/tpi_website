@@ -52,6 +52,25 @@ const VALID_CATEGORIES = [
 // appears on no hub page at all.
 const HUBS = JSON.parse(readFileSync("_data/hubs.json", "utf8")).map((h) => h.slug);
 
+for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
+  const text = readFileSync(`people/${f}`, "utf8");
+  for (const key of ["hubs", "hubLead"]) {
+    const m = text.match(new RegExp(`^${key}:\\s*\\[([^\\]]*)\\]`, "m"));
+    if (!m) continue;
+    for (const raw of m[1].split(",")) {
+      const slug = raw.trim().replace(/^["']|["']$/g, "");
+      if (slug && !HUBS.includes(slug)) {
+        problems.push(`people/${f}  ->  ${key}: "${slug}" is not a hub. Use one of: ${HUBS.join(", ")}`);
+      }
+    }
+  }
+  const leadOnly = text.match(/^hubLead:\s*\[([^\]]*)\]/m);
+  const inHubs = text.match(/^hubs:\s*\[([^\]]*)\]/m);
+  if (leadOnly && !inHubs) {
+    problems.push(`people/${f}  ->  has hubLead but no hubs line. A lead must also be listed in hubs.`);
+  }
+}
+
 try {
   for (const f of readdirSync("articles").filter((n) => n.endsWith(".md"))) {
     const text = readFileSync(`articles/${f}`, "utf8");
