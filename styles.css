@@ -1127,56 +1127,105 @@ figcaption,
   color: var(--ink-body, #333);
 }
 
-/* Page numbers below the list. Text links rather than boxed buttons, matching
-   the filter row above. */
-.pager {
+/* Sliding pages. Without JavaScript .news-archive stays a plain stacked grid,
+   so the whole list still reads in date order. The script adds .is-carousel,
+   which turns it into a row of full-width slides that translate sideways. */
+.news-viewport {
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+.news-archive.is-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  transform: translateX(0);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-slide {
+  flex: 0 0 100%;
+  display: grid;
+  gap: 2.6rem;
+  align-content: start;
+}
+
+/* Dots below the list and above the newsletter. */
+.news-dots {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 1.1rem;
   margin: 3rem 0 0;
-  padding: 1.2rem 0 0;
+  padding: 1.3rem 0 0;
   border-top: 2px solid #000;
 }
 
-.pager:empty {
+.news-dots[hidden] {
   display: none;
 }
 
-.pager-link {
+.dot-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.dot {
+  width: 0.62rem;
+  height: 0.62rem;
+  padding: 0;
+  border: 1.5px solid #000;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dot:hover {
+  border-color: var(--red);
+  background: var(--red);
+}
+
+.dot.is-current {
+  border-color: var(--red);
+  background: var(--red);
+  transform: scale(1.35);
+  cursor: default;
+}
+
+.dot-arrow {
   padding: 0;
   border: 0;
-  border-bottom: 2px solid transparent;
   background: none;
   color: var(--red);
-  font-family: var(--font-section);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  font-size: 1.05rem;
+  line-height: 1;
   cursor: pointer;
 }
 
-.pager-link:hover:not(:disabled) {
-  border-bottom-color: var(--red);
+.dot-arrow:hover:not(:disabled) {
+  transform: translateY(-1px);
 }
 
-.pager-link.is-current {
-  color: #000;
-  border-bottom-color: #000;
+.dot-arrow:disabled {
+  color: #b9b9b9;
   cursor: default;
 }
 
-.pager-link:disabled {
-  color: #9a9a9a;
-  cursor: default;
-}
-
-.pager-count {
+.dot-count {
   flex-basis: 100%;
-  margin: 0.4rem 0 0;
+  margin: 0.3rem 0 0;
   color: var(--ink-body, #333);
   font-size: 0.85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-viewport,
+  .news-archive.is-carousel,
+  .dot {
+    transition: none;
+  }
 }
 
 .publication-layout {
