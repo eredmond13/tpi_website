@@ -17,6 +17,7 @@ feedCategories: ["News", "Policy analysis", "Event"]
   <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">Everything</button>
   <button type="button" class="filter-chip" data-filter="news" aria-pressed="false">News</button>
   <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">Events</button>
+  <button type="button" class="filter-chip" data-filter="interviews" aria-pressed="false">Interviews</button>
 </div>
 
 <nav class="news-dots" aria-label="News pages" hidden>
@@ -29,16 +30,20 @@ feedCategories: ["News", "Policy analysis", "Event"]
 <section class="news-archive" id="news">
 {%- for post in collections.article | newest %}
 {%- if post.data.category in feedCategories %}
-{%- set group = "events" if post.data.category == "Event" else "news" %}
+{%- if post.data.category == "Event" %}{% set group = "events" %}
+{%- elif post.data.interviewLink %}{% set group = "interviews" %}
+{%- else %}{% set group = "news" %}{% endif %}
 {#- Coverage written by someone else has an externalUrl and no page of its own,
     so every link on the row points at the original instead. -#}
-{%- set href = post.data.externalUrl if post.data.externalUrl else post.url | url %}
+{%- if post.data.externalUrl %}{% set href = post.data.externalUrl %}
+{%- elif post.data.interviewLink %}{% set href = post.data.interviewLink | url %}
+{%- else %}{% set href = post.url | url %}{% endif %}
 {%- set away = ' target="_blank" rel="noopener"' if post.data.externalUrl else "" %}
   <article data-group="{{ group }}">
     {% if post.data.image %}<a class="article-thumb" href="{{ href }}"{{ away | safe }}><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-    {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
+    {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{% if post.data.interviewLink %}Interview{% else %}{{ post.data.category }}{% endif %}</span></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">{{ post.data.category }}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
+    <p class="article-tag">{% if post.data.interviewLink %}Interview{% else %}{{ post.data.category }}{% endif %}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
     <h2><a href="{{ href }}"{{ away | safe }}>{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
   </article>
