@@ -1,0 +1,28 @@
+---
+layout: base.njk
+navId: news
+title: In Conversation
+description: Interviews with practitioners, policymakers, and researchers from the Cornell Brooks Tech Policy Institute.
+permalink: /interviews.html
+---
+<section class="page-hero">
+  <p class="eyebrow">Interviews</p>
+  <h1>In Conversation</h1>
+  <p class="dek">Long-form interviews with the people doing the work, from civil
+  servants and company founders to our own fellows.</p>
+</section>
+
+<section class="news-archive" id="interviews">
+{%- for post in collections.article | newest %}
+{%- if post.data.category == "Interview" %}
+  <article>
+    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Interview</span></a>{% endif %}
+    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+    <p class="article-tag">{% if post.data.interviewer %}By {{ post.data.interviewer }}{% else %}Interview{% endif %}</p>
+    <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+    <p>{{ post.data.summary }}</p>
+  </article>
+{%- endif %}
+{%- endfor %}
+</section>
