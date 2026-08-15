@@ -59,7 +59,7 @@ const navGroups = [
     label: "Publications",
     href: "publications.html",
     links: [
-      ["All Publications", "publications.html"],
+      ["Research", "publications.html#research"],
       ["Annual Reports", "publications.html#annual-reports"]
     ]
   },
