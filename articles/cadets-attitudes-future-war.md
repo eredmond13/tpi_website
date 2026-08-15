@@ -1,7 +1,7 @@
 ---
 title: "Artificial Intelligence and U.S. Military Cadets' Attitudes About Future War"
 date: 2025-04-02
-category: Report
+category: News
 author: Paul Lushenko and Robert Sparrow
 summary: The first experimental evidence of how much cadets trust AI-enabled military technology, testing the common assumption that junior personnel are trusting "digital natives".
 ---
