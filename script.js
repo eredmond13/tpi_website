@@ -1,10 +1,27 @@
 const currentPage = document.body.dataset.page || "home";
 
 /* The site is served from a subfolder, and pages like /newsletters/2025-10.html
-   sit one level down. Relative links such as "people.html" would resolve
-   against that folder and 404, so every nav link is built from the site root
-   the page tells us about. */
-const siteRoot = document.body.dataset.root || "/";
+   sit one level down, so a relative link such as "people.html" would resolve
+   against that folder and 404.
+
+   The root is worked out from this script's own <script src>, which the page
+   always writes with the correct prefix. That means the nav keeps working even
+   if other templates are out of date, rather than every link breaking at once. */
+const siteRoot = (() => {
+  const src =
+    (document.currentScript && document.currentScript.src) ||
+    (document.querySelector('script[src$="script.js"]') || {}).src ||
+    "";
+  if (src) {
+    try {
+      return new URL(src, window.location.href).pathname.replace(/script\.js$/, "");
+    } catch (err) {
+      /* fall through */
+    }
+  }
+  return document.body.dataset.root || "/";
+})();
+
 const rootedHref = (href) =>
   /^(https?:|mailto:|#|\/)/.test(href) ? href : siteRoot + href;
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
