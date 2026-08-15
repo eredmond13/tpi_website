@@ -44,7 +44,7 @@ try {
 // An article's "category" decides whether it lands on News or Publications.
 // A typo would otherwise send it silently to the wrong page.
 const VALID_CATEGORIES = [
-  "News", "Policy analysis", "Event",
+  "News", "Policy analysis", "Event", "Interview",
   "Report", "Op-ed", "Policy brief", "Policy infographic",
 ];
 
