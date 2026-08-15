@@ -4,6 +4,7 @@ role: "Non-Resident Senior Fellow"
 group: "Senior Fellows"
 order: 29
 photo: /pictures/people/paul-lushenko.jpg
+hubs: ["drones"]
 ---
 
 LTC Paul Lushenko is the Director of Special Operations and a Faculty Instructor in the U.S. Army War
