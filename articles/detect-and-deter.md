@@ -11,4 +11,11 @@ pdfPages: 24
 pdfSize: 1.3 MB
 ---
 
-PLACEHOLDER. A summary can go here. The complete report is attached below.
+Published with the Icelandic think tank Varða, this report sets Iceland's position within the
+European and NATO frameworks it operates in, and draws out what recent drone incidents across Europe
+reveal for Icelandic defence.
+
+Drawing on the view from the institutions on the front line, it identifies three gaps. A defence
+thinking gap, a response-authority gap, and a standing-watch gap. It closes with policy
+recommendations, beginning with a written counter-UAS coordination protocol to bridge detection and
+response.
