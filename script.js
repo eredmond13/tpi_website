@@ -59,7 +59,8 @@ const navGroups = [
     label: "Publications",
     href: "publications.html",
     links: [
-      ["All Publications", "publications.html"]
+      ["All Publications", "publications.html"],
+      ["Annual Reports", "publications.html#annual-reports"]
     ]
   },
   {
@@ -82,7 +83,6 @@ const navGroups = [
       ["Mission", "about.html#mission"],
       ["Vision", "about.html#vision"],
       ["Courses", "courses.html"],
-      ["Annual Reports", "publications.html#annual-reports"],
       ["Grants", "about.html#grants"],
       ["Job Opportunities", "about.html#jobs"],
       ["Contact", "about.html#contact"]

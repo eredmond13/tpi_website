@@ -25,6 +25,32 @@ for (const file of walk("_site")) {
   }
 }
 
+// A link can carry the right prefix and still point at a page that was never
+// generated, usually because a .md file did not get committed. That 404s
+// silently, so check every internal target actually exists on disk.
+const dead = [];
+const exists = (p) => {
+  const rel = p.replace(prefix, "").split(/[?#]/)[0];
+  if (!rel || rel.endsWith("/")) return true;
+  try { statSync(join("_site", rel)); return true; } catch { return false; }
+};
+
+for (const file of walk("_site")) {
+  const html = readFileSync(file, "utf8");
+  for (const m of html.matchAll(/href="([^"]*\.(?:html|pdf))"/g)) {
+    const target = m[1];
+    if (!target.startsWith(prefix)) continue;
+    if (!exists(target)) dead.push(`${file.replace("_site/", "")}  ->  ${target}`);
+  }
+}
+
+if (dead.length) {
+  console.error(`\n${dead.length} link(s) point at a page or file that does not exist:\n`);
+  [...new Set(dead)].forEach((p) => console.error("  " + p));
+  console.error("\nUsually a .md file that was not committed. Add the file, then commit again.\n");
+  process.exit(1);
+}
+
 if (problems.length) {
   console.error(`\n${problems.length} internal link(s) missing the "${prefix}" prefix:\n`);
   [...new Set(problems)].forEach((p) => console.error("  " + p));
