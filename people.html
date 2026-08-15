@@ -48,7 +48,7 @@ groups:
 
   {%- for person in collections.person | byOrder %}
   {%- if person.data.group == group.name %}
-  <article class="person-profile">
+  <article class="person-profile" id="{{ person.fileSlug }}">
     <figure><img alt="{{ person.data.name }}" src="{{ person.data.photo | url }}"></figure>
     <div>
       <p class="eyebrow">{{ person.data.role }}</p>

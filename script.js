@@ -223,13 +223,13 @@ const archiveEntries = [
     title: "Sarah Kreps",
     type: "People",
     summary: "Founder and Institute Leader at the Cornell Brooks School Tech Policy Institute.",
-    href: "people.html#leadership"
+    href: "people.html#sarah-kreps"
   },
   {
     title: "Elizabeth H. Redmond",
     type: "People",
     summary: "Lead Research Associate supporting semiconductor, cybersecurity, drone, and space research.",
-    href: "people.html#research"
+    href: "people.html#elizabeth-redmond"
   },
   {
     title: "Grants",

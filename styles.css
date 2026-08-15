@@ -2501,12 +2501,11 @@ body.is-entering main {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   background: #efefef;
-  filter: grayscale(100%);
   transition: filter 0.2s ease;
 }
 
 .team-card:hover img {
-  filter: grayscale(0%);
+  filter: grayscale(100%);
 }
 
 .team-name {
@@ -2556,4 +2555,11 @@ body.is-entering main {
     grid-auto-columns: 8rem;
     overflow-x: auto;
   }
+}
+
+/* The header is sticky, so an anchored profile needs room above it or the jump
+   lands with the name hidden behind the header. */
+.person-profile,
+.people-directory {
+  scroll-margin-top: 7rem;
 }
