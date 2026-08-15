@@ -2,7 +2,7 @@
 name: "Tyler Akira Durst"
 role: "Project Manager"
 group: "Staff"
-order: 12
+order: 11
 photo: /pictures/people/tyler-durst.jpg
 ---
 

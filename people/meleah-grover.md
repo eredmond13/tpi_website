@@ -2,7 +2,7 @@
 name: "Meleah Grover"
 role: "Assistant Administrator for TPI"
 group: "Staff"
-order: 10
+order: 12
 photo: /pictures/people/meleah-grover.jpg
 ---
 
