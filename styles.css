@@ -2356,3 +2356,62 @@ body.is-entering main {
     max-width: 14rem;
   }
 }
+
+/* Grants list on the About page. Funder, amount and period across the top row,
+   the detail beneath, collapsing to a single column on narrow screens. */
+.grant-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.8rem;
+}
+
+.grant-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(6rem, 0.4fr) minmax(5rem, 0.35fr);
+  gap: 0.3rem 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid #d8d8d8;
+}
+
+.grant-funder {
+  grid-column: 1;
+  margin: 0;
+  font-weight: 600;
+}
+
+.grant-amount {
+  grid-column: 2;
+  margin: 0;
+  font-family: var(--font-section);
+  font-weight: 700;
+  color: var(--red);
+}
+
+.grant-period {
+  grid-column: 3;
+  margin: 0;
+  font-family: var(--font-section);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-body, #444);
+}
+
+.grant-detail {
+  grid-column: 1 / -1;
+  margin: 0.2rem 0 0;
+  max-width: 46rem;
+  color: var(--ink-body, #333);
+}
+
+@media (max-width: 820px) {
+  .grant-list li {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .grant-funder { grid-column: 1; }
+  .grant-amount { grid-column: 2; }
+  .grant-period { grid-column: 1 / -1; }
+}
