@@ -1,7 +1,7 @@
 ---
 title: "Dark Skies: Criminal Drone Operations Targeting Prisons"
 date: 2025-10-20
-category: Op-ed
+category: Policy brief
 summary: Criminal drone incursions over correctional facilities, and the governance gaps they expose.
 image: /pictures/publications/dark-skies-prisons.jpg
 imageAlt: An aerial view of a drone above a correctional facility
