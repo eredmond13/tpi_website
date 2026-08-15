@@ -19,7 +19,13 @@ feedCategories: ["News", "Policy analysis", "Event"]
   <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">Events</button>
 </div>
 
-<div class="news-viewport">
+<nav class="news-dots" aria-label="News pages" hidden>
+  <button type="button" class="dot-arrow" data-step="-1" aria-label="Previous page">&larr;</button>
+  <span class="dot-row"></span>
+  <button type="button" class="dot-arrow" data-step="1" aria-label="Next page">&rarr;</button>
+  <p class="dot-count" aria-live="polite"></p>
+</nav>
+
 <section class="news-archive" id="news">
 {%- for post in collections.article | newest %}
 {%- if post.data.category in feedCategories %}
@@ -39,16 +45,9 @@ feedCategories: ["News", "Policy analysis", "Event"]
 {%- endif %}
 {%- endfor %}
 </section>
-</div>
 
 <p class="filter-empty" hidden>Nothing in this category yet.</p>
 
-<nav class="news-dots" aria-label="News pages" hidden>
-  <button type="button" class="dot-arrow" data-step="-1" aria-label="Previous page">&larr;</button>
-  <span class="dot-row"></span>
-  <button type="button" class="dot-arrow" data-step="1" aria-label="Next page">&rarr;</button>
-  <p class="dot-count" aria-live="polite"></p>
-</nav>
 
 <section class="page-block" id="newsletter">
   <div class="block-header">
@@ -78,17 +77,16 @@ feedCategories: ["News", "Policy analysis", "Event"]
 
 <script>
 /* The list is one flat, date-ordered set in the markup, so with JavaScript off
-   it still reads correctly. With JavaScript on, the items are dealt into slides
-   of ten and the container slides sideways between them. Filtering runs first,
-   so the slides are rebuilt whenever the filter changes. */
+   it reads correctly in full. With JavaScript on it shows ten at a time and
+   fades between pages. The control sits above the list deliberately, so
+   changing page never means scrolling down to the control and back up. */
 (function () {
   var PER_PAGE = 10;
 
   var bar = document.querySelector(".filter-bar");
   var archive = document.getElementById("news");
-  var viewport = document.querySelector(".news-viewport");
   var dots = document.querySelector(".news-dots");
-  if (!bar || !archive || !viewport || !dots) return;
+  if (!bar || !archive || !dots) return;
 
   var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
   var items = Array.prototype.slice.call(archive.querySelectorAll("article"));
@@ -98,10 +96,8 @@ feedCategories: ["News", "Policy analysis", "Event"]
   var arrows = Array.prototype.slice.call(dots.querySelectorAll(".dot-arrow"));
 
   var filter = "all";
-  var page = 0;          /* zero based */
-  var slides = [];
-
-  archive.classList.add("is-carousel");
+  var page = 0;
+  var pages = 1;
 
   function matching() {
     return items.filter(function (item) {
@@ -109,61 +105,28 @@ feedCategories: ["News", "Policy analysis", "Event"]
     });
   }
 
-  /* Deal the surviving items into slides of ten. */
-  function build() {
+  function paint() {
     var shown = matching();
-    slides = [];
-    archive.textContent = "";
+    pages = Math.max(1, Math.ceil(shown.length / PER_PAGE));
+    if (page > pages - 1) page = pages - 1;
 
-    for (var i = 0; i < shown.length; i += PER_PAGE) {
-      var slide = document.createElement("div");
-      slide.className = "news-slide";
-      shown.slice(i, i + PER_PAGE).forEach(function (item) {
-        item.hidden = false;
-        slide.appendChild(item);
-      });
-      archive.appendChild(slide);
-      slides.push(slide);
+    var first = page * PER_PAGE;
+    items.forEach(function (item) { item.hidden = true; });
+    shown.slice(first, first + PER_PAGE).forEach(function (item) { item.hidden = false; });
+
+    if (row.children.length !== pages) {
+      row.textContent = "";
+      for (var n = 0; n < pages; n++) {
+        (function (n) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "dot";
+          dot.setAttribute("aria-label", "Page " + (n + 1) + " of " + pages);
+          dot.addEventListener("click", function () { go(n); });
+          row.appendChild(dot);
+        })(n);
+      }
     }
-
-    row.textContent = "";
-    slides.forEach(function (slide, n) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "dot";
-      dot.setAttribute("aria-label", "Page " + (n + 1) + " of " + slides.length);
-      dot.addEventListener("click", function () { go(n, true); });
-      row.appendChild(dot);
-    });
-
-    dots.hidden = slides.length < 2;
-    if (empty) empty.hidden = shown.length !== 0;
-  }
-
-  /* The slides sit side by side, so the viewport is told how tall the current
-     one is. If measurement is unavailable the height is left to the browser
-     rather than collapsing to nothing. */
-  function setHeight() {
-    var slide = slides[page];
-    if (!slide) { viewport.style.height = ""; return; }
-    var h = slide.offsetHeight;
-    viewport.style.height = h ? h + "px" : "";
-  }
-
-  function go(n, smooth) {
-    if (!slides.length) return;
-    page = Math.max(0, Math.min(n, slides.length - 1));
-
-    archive.style.transition = smooth ? "" : "none";
-    archive.style.transform = "translateX(" + (-100 * page) + "%)";
-    if (!smooth) requestAnimationFrame(function () { archive.style.transition = ""; });
-
-    slides.forEach(function (slide, i) {
-      slide.setAttribute("aria-hidden", i === page ? "false" : "true");
-      slide.querySelectorAll("a").forEach(function (a) {
-        if (i === page) { a.removeAttribute("tabindex"); } else { a.setAttribute("tabindex", "-1"); }
-      });
-    });
 
     Array.prototype.forEach.call(row.children, function (dot, i) {
       dot.classList.toggle("is-current", i === page);
@@ -172,58 +135,53 @@ feedCategories: ["News", "Policy analysis", "Event"]
 
     arrows.forEach(function (a) {
       var step = Number(a.dataset.step);
-      a.disabled = (step < 0 && page === 0) || (step > 0 && page === slides.length - 1);
+      a.disabled = (step < 0 && page === 0) || (step > 0 && page === pages - 1);
     });
 
-    count.textContent = "Page " + (page + 1) + " of " + slides.length + ", " + matching().length + " items";
-    setHeight();
+    count.textContent = "Page " + (page + 1) + " of " + pages + ", " + shown.length + " items";
+    dots.hidden = pages < 2;
+    if (empty) empty.hidden = shown.length !== 0;
   }
 
-  function render(resetPage) {
-    build();
-    go(resetPage ? 0 : page, false);
+  /* Fade out, swap the ten, fade back in. If the browser will not run the
+     transition the swap still happens, so nothing depends on the animation. */
+  function go(n) {
+    if (n === page) return;
+    page = Math.max(0, Math.min(n, pages - 1));
+    archive.classList.add("is-turning");
+    window.setTimeout(function () {
+      paint();
+      archive.classList.remove("is-turning");
+    }, 160);
   }
 
   chips.forEach(function (chip) {
     chip.addEventListener("click", function () {
+      if (filter === chip.dataset.filter) return;
       filter = chip.dataset.filter;
+      page = 0;
       chips.forEach(function (c) {
         var on = c === chip;
         c.classList.toggle("is-active", on);
         c.setAttribute("aria-pressed", on ? "true" : "false");
       });
-      render(true);
+      row.textContent = "";
+      paint();
       history.replaceState(null, "", filter === "all" ? "#news" : "#" + filter);
     });
   });
 
   arrows.forEach(function (a) {
-    a.addEventListener("click", function () { go(page + Number(a.dataset.step), true); });
+    a.addEventListener("click", function () { go(page + Number(a.dataset.step)); });
   });
 
-  /* Swipe, for touch. A short flick is enough; a vertical scroll is ignored. */
-  var startX = null, startY = null;
-  viewport.addEventListener("touchstart", function (e) {
-    startX = e.touches[0].clientX; startY = e.touches[0].clientY;
-  }, { passive: true });
-  viewport.addEventListener("touchend", function (e) {
-    if (startX === null) return;
-    var dx = e.changedTouches[0].clientX - startX;
-    var dy = e.changedTouches[0].clientY - startY;
-    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) go(page + (dx < 0 ? 1 : -1), true);
-    startX = startY = null;
-  }, { passive: true });
-
-  /* Arrow keys, once a dot has focus. */
   dots.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowLeft") { go(page - 1, true); }
-    else if (e.key === "ArrowRight") { go(page + 1, true); }
+    if (e.key === "ArrowLeft") { go(page - 1); }
+    else if (e.key === "ArrowRight") { go(page + 1); }
     else { return; }
     e.preventDefault();
     if (row.children[page]) row.children[page].focus();
   });
-
-  window.addEventListener("resize", setHeight);
 
   /* news.html#events from the header dropdown opens on that filter. */
   var start = (location.hash || "").replace("#", "");
@@ -236,6 +194,6 @@ feedCategories: ["News", "Policy analysis", "Event"]
       c.setAttribute("aria-pressed", on ? "true" : "false");
     });
   }
-  render(true);
+  paint();
 })();
 </script>

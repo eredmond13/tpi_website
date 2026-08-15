@@ -1127,38 +1127,23 @@ figcaption,
   color: var(--ink-body, #333);
 }
 
-/* Sliding pages. Without JavaScript .news-archive stays a plain stacked grid,
-   so the whole list still reads in date order. The script adds .is-carousel,
-   which turns it into a row of full-width slides that translate sideways. */
-.news-viewport {
-  overflow: hidden;
-  transition: height 0.35s ease;
+/* Paging is a fade rather than a slide. The items stay in one grid, so nothing
+   sits offscreen and there is no horizontal overflow to clip. */
+.news-archive {
+  transition: opacity 0.16s ease;
 }
 
-.news-archive.is-carousel {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 0;
-  transform: translateX(0);
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+.news-archive.is-turning {
+  opacity: 0;
 }
 
-.news-slide {
-  flex: 0 0 100%;
-  display: grid;
-  gap: 2.6rem;
-  align-content: start;
-}
-
-/* Dots below the list and above the newsletter. */
+/* Page control, above the list so paging never means scrolling down. */
 .news-dots {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1.1rem;
-  margin: 3rem 0 0;
-  padding: 1.3rem 0 0;
-  border-top: 2px solid #000;
+  margin: -1.4rem 0 0;
 }
 
 .news-dots[hidden] {
@@ -1221,8 +1206,7 @@ figcaption,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .news-viewport,
-  .news-archive.is-carousel,
+  .news-archive,
   .dot {
     transition: none;
   }
