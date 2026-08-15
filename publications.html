@@ -5,6 +5,7 @@ title: Publications
 description: Reports, op-eds, policy briefs, and infographics from the Cornell Brooks Tech Policy Institute.
 permalink: /publications.html
 pubCategories: ["Report", "Op-ed", "Policy brief", "Policy infographic"]
+annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-policy-lab-report-2021", "tech-policy-lab-report-2020-21"]
 ---
 <section class="page-hero">
   <p class="eyebrow">Publications</p>
@@ -15,7 +16,7 @@ pubCategories: ["Report", "Op-ed", "Policy brief", "Policy infographic"]
 
 <section class="publication-layout">
 {%- for post in collections.article | newest %}
-{%- if post.data.category in pubCategories %}
+{%- if post.data.category in pubCategories and post.fileSlug not in annualReports %}
   <article class="publication-feature">
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
     <span>{{ post.data.category }}</span>
@@ -33,4 +34,31 @@ pubCategories: ["Report", "Op-ed", "Policy brief", "Policy infographic"]
   </article>
 {%- endif %}
 {%- endfor %}
+</section>
+
+<section class="page-block" id="annual-reports">
+  <div class="block-header">
+    <p class="section-label">Annual Reports</p>
+    <h2>Annual Reports</h2>
+    <p>A year-by-year account of the institute's research, funding, events, and people,
+    including the Tech Policy Lab that preceded it.</p>
+  </div>
+
+  <div class="news-list">
+  {%- for post in collections.article | newest %}
+  {%- if post.fileSlug in annualReports %}
+    <article>
+      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Report</span></a>{% endif %}
+      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+      <p>{{ post.data.summary }}</p>
+      <p class="link-row">
+        <a href="{{ post.url | url }}">Read more</a>
+        <a href="{{ post.data.pdf | url }}" target="_blank" rel="noopener">Open the PDF</a>
+      </p>
+    </article>
+  {%- endif %}
+  {%- endfor %}
+  </div>
 </section>

@@ -2324,3 +2324,35 @@ body.is-entering main {
 .nl-archive {
   max-width: var(--content-col);
 }
+
+/* Featured annual report on the homepage. Cover on the left, summary beside it,
+   collapsing to a single column on narrow screens. */
+.report-feature {
+  display: grid;
+  grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
+  gap: 2.4rem;
+  align-items: start;
+}
+
+.report-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e2e2e2;
+}
+
+.report-copy p {
+  margin: 0 0 1rem;
+  max-width: 42rem;
+}
+
+@media (max-width: 820px) {
+  .report-feature {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.6rem;
+  }
+
+  .report-cover {
+    max-width: 14rem;
+  }
+}

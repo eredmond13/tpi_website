@@ -82,7 +82,7 @@ const navGroups = [
       ["Mission", "about.html#mission"],
       ["Vision", "about.html#vision"],
       ["Courses", "courses.html"],
-      ["Annual Reports", "about.html#annual-reports"],
+      ["Annual Reports", "publications.html#annual-reports"],
       ["Grants", "about.html#grants"],
       ["Job Opportunities", "about.html#jobs"],
       ["Contact", "about.html#contact"]
