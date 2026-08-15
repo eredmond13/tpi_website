@@ -4,21 +4,30 @@ navId: news
 title: News and Policy
 description: News, policy briefs, and analysis from the Cornell Brooks Tech Policy Institute.
 permalink: /news.html
-newsCategories: ["News", "Policy analysis"]
+feedCategories: ["News", "Policy analysis", "Event"]
 ---
 <section class="page-hero">
   <p class="eyebrow">News and policy</p>
   <h1>News and Policy</h1>
-  <p class="dek">Analysis, announcements, and coverage from across the institute.</p>
+  <p class="dek">Analysis, announcements, and events from across the institute,
+  newest first. Full reports and briefs live on the publications page.</p>
 </section>
+
+<div class="filter-bar" role="group" aria-label="Filter by type">
+  <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">Everything</button>
+  <button type="button" class="filter-chip" data-filter="news" aria-pressed="false">News</button>
+  <button type="button" class="filter-chip" data-filter="events" aria-pressed="false">Events</button>
+</div>
 
 <section class="news-archive" id="news">
 {%- for post in collections.article | newest %}
-{%- if post.data.category in newsCategories %}
-  <article>
+{%- if post.data.category in feedCategories %}
+{%- set group = "events" if post.data.category == "Event" else "news" %}
+  <article data-group="{{ group }}">
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+    <p class="article-tag">{{ post.data.category }}</p>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
   </article>
@@ -26,27 +35,7 @@ newsCategories: ["News", "Policy analysis"]
 {%- endfor %}
 </section>
 
-<section class="page-block" id="events">
-  <div class="block-header">
-    <p class="section-label">Events</p>
-    <h2>Events and Seminars</h2>
-    <p>Talks, seminars, and simulations hosted by the institute.</p>
-  </div>
-
-      <div class="news-list">
-      {%- for post in collections.article | newest %}
-      {%- if post.data.category == "Event" %}
-        <article>
-          {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-          {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
-          <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-          <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-          <p>{{ post.data.summary }}</p>
-        </article>
-      {%- endif %}
-      {%- endfor %}
-  </div>
-</section>
+<p class="filter-empty" hidden>Nothing in this category yet.</p>
 
 <section class="page-block" id="newsletter">
   <div class="block-header">
@@ -73,3 +62,46 @@ newsCategories: ["News", "Policy analysis"]
       {%- endfor %}
   </div>
 </section>
+
+<script>
+/* Filters the one combined list above. Everything is in the page already, so
+   this only hides and shows; with JavaScript off the full list still reads
+   correctly in date order. */
+(function () {
+  var bar = document.querySelector(".filter-bar");
+  var archive = document.getElementById("news");
+  if (!bar || !archive) return;
+
+  var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
+  var items = Array.prototype.slice.call(archive.querySelectorAll("article"));
+  var empty = document.querySelector(".filter-empty");
+
+  function apply(name) {
+    var shown = 0;
+    chips.forEach(function (chip) {
+      var on = chip.dataset.filter === name;
+      chip.classList.toggle("is-active", on);
+      chip.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    items.forEach(function (item) {
+      var show = name === "all" || item.dataset.group === name;
+      item.hidden = !show;
+      if (show) shown++;
+    });
+    if (empty) empty.hidden = shown !== 0;
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      apply(chip.dataset.filter);
+      history.replaceState(null, "", chip.dataset.filter === "all" ? "#news" : "#" + chip.dataset.filter);
+    });
+  });
+
+  /* news.html#events from the header dropdown opens on that filter. */
+  var start = (location.hash || "").replace("#", "");
+  var known = chips.some(function (chip) { return chip.dataset.filter === start; });
+  apply(known ? start : "all");
+  if (known && start !== "all") bar.scrollIntoView({ block: "start" });
+})();
+</script>

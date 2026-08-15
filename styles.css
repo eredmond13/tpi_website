@@ -1043,20 +1043,81 @@ figcaption,
 
 .news-archive article > .article-thumb {
   grid-column: 1;
+  grid-row: 1 / span 2;
   width: 100%;
 }
 
 .news-archive article > time {
   grid-column: 2;
+  grid-row: 1;
+}
+
+.news-archive article > .article-tag {
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .news-archive article > h2 {
   grid-column: 3;
+  grid-row: 1 / span 2;
   font-size: 1.4rem;
 }
 
-.news-archive article > p {
+.news-archive article > p:not(.article-tag) {
   grid-column: 4;
+  grid-row: 1 / span 2;
+}
+
+/* The small category label under each date. Same kicker treatment as the
+   section labels, in field green so it reads as a tag rather than a link. */
+.article-tag {
+  margin: 0;
+  color: var(--field-green, #7b8a74);
+  font-family: var(--font-section);
+  font-size: 0.66rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Filter row above the list. Text buttons rather than ghost buttons, so a
+   dormant filter does not read as a disabled control. */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin: 0 0 2.6rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 2px solid #000;
+}
+
+.filter-chip {
+  padding: 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: #000;
+  font-family: var(--font-section);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.filter-chip:hover {
+  color: var(--red);
+}
+
+.filter-chip.is-active {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.filter-empty {
+  margin: 0 0 2.6rem;
+  color: var(--ink-body, #333);
 }
 
 .publication-layout {
@@ -1505,13 +1566,15 @@ body.is-entering main {
   }
 
   .news-archive article > time,
+  .news-archive article > .article-tag,
   .news-archive article > h2,
-  .news-archive article > p {
+  .news-archive article > p:not(.article-tag) {
     grid-column: 2;
+    grid-row: auto;
   }
 
   .news-archive article > .article-thumb {
-    grid-row: 1 / span 3;
+    grid-row: 1 / span 4;
   }
 }
 
