@@ -1,0 +1,4 @@
+# Notes and guides in the repo root are for you, not for the website.
+# Without this, Eleventy publishes them as pages and runs the example code
+# inside them as if it were real template code.
+/*.md
