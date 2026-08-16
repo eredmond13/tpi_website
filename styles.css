@@ -575,6 +575,10 @@ main,
   padding: 6.5rem 0 1.5rem;
 }
 
+.page-hero .eyebrow {
+  margin-bottom: 0.9rem;
+}
+
 @media (max-width: 820px) {
   .page-hero {
     padding: 3.6rem 0 0.5rem;
@@ -926,7 +930,7 @@ figcaption,
 
 .research-row {
   display: grid;
-  grid-template-columns: 4rem minmax(20rem, 1fr) minmax(11rem, 0.36fr);
+  grid-template-columns: minmax(20rem, 1fr) minmax(11rem, 0.36fr);
   gap: 2.5rem;
   padding: 2.6rem 0;
   border-top: 1px solid var(--rule);
@@ -936,13 +940,6 @@ figcaption,
   border-top: 0;
 }
 
-.row-number {
-  color: var(--accent);
-  font-family: var(--font-section);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
 
 .research-row h2 {
   font-family: var(--font-head);
@@ -2672,7 +2669,7 @@ body.is-entering main {
 }
 
 /* Hub banner on the research page. Same treatment as the jump rows on People
-   and About, with the hub number carried through from the page below. */
+   and About. */
 .hub-bar {
   display: flex;
   flex-wrap: wrap;
@@ -2685,7 +2682,6 @@ body.is-entering main {
 .hub-bar a {
   display: inline-flex;
   align-items: baseline;
-  gap: 0.45rem;
   padding: 0;
   border: 0;
   border-bottom: 2px solid transparent;
@@ -2701,11 +2697,6 @@ body.is-entering main {
 .hub-bar a:hover {
   color: var(--red);
   border-bottom-color: var(--red);
-}
-
-.hub-bar-num {
-  color: var(--red);
-  font-size: 0.66rem;
 }
 
 /* The header is sticky, so a hub jumped to needs room above it. */

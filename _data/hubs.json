@@ -2,7 +2,6 @@
   {
     "slug": "critical-infrastructure",
     "name": "Critical Infrastructure",
-    "number": "01",
     "dek": "Resilient policy frameworks for the digital and physical systems that underpin national security.",
     "body": [
       "This hub builds resilient policy frameworks for the essential digital and physical systems that underpin national security. Our work leverages the Cyber Test Range to identify hardware vulnerabilities, fortifies the semiconductor supply chain through empirical network modelling, and ensures data centres are governed by policies that balance responsible development with economic and social impact.",
@@ -21,7 +20,6 @@
   {
     "slug": "drones",
     "name": "Drones and Robotics",
-    "number": "02",
     "dek": "The future of military drone technologies across air, land, and sea, and the policy needed to meet them.",
     "body": [
       "Catalysed by funding from the NATO Science for Peace and Security Programme, this hub drives research into the future of military drone technologies across domains. We investigate Full Spectrum Drone Warfare and its global implications, and provide strategic policy insights to NATO members and partner states.",
@@ -40,7 +38,6 @@
   {
     "slug": "ai-governance",
     "name": "AI Governance and Defense",
-    "number": "03",
     "dek": "How algorithmic systems reshape the conduct and governance of modern defence and security.",
     "body": [
       "This hub investigates how algorithmic systems reshape the conduct and governance of modern defence and security.",
@@ -60,7 +57,6 @@
   {
     "slug": "cryptocurrencies",
     "name": "Cryptocurrencies",
-    "number": "04",
     "dek": "How citizens of authoritarian states secure financial freedom, and how Bitcoin and stablecoins are used worldwide.",
     "body": [
       "Funded by the Human Rights Foundation and the Reynolds Foundation, this hub studies how citizens of authoritarian governments secure financial freedom in the face of suppressive financial controls, and investigates how Bitcoin and stablecoins are used around the world.",
@@ -79,7 +75,6 @@
   {
     "slug": "geopolitics",
     "name": "Geopolitics and Technology",
-    "number": "05",
     "dek": "Strategic frameworks for the technological competition that defines modern great power rivalry.",
     "body": [
       "This hub provides the strategic frameworks used to navigate the global technological competition that defines modern great power rivalry. We focus on identifying regions of future strategic importance and securing high-value infrastructure in contested domains.",
@@ -98,7 +93,6 @@
   {
     "slug": "space",
     "name": "Space Security",
-    "number": "06",
     "dek": "The security and governance of space systems as commercial actors become operational gatekeepers.",
     "body": [
       "DRAFT. This hub examines the security and governance of space systems at a moment when governments are increasingly dependent on commercial providers for military advantage.",
