@@ -18,7 +18,7 @@
     { "label": "Research Hubs",     "href": "/research.html" },
     { "label": "Publications",      "href": "/publications.html" },
     { "label": "Courses",           "href": "/courses.html" },
-    { "label": "Job Opportunities", "href": "/about.html#jobs" },
+    { "label": "Opportunities", "href": "/about.html#jobs" },
     { "label": "Contact",           "href": "/about.html#contact" }
   ]
 }

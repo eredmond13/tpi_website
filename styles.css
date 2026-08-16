@@ -2579,3 +2579,61 @@ body.is-entering main {
   font: inherit;
   cursor: pointer;
 }
+
+/* Junior Fellow recruitment on the About page. */
+.jobs-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(13rem, 0.55fr);
+  gap: 3rem;
+  align-items: start;
+}
+
+.jobs-copy h3 {
+  margin: 0 0 0.9rem;
+  font-size: 1.35rem;
+}
+
+.jobs-copy p {
+  margin: 0 0 1.1rem;
+  max-width: 44rem;
+}
+
+.jobs-facts {
+  list-style: none;
+  margin: 0.8rem 0 1.4rem;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.jobs-facts li {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.jobs-facts span {
+  display: block;
+  font-family: var(--font-section);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.jobs-other {
+  margin: 2.4rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid #d8d8d8;
+  max-width: 44rem;
+  color: var(--ink-body, #444);
+}
+
+@media (max-width: 900px) {
+  .jobs-feature {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+}
