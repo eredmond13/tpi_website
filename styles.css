@@ -782,7 +782,7 @@ figcaption,
 .research-index,
 .news-archive,
 .publication-layout {
-  padding: 4.6rem 0;
+  padding: 4rem 0;
 }
 
 .section-header {
@@ -790,7 +790,7 @@ figcaption,
   grid-template-columns: minmax(9rem, 0.3fr) minmax(20rem, 0.9fr) minmax(15rem, 0.6fr);
   gap: 2.5rem;
   align-items: end;
-  margin-bottom: 3rem;
+  margin-bottom: 2.6rem;
 }
 
 .section-header.compact,
@@ -1261,7 +1261,7 @@ figcaption,
 
 .people-directory {
   display: grid;
-  gap: 3.4rem;
+  gap: 3.2rem;
 }
 
 .person-profile {
@@ -1295,6 +1295,12 @@ figcaption,
   margin: 0.9rem 0 0;
 }
 
+/* The generic rule above was pushing the role line down, so it no longer sat
+   level with the top of the headshot. */
+.person-profile .eyebrow {
+  margin-top: 0;
+}
+
 /* Vertical link lists. Dividers here are functional, not decorative. */
 
 .link-table,
@@ -1311,7 +1317,7 @@ figcaption,
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem 1.7rem;
-  margin: 0 0 3.4rem;
+  margin: 0 0 1rem;
   padding: 0 0 1.1rem;
   border-bottom: 2px solid #000;
 }
@@ -1882,14 +1888,12 @@ body.is-entering main {
   }
 }
 
-/* Section headings on the People directory. The section name appears once. */
+/* Section headings on the People directory. The section name appears once.
+   Space separates the groups rather than a rule, so the page stays quiet. */
 .group-header {
   display: grid;
   gap: 0.6rem;
-  max-width: 62ch;
-  margin-bottom: 2rem;
-  padding-top: 1.2rem;
-  border-top: 2px solid var(--ink);
+  margin-bottom: 1.8rem;
 }
 
 .group-header h2 {
@@ -1905,11 +1909,7 @@ body.is-entering main {
 }
 
 .people-directory {
-  padding: 3.2rem 0 0;
-}
-
-.people-directory:first-of-type {
-  padding-top: 2rem;
+  padding: 4.2rem 0 0;
 }
 
 /* A profile with no headshot spans the full width instead of leaving a gap. */
