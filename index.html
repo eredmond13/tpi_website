@@ -23,15 +23,35 @@ permalink: /index.html
       </figure>
     </article>
 
-    <div class="front-rail">
-      <section class="rail-module stat-module">
-        <p class="eyebrow">By the numbers</p>
-        <div class="stat-grid">
-          <span><strong>42</strong>Members</span>
-          <span><strong>21</strong>Events hosted</span>
-          <span><strong>9</strong>Research grants</span>
-        </div>
-      </section>
+  </div>
+</section>
+
+
+<section class="module-band" id="hubs">
+  <div class="section-header">
+    <p class="section-label">Research</p>
+    <h2>Six research hubs</h2>
+    <p><a class="section-link" href="{{ "/research.html" | url }}">All research hubs</a></p>
+  </div>
+
+  <div class="hub-strip">
+    <div class="hub-track">
+    {%- for hub in hubs %}
+      <a class="hub-card" href="{{ "/research/" | url }}{{ hub.slug }}.html">
+        <p class="hub-card-name">{{ hub.name }}</p>
+        <p class="hub-card-dek">{{ hub.dek }}</p>
+        <ul class="hub-card-nodes">
+        {%- for node in hub.nodes %}{% if loop.index0 < 3 %}
+          <li>{{ node }}</li>
+        {%- endif %}{% endfor %}
+        </ul>
+        <span class="hub-card-go">Explore</span>
+      </a>
+    {%- endfor %}
+    </div>
+    <div class="hub-controls">
+      <button type="button" class="hub-arrow" data-dir="-1" aria-label="Scroll hubs left">&larr;</button>
+      <button type="button" class="hub-arrow" data-dir="1" aria-label="Scroll hubs right">&rarr;</button>
     </div>
   </div>
 </section>
@@ -53,6 +73,12 @@ permalink: /index.html
       <p>The report covers the five research hubs, funding and grants, research and policy
       impact, events, course offerings, and every fellow.</p>
       <p class="link-row"><a href="{{ "/files/annual-report-2024-25.pdf" | url }}" target="_blank" rel="noopener">Open the PDF</a></p>
+      <dl class="report-stats">
+        <div><dt>42</dt><dd>Fellows, up from 33</dd></div>
+        <div><dt>$4.5M</dt><dd>Research funding, up 246%</dd></div>
+        <div><dt>21</dt><dd>Events hosted</dd></div>
+        <div><dt>175</dt><dd>Policy and press briefings</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -77,6 +103,37 @@ permalink: /index.html
 </section>
 
 <section class="quote-band">
-  <blockquote>We cannot safely unlock the potential of AI and other emerging technologies without developing well-researched, responsible policies.</blockquote>
-  <p>Sarah Kreps, TPI Director and Founder</p>
+  <figure>
+    <blockquote>We cannot safely unlock the potential of AI and other emerging
+    technologies without developing well-researched, responsible policies.</blockquote>
+    <figcaption>
+      <span class="quote-name">Sarah Kreps</span>
+      <span class="quote-role">Director and Founder</span>
+    </figcaption>
+  </figure>
 </section>
+
+<script>
+/* The hub strip scrolls natively, so it works without this. The arrows just
+   make that obvious on a desktop where there is nothing to swipe. */
+(function () {
+  var strip = document.querySelector(".hub-strip");
+  if (!strip) return;
+  var track = strip.querySelector(".hub-track");
+  var arrows = Array.prototype.slice.call(strip.querySelectorAll(".hub-arrow"));
+  arrows.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      track.scrollBy({ left: Number(btn.dataset.dir) * track.clientWidth * 0.85, behavior: "smooth" });
+    });
+  });
+  function sync() {
+    var max = track.scrollWidth - track.clientWidth - 2;
+    arrows.forEach(function (b) {
+      b.disabled = Number(b.dataset.dir) < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max;
+    });
+  }
+  track.addEventListener("scroll", sync);
+  window.addEventListener("resize", sync);
+  sync();
+})();
+</script>
