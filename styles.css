@@ -1540,8 +1540,29 @@ figcaption,
   text-underline-offset: 0.16em;
 }
 
+/* The photograph at the top of an article, and a publication cover, are the
+   one place the whole image should be visible. Forcing them into a 16:9 crop
+   beheaded every portrait photo. They now show at their own proportions,
+   capped in height so a tall one cannot take over the page. */
+.article-feature-media,
+.report-media {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
 .article-feature-media img,
 .report-media img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 34rem;
+  object-fit: contain;
+}
+
+/* The labelled box shown when an article has no photograph keeps a fixed
+   shape, since there is nothing to preserve. */
+.article-feature-media.is-placeholder {
   aspect-ratio: 16 / 9;
 }
 
