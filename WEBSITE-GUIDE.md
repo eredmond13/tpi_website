@@ -324,6 +324,71 @@ the news feed.
 
 ---
 
+## Changing the homepage highlights
+
+The photo strip on the homepage is controlled by one file, `_data/highlights.json`.
+No HTML, no code. The order in the file is the order on the page, so the first
+entry appears first.
+
+Each photo is one block, and the blocks are separated by commas.
+
+    {
+      "image": "/pictures/home/highlights/arctic-circle-assembly.jpg",
+      "alt": "Four panellists seated on stage in front of an Arctic Circle screen",
+      "meta": "Arctic Circle Assembly, Reykjavik",
+      "caption": "The institute convened Soft Power, Hard Questions at the Assembly.",
+      "link": "/articles/arctic-circle-assembly-2025.html"
+    },
+
+**image** is the path to the photo, starting with a slash.
+
+**alt** describes the picture for anyone using a screen reader.
+
+**meta** is the small red line above the caption. Keep it short, the event and
+place, or the hub it belongs to.
+
+**caption** is the sentence beneath. This is the one you will change most.
+
+**link** is optional. Fill it in and the whole photo becomes clickable with a
+"Read more" line. Leave it as `""` and the photo simply is not clickable.
+
+### To change a caption
+
+Open the file, find the block, and edit the text between the quote marks. That
+is the whole job.
+
+### To reorder
+
+Cut a whole block, from its opening `{` to its closing `}`, and paste it where
+you want it. Make sure every block except the last one is followed by a comma.
+
+### To add a photo
+
+Put the image in `pictures/home/highlights/`, then copy an existing block,
+paste it, and change the four values. Watch the commas.
+
+### To remove one
+
+Delete the whole block including its comma. If you delete the last one, remove
+the comma from the block that is now last.
+
+### Things that will stop the build
+
+A missing comma, or one too many. The error will mention JSON and give a line
+number.
+
+A photo path that does not exist. It names the exact path it looked for.
+
+An entry with no caption or no alt text.
+
+### A note on the word CHECK
+
+Captions I wrote from looking at the photograph, rather than from knowing what
+happened, start with the word CHECK. Search the file for it to find every one
+still needing your eye, and delete the word once you have corrected the text.
+
+---
+
 ## Adding a person
 
 **1.** Put the headshot in `pictures/people/`, named after the person.

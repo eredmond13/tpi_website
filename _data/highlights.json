@@ -1,15 +1,22 @@
 [
   {
+    "image": "/pictures/home/highlights/polar-frontlines-briefing.jpg",
+    "alt": "Gudni Th. Johannesson speaking with a microphone beside a slide reading Polar Frontlines, Arctic Security and the New Hybrid",
+    "meta": "Polar Frontlines briefing",
+    "caption": "Gudni Th. Johannesson, President of Iceland from 2016 to 2024, delivering the opening briefing before the institute's Arctic wargame.",
+    "link": "/articles/johannesson-messenger-lecturer.html"
+  },
+  {
     "image": "/pictures/home/highlights/arctic-circle-assembly.jpg",
     "alt": "Four panellists seated on stage in front of an Arctic Circle 2025 screen",
-    "meta": "Arctic Circle Assembly, October 2025",
-    "caption": "CHECK. The institute convened Soft Power, Hard Questions at the Arctic Circle Assembly in Reykjavik.",
+    "meta": "Arctic Circle Assembly, Reykjavik",
+    "caption": "CHECK. The institute convened Soft Power, Hard Questions at the Arctic Circle Assembly.",
     "link": "/articles/arctic-circle-assembly-2025.html"
   },
   {
     "image": "/pictures/home/highlights/army-war-college.jpg",
     "alt": "Four officers in the uniforms of several nations standing beside a Tech Policy Institute banner",
-    "meta": "Eisenhower Series, April 2025",
+    "meta": "Eisenhower Series",
     "caption": "CHECK. Officers from the US Army War College joined a roundtable on the value of alliances in a new era of geopolitics.",
     "link": "/articles/army-war-college-officers.html"
   },
@@ -22,17 +29,10 @@
   },
   {
     "image": "/pictures/home/highlights/arctic-simulation-inject.jpg",
-    "alt": "Participants and Canadian officers around a simulation table, a scenario inject on screen behind",
-    "meta": "Arctic security simulation",
-    "caption": "CHECK. A live scenario inject during an Arctic security simulation, with allied officers taking part.",
+    "alt": "Participants and allied officers around a simulation table, a scenario inject on screen behind",
+    "meta": "Arctic wargame",
+    "caption": "CHECK. A live scenario inject during the Arctic wargame, with allied officers taking part.",
     "link": "/articles/arctic-security-simulation-capitol-hill.html"
-  },
-  {
-    "image": "/pictures/home/highlights/polar-frontlines-briefing.jpg",
-    "alt": "A speaker with a microphone beside a slide reading Polar Frontlines, Arctic Security and the New Hybrid",
-    "meta": "Polar Frontlines briefing",
-    "caption": "CHECK. A briefing on Arctic security, infrastructure, and emerging technology, held with the Aerospace Adversary Lab.",
-    "link": ""
   },
   {
     "image": "/pictures/home/highlights/bitcoin-mining-lab.jpg",
@@ -49,24 +49,10 @@
     "link": ""
   },
   {
-    "image": "/pictures/home/highlights/fellows-roundtable.jpg",
-    "alt": "Fellows and students around a boardroom table in discussion over lunch",
-    "meta": "Fellows roundtable",
-    "caption": "CHECK. Fellows and students in discussion at one of the institute's regular roundtables.",
-    "link": ""
-  },
-  {
     "image": "/pictures/home/highlights/arctic-simulation-table.jpg",
-    "alt": "Canadian officers and participants working through papers at a simulation table",
-    "meta": "Arctic security simulation",
-    "caption": "CHECK. Working through the scenario documents during the simulation.",
-    "link": ""
-  },
-  {
-    "image": "/pictures/home/highlights/brooks-discussion.jpg",
-    "alt": "A small group in conversation around a table in the Brooks School",
-    "meta": "Brooks School",
-    "caption": "CHECK. A smaller session at the Brooks School.",
+    "alt": "Allied officers and participants working through papers at a simulation table",
+    "meta": "Arctic wargame",
+    "caption": "CHECK. Working through the scenario documents during the wargame.",
     "link": ""
   },
   {
@@ -74,6 +60,20 @@
     "alt": "Three people standing beside a Cornell Brooks School Tech Policy Institute banner",
     "meta": "Speaker event",
     "caption": "CHECK. Add the speaker's name and the event here.",
+    "link": ""
+  },
+  {
+    "image": "/pictures/home/highlights/fellows-roundtable.jpg",
+    "alt": "Fellows and students around a boardroom table in discussion over lunch",
+    "meta": "Fellows roundtable",
+    "caption": "CHECK. Fellows and students in discussion at one of the institute's regular roundtables.",
+    "link": ""
+  },
+  {
+    "image": "/pictures/home/highlights/brooks-discussion.jpg",
+    "alt": "A small group in conversation around a table in the Brooks School",
+    "meta": "Brooks School",
+    "caption": "CHECK. A smaller session at the Brooks School.",
     "link": ""
   }
 ]
