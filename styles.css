@@ -600,24 +600,7 @@ main,
   }
 }
 
-.issue-line {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 2.4rem;
-  color: var(--ink-muted);
-  font-family: var(--font-section);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
 
-.issue-line span {
-  color: var(--red);
-}
 
 .page-hero-grid {
   display: grid;
@@ -812,12 +795,20 @@ figcaption,
   padding: 4rem 0;
 }
 
+/* Kicker above the heading, everything flush left. The old three-column
+   version put the kicker in its own column, which indented the heading away
+   from the left edge that the rest of the site lines up on. */
 .section-header {
   display: grid;
-  grid-template-columns: minmax(9rem, 0.3fr) minmax(20rem, 0.9fr) minmax(15rem, 0.6fr);
-  gap: 2.5rem;
-  align-items: end;
+  gap: 0.5rem;
+  justify-items: start;
   margin-bottom: 2.6rem;
+  padding-top: 1.4rem;
+  border-top: 2px solid var(--ink);
+}
+
+.section-header .section-link {
+  margin-top: 0.5rem;
 }
 
 .section-header.compact,
@@ -1547,8 +1538,9 @@ figcaption,
 .article-feature-media,
 .report-media {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
+  background: none;
 }
 
 .article-feature-media img,
@@ -1560,10 +1552,13 @@ figcaption,
   object-fit: contain;
 }
 
-/* The labelled box shown when an article has no photograph keeps a fixed
-   shape, since there is nothing to preserve. */
+/* The labelled box shown when an article has no photograph keeps its fixed
+   shape and its fill, since there is no image to preserve. */
 .article-feature-media.is-placeholder {
+  display: grid;
+  place-items: center;
   aspect-ratio: 16 / 9;
+  background: var(--paper-soft);
 }
 
 /* 10. FOOTER =============================================================== */
