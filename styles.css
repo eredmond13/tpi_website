@@ -1297,8 +1297,6 @@ figcaption,
 
 /* Vertical link lists. Dividers here are functional, not decorative. */
 
-.about-index,
-.people-anchor-list,
 .link-table,
 .method-list,
 .grant-list {
@@ -1306,8 +1304,37 @@ figcaption,
   align-content: start;
 }
 
+/* Section jump lists. One compact row rather than a full-width stack, which
+   was pushing the actual page content below the fold. */
+.about-index,
+.people-anchor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.7rem;
+  margin: 0 0 3.4rem;
+  padding: 0 0 1.1rem;
+  border-bottom: 2px solid #000;
+}
+
 .about-index a,
-.people-anchor-list a,
+.people-anchor-list a {
+  padding: 0;
+  border: 0;
+  font-family: var(--font-section);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.about-index a:hover,
+.people-anchor-list a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
 .link-table a {
   padding: 1rem 0;
   border-top: 1px solid var(--rule);
@@ -1315,8 +1342,6 @@ figcaption,
   font-weight: 600;
 }
 
-.about-index a:first-child,
-.people-anchor-list a:first-child,
 .link-table a:first-child {
   border-top: 0;
 }
