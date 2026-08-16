@@ -11,6 +11,12 @@ permalink: /research.html
   <p class="dek">Our cutting-edge thinking on the critical issues where technology meets national security and public policy.</p>
 </section>
 
+<nav class="hub-bar" aria-label="Jump to a research hub">
+{%- for hub in hubs %}
+  <a href="#{{ hub.slug }}"><span class="hub-bar-num">{{ hub.number }}</span>{{ hub.short }}</a>
+{%- endfor %}
+</nav>
+
 <section class="research-index">
 
   <article class="research-row" id="critical-infrastructure">

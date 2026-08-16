@@ -2670,3 +2670,45 @@ body.is-entering main {
     gap: 2rem;
   }
 }
+
+/* Hub banner on the research page. Same treatment as the jump rows on People
+   and About, with the hub number carried through from the page below. */
+.hub-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1.6rem;
+  margin: 1.4rem 0 1rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 2px solid #000;
+}
+
+.hub-bar a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  padding: 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: #000;
+  font-family: var(--font-section);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hub-bar a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.hub-bar-num {
+  color: var(--red);
+  font-size: 0.66rem;
+}
+
+/* The header is sticky, so a hub jumped to needs room above it. */
+.research-row {
+  scroll-margin-top: 7rem;
+}

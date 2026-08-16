@@ -11,7 +11,12 @@
       "The Data Centers node analyses the policy challenges surrounding data centre deployment and operations, focusing on responsible development through effective regulation, economic impact on local and regional economies, and social engagement that benefits host communities while mitigating environmental concerns."
     ],
     "leads": "Dr. Sarah Kreps co-leads the semiconductor supply chain and data centre research.",
-    "nodes": ["Semiconductor Supply Chain Security", "Cyber Test Range", "Data Centers"]
+    "nodes": [
+      "Semiconductor Supply Chain Security",
+      "Cyber Test Range",
+      "Data Centers"
+    ],
+    "short": "Critical Infrastructure"
   },
   {
     "slug": "drones",
@@ -24,7 +29,13 @@
       "The Full Spectrum Drone Warfare node analyses the Third Drone Age, defined by the seamless and autonomous integration of drones across air, land, and sea."
     ],
     "leads": "Led by Executive Director Dr. James Patton Rogers and Director Dr. Sarah Kreps, with Senior Fellow Lt. Col. Paul Lushenko, Lead Research Associate Elizabeth H. Redmond, and Director's Fellow Maj. John Miller.",
-    "nodes": ["Full Spectrum Drone Warfare", "Counter-drone policy", "Lethal autonomous systems", "NATO partnership"]
+    "nodes": [
+      "Full Spectrum Drone Warfare",
+      "Counter-drone policy",
+      "Lethal autonomous systems",
+      "NATO partnership"
+    ],
+    "short": "Drones"
   },
   {
     "slug": "ai-governance",
@@ -38,7 +49,13 @@
       "The hub also runs the Tech Talk speaker series, engaging leading experts to accelerate the development of ethical AI policy."
     ],
     "leads": "Led by Senior Fellow Dr. Chris Earls and Director Dr. Sarah Kreps, supported by Senior Fellow Judith Germano.",
-    "nodes": ["Algorithmic Warfare Research Lab", "AI governance and regulation", "Human judgment and accountability", "Tech Talk speaker series"]
+    "nodes": [
+      "Algorithmic Warfare Research Lab",
+      "AI governance and regulation",
+      "Human judgment and accountability",
+      "Tech Talk speaker series"
+    ],
+    "short": "AI Governance"
   },
   {
     "slug": "cryptocurrencies",
@@ -51,7 +68,13 @@
       "In 2025 Dr. Kreps debuted the Global Bitcoin Adoption Index at the Oslo Freedom Forum, drawing on 25,000 surveys and 250 interviews. Adoption was driven by financial surveillance, inflation, and the need for banking alternatives in regions with unstable financial systems."
     ],
     "leads": "Led by Director Dr. Sarah Kreps.",
-    "nodes": ["Financial Freedom", "Bitcoin and stablecoin adoption", "Global adoption index", "Financial privacy"]
+    "nodes": [
+      "Financial Freedom",
+      "Bitcoin and stablecoin adoption",
+      "Global adoption index",
+      "Financial privacy"
+    ],
+    "short": "Crypto"
   },
   {
     "slug": "geopolitics",
@@ -64,7 +87,13 @@
       "The Arctic Security node examines strategic competition in the High North, including the security of critical infrastructure such as subsea cables, military basing, and ports, and hosts high-level policy engagement bridging academic research with global policy needs."
     ],
     "leads": "Led by Senior Fellow Dr. Gregory Falco and Executive Director Dr. James Patton Rogers.",
-    "nodes": ["Strategic simulations and wargaming", "Arctic security", "Subsea cables and critical infrastructure", "Great power competition"]
+    "nodes": [
+      "Strategic simulations and wargaming",
+      "Arctic security",
+      "Subsea cables and critical infrastructure",
+      "Great power competition"
+    ],
+    "short": "Geopolitics"
   },
   {
     "slug": "space",
@@ -77,6 +106,12 @@
       "Replace this description with your own copy. The 2024-25 annual report predates the hub, so unlike the other five this text has not been taken from a source document."
     ],
     "leads": "Senior Fellow Dr. Gregory Falco works on space cybersecurity and directs the Aerospace Adversary Lab.",
-    "nodes": ["Space cybersecurity", "Commercial space and armed conflict", "Satellite systems", "Space governance"]
+    "nodes": [
+      "Space cybersecurity",
+      "Commercial space and armed conflict",
+      "Satellite systems",
+      "Space governance"
+    ],
+    "short": "Space"
   }
 ]
