@@ -38,12 +38,9 @@ groups:
 
 {%- for group in groups %}
 <section class="people-directory" id="{{ group.id }}">
-  <div class="section-header compact">
-    <p class="section-label">{{ group.name }}</p>
-    <div>
-      <h2>{{ group.name }}</h2>
-      {% if group.blurb %}<p>{{ group.blurb }}</p>{% endif %}
-    </div>
+  <div class="group-header">
+    <h2>{{ group.name }}</h2>
+    {% if group.blurb %}<p>{{ group.blurb }}</p>{% endif %}
   </div>
 
   {%- for person in collections.person | byOrder %}
