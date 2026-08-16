@@ -30,7 +30,22 @@ const VALID_GROUPS = [
 ];
 
 try {
-  for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
+  // Photos in the homepage highlight band, and where they point.
+try {
+  for (const shot of JSON.parse(readFileSync("_data/highlights.json", "utf8"))) {
+    const img = (shot.image || "").replace(/^\//, "");
+    if (!img) { problems.push(`_data/highlights.json  ->  an entry has no image`); continue; }
+    if (!existsSync(img)) {
+      problems.push(`_data/highlights.json  ->  image: ${shot.image}  (file not found)`);
+    }
+    if (!shot.caption) problems.push(`_data/highlights.json  ->  ${shot.image} has no caption`);
+    if (!shot.alt) problems.push(`_data/highlights.json  ->  ${shot.image} has no alt description`);
+  }
+} catch (e) {
+  if (e.code !== "ENOENT") problems.push(`_data/highlights.json  ->  ${e.message}`);
+}
+
+for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
     const text = readFileSync(`people/${f}`, "utf8");
     const m = text.match(/^group:\s*"?([^"\n]+)"?/m);
     if (!m) {
@@ -51,6 +66,21 @@ const VALID_CATEGORIES = [
 // Every hub named on an article must be a real hub, or the article quietly
 // appears on no hub page at all.
 const HUBS = JSON.parse(readFileSync("_data/hubs.json", "utf8")).map((h) => h.slug);
+
+// Photos in the homepage highlight band, and where they point.
+try {
+  for (const shot of JSON.parse(readFileSync("_data/highlights.json", "utf8"))) {
+    const img = (shot.image || "").replace(/^\//, "");
+    if (!img) { problems.push(`_data/highlights.json  ->  an entry has no image`); continue; }
+    if (!existsSync(img)) {
+      problems.push(`_data/highlights.json  ->  image: ${shot.image}  (file not found)`);
+    }
+    if (!shot.caption) problems.push(`_data/highlights.json  ->  ${shot.image} has no caption`);
+    if (!shot.alt) problems.push(`_data/highlights.json  ->  ${shot.image} has no alt description`);
+  }
+} catch (e) {
+  if (e.code !== "ENOENT") problems.push(`_data/highlights.json  ->  ${e.message}`);
+}
 
 for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
   const text = readFileSync(`people/${f}`, "utf8");

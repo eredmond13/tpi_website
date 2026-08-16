@@ -120,11 +120,22 @@ permalink: /index.html
     <div class="shot-track">
     {%- for shot in highlights %}
       <figure class="shot">
+        {%- if shot.link %}
+        <a class="shot-link" href="{{ shot.link | url }}">
+          <img alt="{{ shot.alt }}" src="{{ shot.image | url }}">
+          <figcaption>
+            <span class="shot-meta">{{ shot.meta }}</span>
+            {{ shot.caption }}
+            <span class="shot-go">Read more</span>
+          </figcaption>
+        </a>
+        {%- else %}
         <img alt="{{ shot.alt }}" src="{{ shot.image | url }}">
         <figcaption>
           <span class="shot-meta">{{ shot.meta }}</span>
           {{ shot.caption }}
         </figcaption>
+        {%- endif %}
       </figure>
     {%- endfor %}
     </div>
