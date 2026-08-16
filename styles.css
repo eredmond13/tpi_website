@@ -568,20 +568,35 @@ main,
   width: min(100% - 2.5rem, 62rem);
 }
 
+/* Every page starts the same distance below the header. There are three page
+   tops on this site, the homepage, the standard pages, and article and
+   newsletter pages, and they all use this. More air above the title than below
+   it, so the title reads as the start of the page rather than as a label
+   floating over the content. */
 .home-front,
-/* More air above the page title than below it, so the title reads as the start
-   of the page rather than as a label floating over the content. */
-.page-hero {
-  padding: 6.5rem 0 1.5rem;
+.page-hero,
+.article-main {
+  padding-top: 6.5rem;
 }
 
-.page-hero .eyebrow {
+.page-hero {
+  padding-bottom: 1.5rem;
+}
+
+.page-hero .eyebrow,
+.article-main > .eyebrow {
   margin-bottom: 0.9rem;
 }
 
 @media (max-width: 820px) {
+  .home-front,
+  .page-hero,
+  .article-main {
+    padding-top: 3.6rem;
+  }
+
   .page-hero {
-    padding: 3.6rem 0 0.5rem;
+    padding-bottom: 0.5rem;
   }
 }
 
