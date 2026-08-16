@@ -1,0 +1,20 @@
+[
+  {
+    "image": "/pictures/home/highlights/placeholder-1.jpg",
+    "alt": "Replace with a photograph of an institute event",
+    "caption": "Replace this entry. Add a photo to pictures/home/highlights/ and describe it here.",
+    "meta": "Event name, month year"
+  },
+  {
+    "image": "/pictures/home/highlights/placeholder-2.jpg",
+    "alt": "Replace with a photograph of an institute event",
+    "caption": "Each entry needs an image, an alt description, a caption, and a meta line.",
+    "meta": "Event name, month year"
+  },
+  {
+    "image": "/pictures/home/highlights/placeholder-3.jpg",
+    "alt": "Replace with a photograph of an institute event",
+    "caption": "Delete any entry you do not want. The whole band disappears if the file is emptied to [].",
+    "meta": "Event name, month year"
+  }
+]

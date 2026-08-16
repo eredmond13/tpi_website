@@ -41,14 +41,16 @@ permalink: /index.html
     {%- for hub in hubs %}
       <a class="hub-card" href="{{ "/research/" | url }}{{ hub.slug }}.html">
         {% if hub.image %}<img class="hub-card-media" alt="{{ hub.imageAlt }}" src="{{ hub.image | url }}">{% endif %}
-        <p class="hub-card-name">{{ hub.name }}</p>
-        <p class="hub-card-dek">{{ hub.dek }}</p>
-        <ul class="hub-card-nodes">
-        {%- for node in hub.nodes %}{% if loop.index0 < 3 %}
-          <li>{{ node }}</li>
-        {%- endif %}{% endfor %}
-        </ul>
-        <span class="hub-card-go">Explore</span>
+        <div class="hub-card-body">
+          <p class="hub-card-name">{{ hub.name }}</p>
+          <p class="hub-card-dek">{{ hub.dek }}</p>
+          <ul class="hub-card-nodes">
+          {%- for node in hub.nodes %}{% if loop.index0 < 3 %}
+            <li>{{ node }}</li>
+          {%- endif %}{% endfor %}
+          </ul>
+          <span class="hub-card-go">Explore</span>
+        </div>
       </a>
     {%- endfor %}
     </div>
@@ -105,6 +107,35 @@ permalink: /index.html
   </div>
 </section>
 
+
+{% if highlights.length %}
+<section class="module-band" id="highlights">
+  <div class="section-header">
+    <p class="section-label">In the room</p>
+    <h2>Events and seminars</h2>
+    <p><a class="section-link" href="{{ "/news.html#events" | url }}">All events</a></p>
+  </div>
+
+  <div class="shot-strip">
+    <div class="shot-track">
+    {%- for shot in highlights %}
+      <figure class="shot">
+        <img alt="{{ shot.alt }}" src="{{ shot.image | url }}">
+        <figcaption>
+          <span class="shot-meta">{{ shot.meta }}</span>
+          {{ shot.caption }}
+        </figcaption>
+      </figure>
+    {%- endfor %}
+    </div>
+    <div class="shot-controls">
+      <button type="button" class="shot-arrow" data-dir="-1" aria-label="Scroll photographs left">&larr;</button>
+      <button type="button" class="shot-arrow" data-dir="1" aria-label="Scroll photographs right">&rarr;</button>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <section class="quote-band">
   <figure>
     <blockquote>We cannot safely unlock the potential of AI and other emerging
@@ -120,10 +151,14 @@ permalink: /index.html
 /* The hub strip scrolls natively, so it works without this. The arrows just
    make that obvious on a desktop where there is nothing to swipe. */
 (function () {
-  var strip = document.querySelector(".hub-strip");
+  var pairs = [[".hub-strip", ".hub-track", ".hub-arrow"], [".shot-strip", ".shot-track", ".shot-arrow"]];
+  pairs.forEach(function (pair) { wire(pair[0], pair[1], pair[2]); });
+
+  function wire(stripSel, trackSel, arrowSel) {
+  var strip = document.querySelector(stripSel);
   if (!strip) return;
-  var track = strip.querySelector(".hub-track");
-  var arrows = Array.prototype.slice.call(strip.querySelectorAll(".hub-arrow"));
+  var track = strip.querySelector(trackSel);
+  var arrows = Array.prototype.slice.call(strip.querySelectorAll(arrowSel));
   arrows.forEach(function (btn) {
     btn.addEventListener("click", function () {
       track.scrollBy({ left: Number(btn.dataset.dir) * track.clientWidth * 0.85, behavior: "smooth" });
@@ -138,5 +173,6 @@ permalink: /index.html
   track.addEventListener("scroll", sync);
   window.addEventListener("resize", sync);
   sync();
+  }
 })();
 </script>
