@@ -15,7 +15,9 @@
       "Cyber Test Range",
       "Data Centers"
     ],
-    "short": "Critical Infrastructure"
+    "short": "Critical Infrastructure",
+    "image": "/pictures/research/critical-infrastructure.jpg",
+    "imageAlt": "Close detail of a circuit board"
   },
   {
     "slug": "drones",
@@ -33,7 +35,9 @@
       "Lethal autonomous systems",
       "NATO partnership"
     ],
-    "short": "Drones"
+    "short": "Drones",
+    "image": "/pictures/research/drones.jpg",
+    "imageAlt": "A swarm of small drones flying over desert terrain"
   },
   {
     "slug": "ai-governance",
@@ -52,7 +56,9 @@
       "Human judgment and accountability",
       "Tech Talk speaker series"
     ],
-    "short": "AI Governance"
+    "short": "AI Governance",
+    "image": "/pictures/research/ai-governance.jpg",
+    "imageAlt": "Circuit board detail in black and white"
   },
   {
     "slug": "cryptocurrencies",
@@ -70,7 +76,9 @@
       "Global adoption index",
       "Financial privacy"
     ],
-    "short": "Crypto"
+    "short": "Crypto",
+    "image": "/pictures/research/cryptocurrencies.jpg",
+    "imageAlt": "A cryptocurrency price chart on a dark screen"
   },
   {
     "slug": "geopolitics",
@@ -88,7 +96,9 @@
       "Subsea cables and critical infrastructure",
       "Great power competition"
     ],
-    "short": "Geopolitics"
+    "short": "Geopolitics",
+    "image": "/pictures/research/geopolitics.jpg",
+    "imageAlt": "A polar convoy of oversized vehicles on the ice"
   },
   {
     "slug": "space",
@@ -106,6 +116,8 @@
       "Satellite systems",
       "Space governance"
     ],
-    "short": "Space"
+    "short": "Space",
+    "image": "/pictures/research/space.jpg",
+    "imageAlt": "The Skylab space station in orbit above Earth"
   }
 ]

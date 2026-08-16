@@ -19,7 +19,9 @@ permalink: /index.html
         <p class="link-row"><a href="{{ "/people.html" | url }}">Meet the team</a><a href="{{ "/research.html" | url }}">Research hubs</a></p>
       </div>
       <figure class="lead-media">
-        <img alt="Institute research session" src="{{ "/pictures/home/server-infrastructure.jpg" | url }}">
+        <img alt="A swarm of small drones flying over desert terrain" src="{{ "/pictures/research/drones.jpg" | url }}">
+        <figcaption>Drone swarm trials. Our Drones and Robotics hub studies what
+        full-spectrum autonomy means for NATO and its partners.</figcaption>
       </figure>
     </article>
 
@@ -38,6 +40,7 @@ permalink: /index.html
     <div class="hub-track">
     {%- for hub in hubs %}
       <a class="hub-card" href="{{ "/research/" | url }}{{ hub.slug }}.html">
+        {% if hub.image %}<img class="hub-card-media" alt="{{ hub.imageAlt }}" src="{{ hub.image | url }}">{% endif %}
         <p class="hub-card-name">{{ hub.name }}</p>
         <p class="hub-card-dek">{{ hub.dek }}</p>
         <ul class="hub-card-nodes">

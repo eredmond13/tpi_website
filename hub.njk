@@ -16,6 +16,12 @@ eleventyComputed:
   <p class="dek">{{ hub.dek }}</p>
 </section>
 
+{% if hub.image %}
+<figure class="hub-hero">
+  <img alt="{{ hub.imageAlt }}" src="{{ hub.image | url }}">
+</figure>
+{% endif %}
+
 <section class="page-block" id="about-hub">
   <div class="hub-intro">
     <div class="hub-body">
