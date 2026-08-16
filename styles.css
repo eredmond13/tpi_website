@@ -2563,3 +2563,19 @@ body.is-entering main {
 .people-directory {
   scroll-margin-top: 7rem;
 }
+
+/* Hidden overflow items on a hub news list, and the button that reveals them.
+   Without this the [hidden] attribute loses to the grid display rule. */
+.news-list article[hidden] {
+  display: none;
+}
+
+.show-all {
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--red);
+  background: none;
+  color: var(--red);
+  font: inherit;
+  cursor: pointer;
+}

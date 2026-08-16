@@ -35,63 +35,6 @@ eleventyComputed:
   </div>
 </section>
 
-{%- set hubPubs = [] %}
-{%- set hubNews = [] %}
-{%- for post in collections.article | newest %}
-  {%- if hub.slug in (post.data.hubs or []) %}
-    {%- if post.data.category in ["Report", "Op-ed", "Policy brief", "Policy infographic"] %}
-      {%- set hubPubs = (hubPubs.push(post), hubPubs) %}
-    {%- else %}
-      {%- set hubNews = (hubNews.push(post), hubNews) %}
-    {%- endif %}
-  {%- endif %}
-{%- endfor %}
-
-{% if hubPubs.length %}
-<section class="page-block" id="publications">
-  <div class="block-header">
-    <p class="section-label">Publications</p>
-    <h2>From this hub</h2>
-  </div>
-  <div class="news-list">
-  {%- for post in hubPubs %}
-    <article>
-      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
-      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-      <p class="article-tag">{{ post.data.category }}</p>
-      <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-      <p>{{ post.data.summary }}</p>
-    </article>
-  {%- endfor %}
-  </div>
-</section>
-{% endif %}
-
-{% if hubNews.length %}
-<section class="page-block" id="news">
-  <div class="block-header">
-    <p class="section-label">News</p>
-    <h2>News and events</h2>
-  </div>
-  <div class="news-list">
-  {%- for post in hubNews %}
-    <article>
-      {%- set href = post.data.externalUrl if post.data.externalUrl else (post.data.interviewLink | url if post.data.interviewLink else post.url | url) %}
-      {%- set away = ' target="_blank" rel="noopener"' if post.data.externalUrl else "" %}
-      {% if post.data.image %}<a class="article-thumb" href="{{ href }}"{{ away | safe }}><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-      {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
-      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-      <p class="article-tag">{{ post.data.category }}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
-      <h3><a href="{{ href }}"{{ away | safe }}>{{ post.data.title }}</a></h3>
-      <p>{{ post.data.summary }}</p>
-    </article>
-  {%- endfor %}
-  </div>
-</section>
-{% endif %}
-
-
 {#- Hub team. A person joins a hub with a "hubs:" line in their profile, and
     leads it with a "hubLead:" line. Leads come first, then everyone else in
     order of seniority, using the same group order as the People page. -#}
@@ -158,6 +101,78 @@ eleventyComputed:
     track.addEventListener("scroll", sync);
     window.addEventListener("resize", sync);
     sync();
+  });
+})();
+</script>
+{% endif %}
+
+{%- set hubPubs = [] %}
+{%- set hubNews = [] %}
+{%- for post in collections.article | newest %}
+  {%- if hub.slug in (post.data.hubs or []) %}
+    {%- if post.data.category in ["Report", "Op-ed", "Policy brief", "Policy infographic"] %}
+      {%- set hubPubs = (hubPubs.push(post), hubPubs) %}
+    {%- else %}
+      {%- set hubNews = (hubNews.push(post), hubNews) %}
+    {%- endif %}
+  {%- endif %}
+{%- endfor %}
+
+{% if hubPubs.length %}
+<section class="page-block" id="publications">
+  <div class="block-header">
+    <p class="section-label">Publications</p>
+    <h2>From this hub</h2>
+  </div>
+  <div class="news-list">
+  {%- for post in hubPubs %}
+    <article>
+      {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
+      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      <p class="article-tag">{{ post.data.category }}</p>
+      <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+      <p>{{ post.data.summary }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if hubNews.length %}
+<section class="page-block" id="news">
+  <div class="block-header">
+    <p class="section-label">News</p>
+    <h2>News and events</h2>
+  </div>
+  <div class="news-list">
+  {%- for post in hubNews %}
+    <article{% if loop.index0 >= 8 %} class="is-extra" hidden{% endif %}>
+      {%- set href = post.data.externalUrl if post.data.externalUrl else (post.data.interviewLink | url if post.data.interviewLink else post.url | url) %}
+      {%- set away = ' target="_blank" rel="noopener"' if post.data.externalUrl else "" %}
+      {% if post.data.image %}<a class="article-thumb" href="{{ href }}"{{ away | safe }}><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+      {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{{ post.data.category }}</span></a>{% endif %}
+      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      <p class="article-tag">{{ post.data.category }}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
+      <h3><a href="{{ href }}"{{ away | safe }}>{{ post.data.title }}</a></h3>
+      <p>{{ post.data.summary }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+  {% if hubNews.length > 8 %}
+  <p class="link-row"><button type="button" class="show-all">Show all {{ hubNews.length }} news items</button></p>
+  {% endif %}
+</section>
+
+<script>
+/* Everything is in the page already, so with JavaScript off the full list is
+   visible and nothing is hidden from anyone. */
+(function () {
+  var btn = document.querySelector(".show-all");
+  if (!btn) return;
+  btn.addEventListener("click", function () {
+    document.querySelectorAll(".news-list article.is-extra").forEach(function (el) { el.hidden = false; });
+    btn.remove();
   });
 })();
 </script>
