@@ -1,6 +1,6 @@
 ---
 name: "Lucas Galioglu"
-role: "Junior Fellow"
+role: "Alumni"
 group: "Junior Fellows"
 order: 74
 ---

@@ -1,6 +1,6 @@
 ---
 name: "Fiona Neibart"
-role: "Junior Fellow"
+role: "Alumni"
 group: "Junior Fellows"
 order: 67
 photo: /pictures/people/fiona-neibart.jpg

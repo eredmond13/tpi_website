@@ -1,6 +1,6 @@
 ---
 name: "Cynthia Tan"
-role: "Junior Fellow"
+role: "Alumni"
 group: "Junior Fellows"
 order: 62
 hubs: ["cryptocurrencies"]
