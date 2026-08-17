@@ -19,22 +19,22 @@ eleventyComputed:
 {% if hub.image %}
 <figure class="hub-hero">
   <img alt="{{ hub.imageAlt }}" src="{{ hub.image | url }}">
+  {% if hub.imageCredit %}<figcaption>{{ hub.imageCredit | safe }}</figcaption>{% endif %}
 </figure>
 {% endif %}
 
 <section class="page-block" id="about-hub">
   <div class="hub-intro">
     <div class="hub-body">
-      {%- for para in hub.body %}
+      {%- for para in hub.intro %}
       <p>{{ para }}</p>
       {%- endfor %}
-      {% if hub.leads %}<p class="hub-leads">{{ hub.leads }}</p>{% endif %}
     </div>
     <div class="hub-side">
       <p class="section-label">Focus</p>
       <ul class="hub-nodes">
         {%- for node in hub.nodes %}
-        <li>{{ node }}</li>
+        <li>{{ node.name }}</li>
         {%- endfor %}
       </ul>
     </div>
@@ -111,6 +111,23 @@ eleventyComputed:
   });
 })();
 </script>
+{% endif %}
+
+{% if hub.nodes.length %}
+<section class="page-block" id="nodes">
+  <div class="block-header">
+    <p class="section-label">Within this hub</p>
+    <h2>Research nodes</h2>
+  </div>
+  <div class="node-grid">
+  {%- for node in hub.nodes %}
+    <article class="node">
+      <h3>{{ node.name }}</h3>
+      <p>{{ node.text }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
 {% endif %}
 
 {%- set hubPubs = [] %}

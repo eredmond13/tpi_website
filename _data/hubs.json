@@ -2,20 +2,25 @@
   {
     "slug": "critical-infrastructure",
     "name": "Critical Infrastructure",
-    "dek": "Resilient policy frameworks for the digital and physical systems that underpin national security.",
-    "body": [
-      "This hub builds resilient policy frameworks for the essential digital and physical systems that underpin national security. Our work leverages the Cyber Test Range to identify hardware vulnerabilities, fortifies the Semiconductor Supply Chain through empirical network modeling, and ensures Data Centers are governed by policies that balance responsible development with economic and social impact.",
-      "The Semiconductor Supply Chain Security node, funded by the Department of Defense, fortifies the semiconductor ecosystem by analyzing both hardware and software vulnerabilities within the supply chain. It develops an empirical network model using financial data to map supplier webs and pinpoint critical bottlenecks.",
-      "The Cyber Test Range, supported by a generous grant from Craig Newmark Philanthropies, actively analyzes cybersecurity threats and vulnerabilities critical for cyber civil defense. Driven by a team of military and veteran researchers, alongside undergraduate research support, the Range pioneers security research and tool development in critical hardware.",
-      "The Data Centers node analyzes the complex policy challenges surrounding data center deployment and operations. We focus on ensuring responsible development through effective regulation, evaluating their economic impact on local and regional economies, and fostering social engagement to benefit host communities and mitigate environmental concerns."
-    ],
-    "leads": "Dr. Sarah Kreps co-leads the semiconductor supply chain and data centre research.",
-    "nodes": [
-      "Semiconductor Supply Chain Security",
-      "Cyber Test Range",
-      "Data Centers"
-    ],
     "short": "Critical Infrastructure",
+    "dek": "Resilient policy frameworks for the digital and physical systems that underpin national security.",
+    "intro": [
+      "This hub builds resilient policy frameworks for the essential digital and physical systems that underpin national security. Our work leverages the Cyber Test Range to identify hardware vulnerabilities, fortifies the Semiconductor Supply Chain through empirical network modeling, and ensures Data Centers are governed by policies that balance responsible development with economic and social impact."
+    ],
+    "nodes": [
+      {
+        "name": "Semiconductor Supply Chain Security",
+        "text": "The Semiconductor Supply Chain Security node, funded by the Department of Defense, fortifies the semiconductor ecosystem by analyzing both hardware and software vulnerabilities within the supply chain. It develops an empirical network model using financial data to map supplier webs and pinpoint critical bottlenecks."
+      },
+      {
+        "name": "Cyber Test Range",
+        "text": "The Cyber Test Range, supported by a generous grant from Craig Newmark Philanthropies, actively analyzes cybersecurity threats and vulnerabilities critical for cyber civil defense. Driven by a team of military and veteran researchers, alongside undergraduate research support, the Range pioneers security research and tool development in critical hardware."
+      },
+      {
+        "name": "Data Centers",
+        "text": "The Data Centers node analyzes the complex policy challenges surrounding data center deployment and operations. We focus on ensuring responsible development through effective regulation, evaluating their economic impact on local and regional economies, and fostering social engagement to benefit host communities and mitigate environmental concerns."
+      }
+    ],
     "image": "/pictures/research/critical-infrastructure.jpg",
     "imageAlt": "Aerial view of a hydroelectric dam and lock under construction on a river",
     "imageCredit": "<a href=\"https://catalog.archives.gov/id/175539477\">National Archives</a>. Public domain."
@@ -23,21 +28,19 @@
   {
     "slug": "drones",
     "name": "Drones and Robotics",
+    "short": "Drones",
     "dek": "The future of military drone technologies across air, land, and sea, and the policy needed to meet them.",
-    "body": [
+    "intro": [
       "This hub drives research into the future of military drone technologies across domains. We investigate Full Spectrum Drone Warfare and its global implications, and provide strategic policy insights to NATO members and partner states. Our publications address the urgent need for new technologies and strategies for addressing emerging drone threats in a world of record drone proliferation.",
       "This year, Director Dr. Sarah Kreps and Executive Director Dr. James Patton Rogers released 'Drones: What Everyone Needs to Know,' a new book with Oxford University Press. The book traces the evolution of drone technology and explains how unmanned systems across air, land and sea continue to transform modern warfare. Their work has led to briefings at the Department of State, the Pentagon's Joint Staff, the United Nations, Doctors Without Borders, and the World Economic Forum.",
-      "Non-Resident Senior Fellow Dr. Paul Lushenko and Dr. Jennifer Spindel of the University of New Hampshire conducted a pioneering TPI study, 'America's Skies: Public Support for Homeland Counter-Drone Operations,' offering the first experimental data on how Americans view domestic counter-drone activities. Their findings were presented to the National Security Council at the White House.",
-      "The Full Spectrum Drone Warfare node analyzes the Third Drone Age, which is defined by the seamless, autonomous integration of drones across air, land, and sea. Developed from a 2024 NATO funded Advanced Research Project, it is an operational concept requiring both a military-civil technology fusion and the doctrinal reform of allied forces to embrace cross-domain machine-teaming."
+      "Non-Resident Senior Fellow Dr. Paul Lushenko and Dr. Jennifer Spindel of the University of New Hampshire conducted a pioneering TPI study, 'America's Skies: Public Support for Homeland Counter-Drone Operations,' offering the first experimental data on how Americans view domestic counter-drone activities. Their findings were presented to the National Security Council at the White House."
     ],
-    "leads": "Led by Executive Director Dr. James Patton Rogers, Director Dr. Sarah Kreps, Senior Fellow Lt. Col. Paul Lushenko, Project Researcher Elizabeth H. Redmond, and Director's Fellow Maj. John Miller.",
     "nodes": [
-      "Full Spectrum Drone Warfare",
-      "Counter-drone policy",
-      "Lethal autonomous systems",
-      "NATO partnership"
+      {
+        "name": "Full Spectrum Drone Warfare",
+        "text": "The Full Spectrum Drone Warfare node analyzes the Third Drone Age, which is defined by the seamless, autonomous integration of drones across air, land, and sea. Developed from a 2024 NATO funded Advanced Research Project, it is an operational concept requiring both a military-civil technology fusion and the doctrinal reform of allied forces to embrace cross-domain machine-teaming."
+      }
     ],
-    "short": "Drones",
     "image": "/pictures/research/drones.jpg",
     "imageAlt": "An airman marshalling an MQ-9 Reaper on an airfield apron",
     "imageCredit": "U.S. Air National Guard photo by Tech. Sgt. Tristan D. Viglianco, <a href=\"https://www.dvidshub.net/image/9783817/mq-9-reaper-arrives-battle-creek-angb\">DVIDS</a>. Public domain."
@@ -45,21 +48,25 @@
   {
     "slug": "ai-governance",
     "name": "AI Governance and Defense",
-    "dek": "How algorithmic systems reshape the conduct and governance of modern defence and security.",
-    "body": [
-      "This hub investigates how algorithmic systems reshape the conduct and governance of modern defense and security. Leveraging the interdisciplinary Algorithmic Warfare Research Lab, we examine how AI influences human judgment and institutional accountability in conflict. We also engage leading experts through the Tech Talk speaker series to foster new minds and accelerate the development of ethical, cutting-edge AI policy.",
-      "The Algorithmic Warfare Research Lab, led by Fellow Joshua Greenburg and Junior Fellows Varija Mehta and Aniket Martins, studies how algorithmic systems reshape the conduct and governance of war. By uniting expertise from public policy, law, computer science, engineering, philosophy, and sociology, the lab examines how these systems influence human judgment and institutional accountability. The work bridges scholarly research and practical policy needs, producing insights for academics, practitioners, and policymakers through applied research settings.",
-      "Expanding on previous work, Director Dr. Sarah Kreps, Senior Fellow Dr. Doug Kriner, and Fellow Adi Rao focus on frontier policy questions regarding AI regulation, the pace of innovation, and misinformation.",
-      "Through Tech Talk, TPI brings together AI and cyber security experts from academia, industry, and government to discuss frontier issues with students and policymakers. The series is dedicated to fostering new minds, interdisciplinary collaboration, and ethical, cutting-edge AI policy development."
-    ],
-    "leads": "Led by Senior Fellow Dr. Chris Earls and Director Dr. Sarah Kreps, supported by Senior Fellow Dr. Judith Germano.",
-    "nodes": [
-      "Algorithmic Warfare Research Lab",
-      "AI governance and regulation",
-      "Human judgment and accountability",
-      "Tech Talk speaker series"
-    ],
     "short": "AI Governance",
+    "dek": "How algorithmic systems reshape the conduct and governance of modern defence and security.",
+    "intro": [
+      "This hub investigates how algorithmic systems reshape the conduct and governance of modern defense and security. Leveraging the interdisciplinary Algorithmic Warfare Research Lab, we examine how AI influences human judgment and institutional accountability in conflict. We also engage leading experts through the Tech Talk speaker series to foster new minds and accelerate the development of ethical, cutting-edge AI policy."
+    ],
+    "nodes": [
+      {
+        "name": "Algorithmic Warfare Research Lab",
+        "text": "The Algorithmic Warfare Research Lab, led by Fellow Joshua Greenburg and Junior Fellows Varija Mehta and Aniket Martins, studies how algorithmic systems reshape the conduct and governance of war. By uniting expertise from public policy, law, computer science, engineering, philosophy, and sociology, the lab examines how these systems influence human judgment and institutional accountability. The work bridges scholarly research and practical policy needs, producing insights for academics, practitioners, and policymakers through applied research settings."
+      },
+      {
+        "name": "AI Governance",
+        "text": "Expanding on previous work, Director Dr. Sarah Kreps, Senior Fellow Dr. Doug Kriner, and Fellow Adi Rao focus on frontier policy questions regarding AI regulation, the pace of innovation, and misinformation."
+      },
+      {
+        "name": "Tech Talk",
+        "text": "Through Tech Talk, TPI brings together AI and cyber security experts from academia, industry, and government to discuss frontier issues with students and policymakers. The series is dedicated to fostering new minds, interdisciplinary collaboration, and ethical, cutting-edge AI policy development."
+      }
+    ],
     "image": "/pictures/research/ai-governance.jpg",
     "imageAlt": "Airmen observing a four-legged unmanned ground vehicle walking on grass",
     "imageCredit": "U.S. Air Force photo by Airman 1st Class Tiffany Del Oso, <a href=\"https://www.dvidshub.net/image/6419737/computerized-canines-join-team-tyndall\">DVIDS</a>. Public domain."
@@ -67,20 +74,18 @@
   {
     "slug": "cryptocurrencies",
     "name": "Cryptocurrencies",
-    "dek": "How citizens of authoritarian states secure financial freedom, and how Bitcoin and stablecoins are used worldwide.",
-    "body": [
-      "This hub, funded by the Human Rights Foundation and the Reynolds Foundation, studies how citizens of authoritarian regimes secure financial freedom. Our work investigates the global use of Bitcoin and stablecoins as tools to counter suppressive financial controls. We leverage this research to create a global adoption index, advising policymakers and industry leaders on effective strategies to secure financial freedom worldwide.",
-      "In 2025, Dr. Kreps debuted the Global Bitcoin Adoption Index at the Oslo Freedom Forum, based on 25,000 surveys and 250 interviews. Findings revealed that adoption is driven by financial surveillance, inflation, and need for banking alternatives in regions with unstable financial systems. Dr. Kreps also presented data on global Bitcoin adoption patterns at the Bitcoin Policy Summit, examining how cryptocurrency usage varies across regions and political systems.",
-      "The Financial Freedom project investigates the mechanisms of cryptocurrency uptake by individuals in authoritarian regimes. Led by Dr. Sarah Kreps, the research employs novel quantitative and qualitative methods across 12 countries to understand specific adoption, motivations, and usage patterns of Bitcoin and stablecoins. This deep, evidence-based research aims to create a global crypto adoption index for policymakers."
-    ],
-    "leads": "Led by Director Dr. Sarah Kreps.",
-    "nodes": [
-      "Financial Freedom",
-      "Bitcoin and stablecoin adoption",
-      "Global adoption index",
-      "Financial privacy"
-    ],
     "short": "Crypto",
+    "dek": "How citizens of authoritarian states secure financial freedom, and how Bitcoin and stablecoins are used worldwide.",
+    "intro": [
+      "This hub, funded by the Human Rights Foundation and the Reynolds Foundation, studies how citizens of authoritarian regimes secure financial freedom. Our work investigates the global use of Bitcoin and stablecoins as tools to counter suppressive financial controls. We leverage this research to create a global adoption index, advising policymakers and industry leaders on effective strategies to secure financial freedom worldwide.",
+      "In 2025, Dr. Kreps debuted the Global Bitcoin Adoption Index at the Oslo Freedom Forum, based on 25,000 surveys and 250 interviews. Findings revealed that adoption is driven by financial surveillance, inflation, and need for banking alternatives in regions with unstable financial systems. Dr. Kreps also presented data on global Bitcoin adoption patterns at the Bitcoin Policy Summit, examining how cryptocurrency usage varies across regions and political systems."
+    ],
+    "nodes": [
+      {
+        "name": "Financial Freedom",
+        "text": "The Financial Freedom project investigates the mechanisms of cryptocurrency uptake by individuals in authoritarian regimes. Led by Dr. Sarah Kreps, the research employs novel quantitative and qualitative methods across 12 countries to understand specific adoption, motivations, and usage patterns of Bitcoin and stablecoins. This deep, evidence-based research aims to create a global crypto adoption index for policymakers."
+      }
+    ],
     "image": "/pictures/research/cryptocurrencies.jpg",
     "imageAlt": "A Bitcoin Embassy shopfront on a street in Lodz, Poland, with passers-by",
     "imageCredit": "Photo by Mariochom, <a href=\"https://commons.wikimedia.org/w/index.php?curid=75412033\">Wikimedia Commons</a>, CC BY-SA 4.0"
@@ -88,20 +93,21 @@
   {
     "slug": "geopolitics",
     "name": "Geopolitics and Technology",
-    "dek": "Strategic frameworks for the technological competition that defines modern great power rivalry.",
-    "body": [
-      "This hub provides strategic frameworks used to navigate the global technological competition which defines modern great power rivalry. We focus on identifying regions of future strategic importance, securing high-value infrastructure in contested domains. Our analysis informs specialized methodology, strategic foresight, simulations, and wargaming, which stress test emerging policy to ensure policymakers are equipped to address the escalating challenges of tech-driven geopolitical dominance.",
-      "The Strategic Simulations node utilizes geostrategic simulations and advanced wargaming methodologies to test policy assumptions and reveal emerging risks. We engage directly with global security partners, including the U.S. Congress, NORAD and NORTHCOM, the U.S. Air Force Academy, NATO partners and the British Royal Navy, to model scenarios and deliver actionable, data-driven insights. Our objective is to move beyond theoretical analysis into practical, strategic decision support.",
-      "The Arctic Security node focuses on strategic competition in the High North, examining the security of critical infrastructure like subsea cables, military basing and ports. We host high-level policy engagement to bridge academic research with global policy needs. Our work delivers tailored insights on navigating this rapidly evolving geopolitical domain."
-    ],
-    "leads": "Led by Senior Fellow Dr. Gregory Falco and Executive Director Dr. James Patton Rogers.",
-    "nodes": [
-      "Strategic simulations and wargaming",
-      "Arctic security",
-      "Subsea cables and critical infrastructure",
-      "Great power competition"
-    ],
     "short": "Geopolitics",
+    "dek": "Strategic frameworks for the technological competition that defines modern great power rivalry.",
+    "intro": [
+      "This hub provides strategic frameworks used to navigate the global technological competition which defines modern great power rivalry. We focus on identifying regions of future strategic importance, securing high-value infrastructure in contested domains. Our analysis informs specialized methodology, strategic foresight, simulations, and wargaming, which stress test emerging policy to ensure policymakers are equipped to address the escalating challenges of tech-driven geopolitical dominance."
+    ],
+    "nodes": [
+      {
+        "name": "Strategic Simulations",
+        "text": "The Strategic Simulations node utilizes geostrategic simulations and advanced wargaming methodologies to test policy assumptions and reveal emerging risks. We engage directly with global security partners, including the U.S. Congress, NORAD and NORTHCOM, the U.S. Air Force Academy, NATO partners and the British Royal Navy, to model scenarios and deliver actionable, data-driven insights. Our objective is to move beyond theoretical analysis into practical, strategic decision support."
+      },
+      {
+        "name": "Arctic Security",
+        "text": "The Arctic Security node focuses on strategic competition in the High North, examining the security of critical infrastructure like subsea cables, military basing and ports. We host high-level policy engagement to bridge academic research with global policy needs. Our work delivers tailored insights on navigating this rapidly evolving geopolitical domain."
+      }
+    ],
     "image": "/pictures/research/geopolitics.jpg",
     "imageAlt": "A polar convoy of oversized vehicles on the ice",
     "imageCredit": ""
@@ -109,21 +115,22 @@
   {
     "slug": "space",
     "name": "Space Security",
+    "short": "Space",
     "dek": "The security and governance of space systems as commercial actors become operational gatekeepers.",
-    "body": [
+    "intro": [
       "DRAFT. This hub examines the security and governance of space systems at a moment when governments depend on commercial providers for capabilities once held by states alone. Our work addresses the cybersecurity of satellites and ground segments, the legal and ethical questions raised when commercial assets become military targets, and the governance gap opening as private operators become the gatekeepers of orbital access.",
-      "The Space Cybersecurity node examines the protection of satellites, ground stations, and the data links between them. Building on work in the Aerospace Adversary Lab, it addresses vulnerabilities across critical space infrastructure and the international standards emerging to govern it.",
-      "The Commercial Space and Armed Conflict node investigates what follows when privately owned constellations become essential to military operations, from questions of targeting and neutrality to the terms on which states depend on companies they do not control.",
       "DRAFT. Replace this description with your own. The 2024-25 annual report predates the hub, so unlike the other five this text was written to match their style rather than taken from a source document."
     ],
-    "leads": "Senior Fellow Dr. Gregory Falco works on space cybersecurity and directs the Aerospace Adversary Lab.",
     "nodes": [
-      "Space cybersecurity",
-      "Commercial space and armed conflict",
-      "Satellite systems",
-      "Space governance"
+      {
+        "name": "Space Cybersecurity",
+        "text": "The Space Cybersecurity node examines the protection of satellites, ground stations, and the data links between them. Building on work in the Aerospace Adversary Lab, it addresses vulnerabilities across critical space infrastructure and the international standards emerging to govern it."
+      },
+      {
+        "name": "Commercial Space and Armed Conflict",
+        "text": "The Commercial Space and Armed Conflict node investigates what follows when privately owned constellations become essential to military operations, from questions of targeting and neutrality to the terms on which states depend on companies they do not control."
+      }
     ],
-    "short": "Space",
     "image": "/pictures/research/space.jpg",
     "imageAlt": "A small satellite released from a robotic arm above the Earth",
     "imageCredit": "NASA, <a href=\"https://images.nasa.gov/details/iss056e025331\">image iss056e025331</a>. Public domain."

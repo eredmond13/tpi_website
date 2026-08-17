@@ -2524,12 +2524,6 @@ body.is-entering main {
   max-width: 44rem;
 }
 
-.hub-leads {
-  padding-top: 1rem;
-  border-top: 1px solid #d8d8d8;
-  color: var(--ink-body, #444);
-}
-
 .hub-nodes {
   list-style: none;
   margin: 0.8rem 0 0;
@@ -3256,4 +3250,28 @@ body.is-entering main {
   .nav-group summary {
     cursor: default;
   }
+}
+
+/* Research nodes. Set apart from the hub's own description above, so a reader
+   can tell the overview from the individual projects inside it. */
+.node-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2.2rem 2.6rem;
+}
+
+.node h3 {
+  margin: 0 0 0.6rem;
+  padding-top: 0.9rem;
+  border-top: 2px solid var(--red);
+  font-family: var(--font-section);
+  font-size: 1.02rem;
+  font-weight: 700;
+}
+
+.node p {
+  margin: 0;
+  color: var(--ink-body, #3a3a3a);
+  font-size: 0.92rem;
+  line-height: 1.55;
 }

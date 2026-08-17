@@ -40,7 +40,7 @@ permalink: /index.html
           <p class="hub-card-dek">{{ hub.dek }}</p>
           <ul class="hub-card-nodes">
           {%- for node in hub.nodes %}{% if loop.index0 < 3 %}
-            <li>{{ node }}</li>
+            <li>{{ node.name }}</li>
           {%- endif %}{% endfor %}
           </ul>
           <span class="hub-card-go">Explore</span>
