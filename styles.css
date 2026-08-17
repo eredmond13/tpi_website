@@ -1579,11 +1579,6 @@ figcaption,
   line-height: 1.6;
 }
 
-.footer-cobrand-logo {
-  width: min(19rem, 100%);
-  height: auto;
-  margin: 1.4rem 0 0.6rem;
-}
 
 .footer-links {
   align-content: start;
@@ -1846,10 +1841,6 @@ body.is-entering main {
   .publication-list article > .article-thumb img,
   .news-archive article > .article-thumb img {
     aspect-ratio: 16 / 10;
-  }
-
-  .footer-cobrand-logo {
-    width: min(15rem, 100%);
   }
 }
 
@@ -2873,10 +2864,10 @@ body.is-entering main {
   max-width: 54rem;
 }
 
+/* The quotation mark sits on its own line above the text. Floating it beside
+   the first line meant it landed on top of the first word. */
 .quote-band blockquote {
-  position: relative;
   margin: 0;
-  padding-left: 2.6rem;
   font-family: var(--font-head);
   font-size: clamp(1.5rem, 2.8vw, 2.2rem);
   font-weight: 800;
@@ -2886,12 +2877,11 @@ body.is-entering main {
 
 .quote-band blockquote::before {
   content: "\201C";
-  position: absolute;
-  left: 0;
-  top: -0.16em;
+  display: block;
+  margin-bottom: -0.28em;
   color: var(--sand, #bbab7e);
-  font-size: 3.4em;
-  line-height: 1;
+  font-size: 2.6em;
+  line-height: 0.8;
 }
 
 .quote-band figcaption {
@@ -2899,7 +2889,7 @@ body.is-entering main {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.6rem;
-  margin: 2rem 0 0 2.6rem;
+  margin: 2rem 0 0;
   padding-top: 1.1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.28);
 }
@@ -2924,12 +2914,8 @@ body.is-entering main {
     grid-auto-columns: minmax(14rem, 16rem);
   }
 
-  .quote-band blockquote {
-    padding-left: 1.6rem;
-  }
-
-  .quote-band figcaption {
-    margin-left: 1.6rem;
+  .quote-band blockquote::before {
+    font-size: 2.2em;
   }
 }
 
@@ -3099,4 +3085,28 @@ body.is-entering main {
   .shot-track {
     grid-auto-columns: minmax(15rem, 18rem);
   }
+}
+
+/* Footer social links. */
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin: 1.4rem 0 0;
+}
+
+.footer-social a {
+  color: inherit;
+  font-family: var(--font-section);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.footer-social a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
 }

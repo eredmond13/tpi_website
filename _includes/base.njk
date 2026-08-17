@@ -48,8 +48,14 @@
         <span>{{ site.parent }}</span>
       </span>
     </a>
-    <img alt="Cornell Brooks Public Policy Tech Policy Institute" class="footer-cobrand-logo" src="{{ "/pictures/logos/tpi-brooks-logo-clean.png" | url }}">
     <p>{{ site.address | safe }}</p>
+    {%- if site.social %}
+    <div class="footer-social">
+      {%- for item in site.social %}
+      <a href="{{ item.href }}" target="_blank" rel="noopener">{{ item.label }}</a>
+      {%- endfor %}
+    </div>
+    {%- endif %}
   </div>
   <div class="footer-links">
     {%- for item in site.footerLinks %}
