@@ -1,7 +1,7 @@
 ---
 name: "Anna Blechová"
 role: "Fellow"
-group: "Fellows"
+group: "Alumni"
 order: 49
 photo: /pictures/people/anna-blechova.jpg
 ---
