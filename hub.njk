@@ -41,6 +41,23 @@ eleventyComputed:
   </div>
 </section>
 
+{% if hub.nodes.length %}
+<section class="page-block" id="nodes">
+  <div class="block-header">
+    <p class="section-label">Within this hub</p>
+    <h2>Research nodes</h2>
+  </div>
+  <div class="node-grid">
+  {%- for node in hub.nodes %}
+    <article class="node">
+      <h3>{{ node.name }}</h3>
+      <p>{{ node.text }}</p>
+    </article>
+  {%- endfor %}
+  </div>
+</section>
+{% endif %}
+
 {#- Hub team. A person joins a hub with a "hubs:" line in their profile, and
     leads it with a "hubLead:" line. Leads come first, then everyone else in
     order of seniority, using the same group order as the People page. -#}
@@ -113,22 +130,7 @@ eleventyComputed:
 </script>
 {% endif %}
 
-{% if hub.nodes.length %}
-<section class="page-block" id="nodes">
-  <div class="block-header">
-    <p class="section-label">Within this hub</p>
-    <h2>Research nodes</h2>
-  </div>
-  <div class="node-grid">
-  {%- for node in hub.nodes %}
-    <article class="node">
-      <h3>{{ node.name }}</h3>
-      <p>{{ node.text }}</p>
-    </article>
-  {%- endfor %}
-  </div>
-</section>
-{% endif %}
+
 
 {%- set hubPubs = [] %}
 {%- set hubNews = [] %}
