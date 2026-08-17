@@ -2988,15 +2988,15 @@ body.is-entering main {
 
 .lead-media figcaption {
   max-width: 46rem;
-  margin-top: 0.8rem;
-  color: var(--ink-body, #555);
-  font-size: 0.84rem;
-  line-height: 1.45;
+  margin-top: 0.5rem;
+  color: var(--ink-muted, #8a8a8a);
+  font-size: 0.7rem;
+  line-height: 1.4;
 }
 
 @media (max-width: 900px) {
   .lead-media img {
-    height: clamp(10rem, 26vh, 16rem);
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -3163,21 +3163,17 @@ body.is-entering main {
 /* Full-bleed hero. The page content sits inside a centred shell, so this pulls
    the image out to both edges of the window and puts the caption back inside
    the shell where the rest of the text lines up. */
-/* The hero sits within the same margins as the rest of the page. Its height is
-   a share of the window rather than a fixed ratio, so the headline and the top
-   of the image are both visible when the page opens, on a laptop as well as a
-   large monitor. */
+/* The hero sits within the same margins as the rest of the page, at the ratio
+   the photograph was cropped to. Capping its height instead cropped the
+   subject out of the frame. */
 .lead-media img {
   width: 100%;
-  height: clamp(12rem, 30vh, 22rem);
+  aspect-ratio: 12 / 5;
   object-fit: cover;
 }
 
 .lead-media figcaption span {
-  display: block;
-  margin-top: 0.25rem;
-  color: var(--ink-muted, #888);
-  font-size: 0.74rem;
+  color: inherit;
 }
 
 .lead-media figcaption span a {
@@ -3186,7 +3182,7 @@ body.is-entering main {
 
 @media (max-width: 820px) {
   .lead-media img {
-    height: clamp(10rem, 26vh, 16rem);
+    aspect-ratio: 16 / 9;
   }
 
 }
