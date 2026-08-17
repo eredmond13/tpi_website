@@ -70,7 +70,8 @@ eleventyComputed:
   <div class="team-strip{% if team.length > 5 %} is-slider{% endif %}">
     <div class="team-track">
     {%- for person in team %}
-      <a class="team-card" href="{{ "/people.html" | url }}#{{ person.fileSlug }}">
+      {#- a hairline in the gap where the leads end and the rest of the team begins -#}
+      <a class="team-card{% if leads.length and loop.index0 == leads.length %} starts-members{% endif %}" href="{{ "/people.html" | url }}#{{ person.fileSlug }}">
         {% if person.data.photo %}<img alt="{{ person.data.name }}" src="{{ person.data.photo | url }}">
         {% else %}<span class="team-nophoto" aria-hidden="true"></span>{% endif %}
         <p class="team-name">{{ person.data.name }}</p>

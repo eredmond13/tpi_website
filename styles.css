@@ -2541,9 +2541,21 @@ body.is-entering main {
 }
 
 .team-card {
+  position: relative;
   display: block;
   text-decoration: none;
   color: inherit;
+}
+
+/* Divides the hub leads from the rest of the team. It sits in the gap between
+   two cards, so it separates them without shifting anything. */
+.team-card.starts-members::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -0.8rem;
+  border-left: 1px solid #dcdcdc;
 }
 
 .team-card img,
