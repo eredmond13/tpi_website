@@ -3,6 +3,7 @@ name: "Joshua Greenberg"
 role: "Fellow"
 group: "Fellows"
 order: 45
+hubs: ["ai-governance"]
 photo: /pictures/people/joshua-greenberg.jpg
 ---
 

@@ -3,6 +3,7 @@ name: "Avishai Melamed"
 role: "Fellow"
 group: "Fellows"
 order: 42
+hubs: ["space"]
 photo: /pictures/people/avishai-melamed.jpg
 ---
 

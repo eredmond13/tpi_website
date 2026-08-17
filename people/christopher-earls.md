@@ -3,6 +3,8 @@ name: "Dr. Christopher Earls"
 role: "Senior Fellow"
 group: "Senior Fellows"
 order: 32
+hubs: ["ai-governance"]
+hubLead: ["ai-governance"]
 photo: /pictures/people/christopher-earls.jpg
 ---
 

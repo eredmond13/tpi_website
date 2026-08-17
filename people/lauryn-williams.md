@@ -3,6 +3,7 @@ name: "Lauryn Williams"
 role: "Non-Resident Senior Fellow"
 group: "Senior Fellows"
 order: 20
+hubs: ["space"]
 photo: /pictures/people/lauryn-williams.jpg
 ---
 

@@ -3,6 +3,7 @@ name: "Kayla Schechter"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 63
+hubs: ["geopolitics"]
 photo: /pictures/people/kayla-schechter.jpg
 ---
 

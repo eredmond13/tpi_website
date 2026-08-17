@@ -3,6 +3,7 @@ name: "Sumajja Denysiuk"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 66
+hubs: ["drones"]
 photo: /pictures/people/sumajja-denysiuk.jpg
 ---
 

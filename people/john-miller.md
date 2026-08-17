@@ -3,6 +3,7 @@ name: "John Miller"
 role: "BTPI Director's Fellow"
 group: "Fellows"
 order: 40
+hubs: ["drones"]
 photo: /pictures/people/john-miller.jpg
 ---
 

@@ -3,6 +3,7 @@ name: "Eeshaan Chaudhuri"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 61
+hubs: ["geopolitics"]
 photo: /pictures/people/eeshaan-chaudhuri.jpg
 ---
 

@@ -3,6 +3,7 @@ name: "Amelia Arsenault"
 role: "Fellow"
 group: "Fellows"
 order: 41
+hubs: ["ai-governance"]
 photo: /pictures/people/amelia-arsenault.jpg
 ---
 

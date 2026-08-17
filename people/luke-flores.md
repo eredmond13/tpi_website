@@ -3,6 +3,7 @@ name: "G. Luke Flores"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 69
+hubs: ["critical-infrastructure"]
 photo: /pictures/people/luke-flores.jpg
 ---
 

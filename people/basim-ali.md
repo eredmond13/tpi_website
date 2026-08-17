@@ -3,6 +3,7 @@ name: "Basim Ali"
 role: "Non-Resident Fellow"
 group: "Fellows"
 order: 44
+hubs: ["drones"]
 photo: /pictures/people/basim-ali.jpg
 ---
 

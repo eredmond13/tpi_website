@@ -3,6 +3,7 @@ name: "Madeline Shukovsky"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 77
+hubs: ["geopolitics"]
 photo: /pictures/people/madeline-shukovsky.jpg
 ---
 

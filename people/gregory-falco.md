@@ -3,6 +3,7 @@ name: "Dr. Gregory Falco"
 role: "Senior Fellow"
 group: "Senior Fellows"
 order: 26
+hubs: ["critical-infrastructure", "space"]
 photo: /pictures/people/gregory-falco.jpg
 ---
 

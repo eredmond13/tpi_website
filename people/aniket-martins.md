@@ -3,6 +3,7 @@ name: "Aniket Martins"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 64
+hubs: ["space"]
 photo: /pictures/people/aniket-martins.jpg
 ---
 

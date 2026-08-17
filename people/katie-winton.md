@@ -3,6 +3,7 @@ name: "Katie Winton"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 70
+hubs: ["critical-infrastructure"]
 photo: /pictures/people/katie-winton.jpg
 ---
 

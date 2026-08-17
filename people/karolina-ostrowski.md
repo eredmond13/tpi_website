@@ -3,6 +3,7 @@ name: "Karolina Ostrowski"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 73
+hubs: ["geopolitics"]
 photo: /pictures/people/karolina-ostrowski.jpg
 ---
 

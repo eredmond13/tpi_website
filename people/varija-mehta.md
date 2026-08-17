@@ -3,6 +3,7 @@ name: "Varija Mehta"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 65
+hubs: ["ai-governance"]
 photo: /pictures/people/varija-mehta.jpg
 ---
 

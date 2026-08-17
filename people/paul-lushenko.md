@@ -3,6 +3,7 @@ name: "Dr. Paul Lushenko"
 role: "Non-Resident Senior Fellow"
 group: "Senior Fellows"
 order: 29
+hubs: ["drones"]
 photo: /pictures/people/paul-lushenko.jpg
 hubs: ["drones"]
 ---

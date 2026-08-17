@@ -3,6 +3,7 @@ name: "Ella Hough"
 role: "Junior Fellow"
 group: "Alumni"
 order: 98
+hubs: ["cryptocurrencies"]
 photo: /pictures/people/ella-hough.jpg
 ---
 
