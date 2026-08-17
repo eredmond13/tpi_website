@@ -2087,10 +2087,47 @@ body.is-entering main {
     gap: 0.3rem 1rem;
   }
 
+  /* On a phone an absolutely positioned panel runs off the side of the screen,
+     which is why the menus looked missing. Below this width the panel drops
+     into the flow instead and takes a full row of the wrapped nav. */
+  .nav-group[open] {
+    flex-basis: 100%;
+  }
+
   .dropdown-menu {
-    left: 0;
+    position: static;
+    left: auto;
+    min-width: 0;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding: 0.5rem 0 0.3rem 0.9rem;
+    border-left: 2px solid var(--red);
     transform: none;
-    min-width: 15rem;
+  }
+
+  .dropdown-menu::before {
+    display: none;
+  }
+
+  .dropdown-menu a {
+    padding: 0.42rem 0;
+  }
+
+  /* The jump rows wrap onto several lines on a narrow screen, so they need
+     tighter, more even spacing than they do on a desktop. */
+  .about-index,
+  .people-anchor-list,
+  .filter-bar,
+  .hub-bar {
+    gap: 0.55rem 1.1rem;
+    padding-bottom: 1rem;
+  }
+
+  .about-index a,
+  .people-anchor-list a,
+  .hub-bar a {
+    font-size: 0.68rem;
+    letter-spacing: 0.07em;
   }
 }
 
@@ -3204,5 +3241,19 @@ body.is-entering main {
 
   .quote-mark-logo {
     width: min(7rem, 100%);
+  }
+}
+
+/* On any touch device, one tap opens the menu. Without this the link inside
+   the summary fires as well, which is what made it take two taps to get
+   anywhere. The section page is still reachable from the first item in the
+   menu, "All News", "All Publications" and so on. */
+@media (hover: none) {
+  .nav-top-link {
+    pointer-events: none;
+  }
+
+  .nav-group summary {
+    cursor: default;
   }
 }
