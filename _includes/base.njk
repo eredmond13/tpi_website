@@ -41,12 +41,8 @@
 
 <footer class="site-footer">
   <div>
-    <a class="brand footer-brand" data-nav="home" href="{{ "/index.html" | url }}">
-      <span class="brand-mark logo-mark"><img alt="" src="{{ "/pictures/logos/tpi-starburst-black.svg" | url }}"></span>
-      <span class="brand-text">
-        <span>{{ site.name }}</span>
-        <span>{{ site.parent }}</span>
-      </span>
+    <a class="footer-brand" data-nav="home" href="{{ "/index.html" | url }}">
+      <img alt="Cornell Brooks Public Policy Tech Policy Institute" class="footer-cobrand-logo" src="{{ "/pictures/logos/tpi-brooks-logo-clean.png" | url }}">
     </a>
     <p>{{ site.address | safe }}</p>
     {%- if site.social %}
