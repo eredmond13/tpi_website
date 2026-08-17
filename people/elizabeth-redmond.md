@@ -4,8 +4,8 @@ role: "Lead Research Associate"
 group: "Staff"
 order: 10
 photo: /pictures/people/elizabeth-redmond.jpg
-hubs: ["drones", "critical-infrastructure", "geopolitics"]
-hubLead: ["drones", "critical-infrastructure", "geopolitics"]
+hubs: ["critical-infrastructure"]
+hubLead: ["drones", "space", "geopolitics"]
 ---
 
 Elizabeth H. Redmond is TPI's Lead Research Associate supporting DoD-funded research on
