@@ -17,7 +17,8 @@
     ],
     "short": "Critical Infrastructure",
     "image": "/pictures/research/critical-infrastructure.jpg",
-    "imageAlt": "Close detail of a circuit board"
+    "imageAlt": "Aerial view of a hydroelectric dam and lock under construction on a river",
+    "imageCredit": "<a href=\"https://catalog.archives.gov/id/175539477\">National Archives</a>. Public domain."
   },
   {
     "slug": "drones",
@@ -37,7 +38,8 @@
     ],
     "short": "Drones",
     "image": "/pictures/research/drones.jpg",
-    "imageAlt": "A swarm of small drones flying over desert terrain"
+    "imageAlt": "An airman marshalling an MQ-9 Reaper on an airfield apron",
+    "imageCredit": "U.S. Air National Guard photo by Tech. Sgt. Tristan D. Viglianco, <a href=\"https://www.dvidshub.net/image/9783817/mq-9-reaper-arrives-battle-creek-angb\">DVIDS</a>. Public domain."
   },
   {
     "slug": "ai-governance",
@@ -58,7 +60,8 @@
     ],
     "short": "AI Governance",
     "image": "/pictures/research/ai-governance.jpg",
-    "imageAlt": "Circuit board detail in black and white"
+    "imageAlt": "Airmen observing a four-legged unmanned ground vehicle walking on grass",
+    "imageCredit": "U.S. Air Force photo by Airman 1st Class Tiffany Del Oso, <a href=\"https://www.dvidshub.net/image/6419737/computerized-canines-join-team-tyndall\">DVIDS</a>. Public domain."
   },
   {
     "slug": "cryptocurrencies",
@@ -78,7 +81,8 @@
     ],
     "short": "Crypto",
     "image": "/pictures/research/cryptocurrencies.jpg",
-    "imageAlt": "A cryptocurrency price chart on a dark screen"
+    "imageAlt": "A Bitcoin Embassy shopfront on a street in Lodz, Poland, with passers-by",
+    "imageCredit": "Photo by Mariochom, <a href=\"https://commons.wikimedia.org/w/index.php?curid=75412033\">Wikimedia Commons</a>, CC BY-SA 4.0"
   },
   {
     "slug": "geopolitics",
@@ -98,7 +102,8 @@
     ],
     "short": "Geopolitics",
     "image": "/pictures/research/geopolitics.jpg",
-    "imageAlt": "A polar convoy of oversized vehicles on the ice"
+    "imageAlt": "A polar convoy of oversized vehicles on the ice",
+    "imageCredit": ""
   },
   {
     "slug": "space",
@@ -118,6 +123,7 @@
     ],
     "short": "Space",
     "image": "/pictures/research/space.jpg",
-    "imageAlt": "The Skylab space station in orbit above Earth"
+    "imageAlt": "A small satellite released from a robotic arm above the Earth",
+    "imageCredit": "NASA, <a href=\"https://images.nasa.gov/details/iss056e025331\">image iss056e025331</a>. Public domain."
   }
 ]
