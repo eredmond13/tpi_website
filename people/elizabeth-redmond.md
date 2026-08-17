@@ -4,7 +4,7 @@ role: "Lead Research Associate"
 group: "Staff"
 order: 10
 photo: /pictures/people/elizabeth-redmond.jpg
-hubs: ["critical-infrastructure"]
+hubs: ["drones", "space", "geopolitics", critical-infrastructure"]
 hubLead: ["drones", "space", "geopolitics"]
 ---
 
