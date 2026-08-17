@@ -2,6 +2,7 @@
 name: "Rajiv Thummala"
 role: "Fellow"
 group: "Fellows"
+hubs: ["critical-infrastructure", "space"] 
 order: 47
 photo: /pictures/people/rajiv-thummala.jpg
 ---
