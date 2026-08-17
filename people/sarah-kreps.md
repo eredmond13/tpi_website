@@ -3,6 +3,8 @@ name: "Dr. Sarah Kreps"
 role: "Director and Founder"
 group: "Leadership"
 order: 1
+hubs: ["drones", "space", "geopolitics", "ai-governance]
+hubLead: ["crypto", "critical-infrastructure"]
 photo: /pictures/people/sarah-kreps.jpg
 ---
 
