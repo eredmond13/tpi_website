@@ -5,7 +5,6 @@ group: "Senior Fellows"
 order: 29
 hubs: ["drones"]
 photo: /pictures/people/paul-lushenko.jpg
-hubs: ["drones"]
 ---
 
 LTC Paul Lushenko is the Director of Special Operations and a Faculty Instructor in the U.S. Army War
