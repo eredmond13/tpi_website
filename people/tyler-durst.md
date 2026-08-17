@@ -3,6 +3,7 @@ name: "Tyler Akira Durst"
 role: "Project Manager"
 group: "Staff"
 order: 11
+hubs: ["critical-infrastructure"]
 photo: /pictures/people/tyler-durst.jpg
 ---
 
