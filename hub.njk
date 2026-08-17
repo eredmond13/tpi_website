@@ -23,7 +23,7 @@ eleventyComputed:
 </figure>
 {% endif %}
 
-<section class="page-block" id="about-hub">
+<section class="page-block hub-block" id="about-hub">
   <div class="hub-intro">
     <div class="hub-body">
       {%- for para in hub.intro %}
@@ -42,7 +42,7 @@ eleventyComputed:
 </section>
 
 {% if hub.nodes.length %}
-<section class="page-block" id="nodes">
+<section class="page-block hub-block" id="nodes">
   <div class="block-header">
     <p class="section-label">Within this hub</p>
     <h2>Research nodes</h2>
@@ -78,7 +78,7 @@ eleventyComputed:
 {%- set team = leads.concat(members) %}
 
 {% if team.length %}
-<section class="page-block" id="team">
+<section class="page-block hub-block" id="team">
   <div class="block-header">
     <p class="section-label">Team</p>
     <h2>Who works on this</h2>
@@ -145,7 +145,7 @@ eleventyComputed:
 {%- endfor %}
 
 {% if hubPubs.length %}
-<section class="page-block" id="publications">
+<section class="page-block hub-block" id="publications">
   <div class="block-header">
     <p class="section-label">Publications</p>
     <h2>From this hub</h2>
@@ -166,7 +166,7 @@ eleventyComputed:
 {% endif %}
 
 {% if hubNews.length %}
-<section class="page-block" id="news">
+<section class="page-block hub-block" id="news">
   <div class="block-header">
     <p class="section-label">News</p>
     <h2>News and events</h2>

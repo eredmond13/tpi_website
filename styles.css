@@ -3275,3 +3275,27 @@ body.is-entering main {
   font-size: 0.92rem;
   line-height: 1.55;
 }
+
+/* Hub pages stack four or five blocks, each carrying 4rem of its own padding
+   on top of the rule and padding inside its header. Together that opened large
+   empty bands between the description, the nodes and the team, so the blocks
+   sit closer to one another here than on a listing page. */
+.hub-block {
+  padding: 3rem 0 0;
+}
+
+#about-hub.hub-block {
+  padding-top: 2rem;
+}
+
+/* The node grid and the team strip run the full content width, so their
+   headings and rules should too, rather than stopping short at the narrower
+   column used for article listings. */
+#nodes .block-header,
+#team .block-header {
+  max-width: none;
+}
+
+.hub-hero {
+  margin-bottom: 0;
+}
