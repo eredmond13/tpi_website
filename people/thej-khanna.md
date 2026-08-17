@@ -1,7 +1,7 @@
 ---
 name: "Thej Khanna"
-role: "Alumni"
-group: "Junior Fellows"
+role: "Junior Fellow"
+group: "Alumni"
 order: 71
 photo: /pictures/people/thej-khanna.jpg
 ---
