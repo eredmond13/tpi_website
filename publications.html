@@ -14,6 +14,14 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
   year-by-year account of the institute itself.</p>
 </section>
 
+<div class="filter-bar publication-filters" role="group" aria-label="Filter publications">
+  <button type="button" class="filter-chip is-active" data-filter="all" aria-pressed="true">Everything</button>
+  <button type="button" class="filter-chip" data-filter="report" aria-pressed="false">Reports</button>
+  <button type="button" class="filter-chip" data-filter="brief" aria-pressed="false">Policy briefs</button>
+  <button type="button" class="filter-chip" data-filter="oped" aria-pressed="false">Op-eds</button>
+  <button type="button" class="filter-chip" data-filter="annual" aria-pressed="false">Annual reports</button>
+</div>
+
 <section class="page-block is-lead-in" id="research">
   <div class="block-header">
     <p class="section-label">Research</p>
@@ -26,7 +34,10 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
 <section class="publication-layout is-follow-on">
 {%- for post in collections.article | newest %}
 {%- if post.data.category in pubCategories and post.fileSlug not in annualReports %}
-  <article class="publication-feature">
+  {%- if post.data.category == "Report" %}{% set group = "report" %}
+  {%- elif post.data.category == "Policy brief" %}{% set group = "brief" %}
+  {%- else %}{% set group = "oped" %}{% endif %}
+  <article class="publication-feature" data-group="{{ group }}">
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>{% endif %}
     <span>{{ post.data.category }}</span>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
@@ -55,7 +66,7 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
   <div class="news-list">
   {%- for post in collections.article | newest %}
   {%- if post.fileSlug in annualReports %}
-    <article>
+    <article data-group="annual">
       {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
       {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Report</span></a>{% endif %}
       <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
@@ -70,3 +81,51 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
   {%- endfor %}
   </div>
 </section>
+
+<p class="filter-empty" hidden>Nothing in this category yet.</p>
+
+<script>
+/* Filters both lists at once, so choosing Annual reports hides the research
+   section and vice versa. Everything is in the page already, so with
+   JavaScript off the full list reads normally. */
+(function () {
+  var bar = document.querySelector(".filter-bar");
+  if (!bar) return;
+  var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
+  var items = Array.prototype.slice.call(document.querySelectorAll("[data-group]"));
+  var empty = document.querySelector(".filter-empty");
+  var blocks = ["research", "annual-reports"].map(function (id) {
+    return document.getElementById(id);
+  });
+  var layout = document.querySelector(".publication-layout");
+
+  function apply(filter) {
+    var shown = 0;
+    items.forEach(function (el) {
+      var match = filter === "all" || el.dataset.group === filter;
+      el.hidden = !match;
+      if (match) shown++;
+    });
+    // hide a heading whose list is now empty
+    blocks.forEach(function (block) {
+      if (!block) return;
+      var scope = block.id === "research" ? layout : block;
+      var any = scope && scope.querySelector("[data-group]:not([hidden])");
+      block.hidden = !any;
+      if (scope && scope !== block) scope.hidden = !any;
+    });
+    if (empty) empty.hidden = shown > 0;
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      chips.forEach(function (c) {
+        var on = c === chip;
+        c.classList.toggle("is-active", on);
+        c.setAttribute("aria-pressed", String(on));
+      });
+      apply(chip.dataset.filter);
+    });
+  });
+})();
+</script>

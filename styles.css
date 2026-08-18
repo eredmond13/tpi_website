@@ -3382,3 +3382,23 @@ body.is-entering main {
 .is-follow-on {
   padding-top: 1.4rem;
 }
+
+/* Hidden publications. Without this the [hidden] attribute loses to the grid
+   display rule, the same trap as the news list. */
+.publication-layout article[hidden],
+.news-list article[hidden] {
+  display: none;
+}
+
+.filter-empty {
+  padding: 2rem 0 3rem;
+  color: var(--ink-muted);
+}
+
+/* On the publications page the filter row sits directly above a section rule,
+   so it does not need one of its own. */
+.publication-filters {
+  border-bottom: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
