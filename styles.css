@@ -2592,10 +2592,7 @@ body.is-entering main {
 
 /* Individual research hub pages. Description on the left, focus list beside it. */
 .hub-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(12rem, 0.5fr);
-  gap: 3rem;
-  align-items: start;
+  display: block;
 }
 
 .hub-body p {
@@ -2622,12 +2619,7 @@ body.is-entering main {
   margin-top: 0.9rem;
 }
 
-@media (max-width: 900px) {
-  .hub-intro {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.8rem;
-  }
-}
+
 
 /* Hub team. A short team lays out as a normal row. Once it passes five people
    the strip scrolls sideways, which is native browser scrolling, so it still
@@ -3339,18 +3331,19 @@ body.is-entering main {
   gap: 2.2rem 2.6rem;
 }
 
+/* In a three-column grid the columns already read as separate, so the nodes
+   need no rule of their own. On the research page they are a vertical list and
+   do carry one. */
 .node h3 {
-  margin: 0 0 0.6rem;
-  padding-top: 0.9rem;
-  border-top: 2px solid var(--red);
+  margin: 0 0 0.5rem;
   font-family: var(--font-section);
-  font-size: 1.02rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .node p {
   margin: 0;
-  color: var(--ink-body, #3a3a3a);
+  color: var(--ink-body);
   font-size: 0.92rem;
   line-height: 1.55;
 }
