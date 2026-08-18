@@ -974,29 +974,27 @@ figcaption,
    separation is now spacing and colour instead. */
 .research-nodes {
   list-style: none;
-  margin: 0 0 0 0.1rem;
-  padding: 0 0 0 1.3rem;
-  border-left: 1px solid var(--rule-strong);
+  margin: 0;
+  padding: 0 0 0 1.4rem;
+  border-left: 2px solid var(--field);
   display: grid;
-  gap: 1.15rem;
+  gap: 1.05rem;
 }
 
 .node-name {
   display: block;
   font-family: var(--font-section);
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--field);
+  color: var(--ink);
 }
 
 .node-blurb {
   display: block;
-  margin-top: 0.2rem;
-  color: var(--ink-body);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  margin-top: 0.1rem;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 .research-media {
@@ -1051,16 +1049,8 @@ figcaption,
   font-size: 0.95rem;
 }
 
-.research-row ul {
-  display: grid;
-  gap: 0.5rem;
-  align-content: start;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: var(--ink-muted);
-  font-size: 0.82rem;
-  font-weight: 500;
+.research-row .research-dek {
+  margin: 0.55rem 0 1.7rem;
 }
 
 /* 8. LISTS AND DIRECTORIES ================================================= */
