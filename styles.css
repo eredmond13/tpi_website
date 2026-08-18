@@ -3395,10 +3395,20 @@ body.is-entering main {
   color: var(--ink-muted);
 }
 
-/* On the publications page the filter row sits directly above a section rule,
-   so it does not need one of its own. */
+/* The publications filter row is set to match the jump row on the People page,
+   which carries its own rule directly beneath the chips. The section heading
+   below it therefore drops its own rule, so there is one line rather than two. */
 .publication-filters {
-  border-bottom: 0;
-  padding-bottom: 0;
-  margin-bottom: 0;
+  margin: 1.4rem 0 1rem;
+  padding: 0 0 1.4rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+#research .block-header {
+  padding-top: 0;
+  border-top: 0;
+}
+
+#research.page-block {
+  padding-top: 4.2rem;
 }
