@@ -10,15 +10,18 @@
     "nodes": [
       {
         "name": "Semiconductor Supply Chain Security",
-        "text": "The Semiconductor Supply Chain Security node, funded by the Department of Defense, fortifies the semiconductor ecosystem by analyzing both hardware and software vulnerabilities within the supply chain. It develops an empirical network model using financial data to map supplier webs and pinpoint critical bottlenecks."
+        "text": "The Semiconductor Supply Chain Security node, funded by the Department of Defense, fortifies the semiconductor ecosystem by analyzing both hardware and software vulnerabilities within the supply chain. It develops an empirical network model using financial data to map supplier webs and pinpoint critical bottlenecks.",
+        "blurb": "Mapping supplier webs to pinpoint critical bottlenecks."
       },
       {
         "name": "Cyber Test Range",
-        "text": "The Cyber Test Range, supported by a generous grant from Craig Newmark Philanthropies, actively analyzes cybersecurity threats and vulnerabilities critical for cyber civil defense. Driven by a team of military and veteran researchers, alongside undergraduate research support, the Range pioneers security research and tool development in critical hardware."
+        "text": "The Cyber Test Range, supported by a generous grant from Craig Newmark Philanthropies, actively analyzes cybersecurity threats and vulnerabilities critical for cyber civil defense. Driven by a team of military and veteran researchers, alongside undergraduate research support, the Range pioneers security research and tool development in critical hardware.",
+        "blurb": "Hardware security research led by military and veteran researchers."
       },
       {
         "name": "Data Centers",
-        "text": "The Data Centers node analyzes the complex policy challenges surrounding data center deployment and operations. We focus on ensuring responsible development through effective regulation, evaluating their economic impact on local and regional economies, and fostering social engagement to benefit host communities and mitigate environmental concerns."
+        "text": "The Data Centers node analyzes the complex policy challenges surrounding data center deployment and operations. We focus on ensuring responsible development through effective regulation, evaluating their economic impact on local and regional economies, and fostering social engagement to benefit host communities and mitigate environmental concerns.",
+        "blurb": "Regulation, economic impact, and engagement with host communities."
       }
     ],
     "image": "/pictures/research/critical-infrastructure.jpg",
@@ -38,7 +41,8 @@
     "nodes": [
       {
         "name": "Full Spectrum Drone Warfare",
-        "text": "The Full Spectrum Drone Warfare node analyzes the Third Drone Age, which is defined by the seamless, autonomous integration of drones across air, land, and sea. Developed from a 2024 NATO funded Advanced Research Project, it is an operational concept requiring both a military-civil technology fusion and the doctrinal reform of allied forces to embrace cross-domain machine-teaming."
+        "text": "The Full Spectrum Drone Warfare node analyzes the Third Drone Age, which is defined by the seamless, autonomous integration of drones across air, land, and sea. Developed from a 2024 NATO funded Advanced Research Project, it is an operational concept requiring both a military-civil technology fusion and the doctrinal reform of allied forces to embrace cross-domain machine-teaming.",
+        "blurb": "The Third Drone Age, across air, land, and sea."
       }
     ],
     "image": "/pictures/research/drones.jpg",
@@ -56,15 +60,18 @@
     "nodes": [
       {
         "name": "Algorithmic Warfare Research Lab",
-        "text": "The Algorithmic Warfare Research Lab, led by Fellow Joshua Greenburg and Junior Fellows Varija Mehta and Aniket Martins, studies how algorithmic systems reshape the conduct and governance of war. By uniting expertise from public policy, law, computer science, engineering, philosophy, and sociology, the lab examines how these systems influence human judgment and institutional accountability. The work bridges scholarly research and practical policy needs, producing insights for academics, practitioners, and policymakers through applied research settings."
+        "text": "The Algorithmic Warfare Research Lab, led by Fellow Joshua Greenburg and Junior Fellows Varija Mehta and Aniket Martins, studies how algorithmic systems reshape the conduct and governance of war. By uniting expertise from public policy, law, computer science, engineering, philosophy, and sociology, the lab examines how these systems influence human judgment and institutional accountability. The work bridges scholarly research and practical policy needs, producing insights for academics, practitioners, and policymakers through applied research settings.",
+        "blurb": "How algorithmic systems shape judgment and accountability in conflict."
       },
       {
         "name": "AI Governance",
-        "text": "Expanding on previous work, Director Dr. Sarah Kreps, Senior Fellow Dr. Doug Kriner, and Fellow Adi Rao focus on frontier policy questions regarding AI regulation, the pace of innovation, and misinformation."
+        "text": "Expanding on previous work, Director Dr. Sarah Kreps, Senior Fellow Dr. Doug Kriner, and Fellow Adi Rao focus on frontier policy questions regarding AI regulation, the pace of innovation, and misinformation.",
+        "blurb": "Regulation, the pace of innovation, and misinformation."
       },
       {
         "name": "Tech Talk",
-        "text": "Through Tech Talk, TPI brings together AI and cyber security experts from academia, industry, and government to discuss frontier issues with students and policymakers. The series is dedicated to fostering new minds, interdisciplinary collaboration, and ethical, cutting-edge AI policy development."
+        "text": "Through Tech Talk, TPI brings together AI and cyber security experts from academia, industry, and government to discuss frontier issues with students and policymakers. The series is dedicated to fostering new minds, interdisciplinary collaboration, and ethical, cutting-edge AI policy development.",
+        "blurb": "Experts from academia, industry, and government, in conversation."
       }
     ],
     "image": "/pictures/research/ai-governance.jpg",
@@ -83,7 +90,8 @@
     "nodes": [
       {
         "name": "Financial Freedom",
-        "text": "The Financial Freedom project investigates the mechanisms of cryptocurrency uptake by individuals in authoritarian regimes. Led by Dr. Sarah Kreps, the research employs novel quantitative and qualitative methods across 12 countries to understand specific adoption, motivations, and usage patterns of Bitcoin and stablecoins. This deep, evidence-based research aims to create a global crypto adoption index for policymakers."
+        "text": "The Financial Freedom project investigates the mechanisms of cryptocurrency uptake by individuals in authoritarian regimes. Led by Dr. Sarah Kreps, the research employs novel quantitative and qualitative methods across 12 countries to understand specific adoption, motivations, and usage patterns of Bitcoin and stablecoins. This deep, evidence-based research aims to create a global crypto adoption index for policymakers.",
+        "blurb": "Bitcoin and stablecoin adoption across twelve countries."
       }
     ],
     "image": "/pictures/research/cryptocurrencies.jpg",
@@ -101,11 +109,13 @@
     "nodes": [
       {
         "name": "Strategic Simulations",
-        "text": "The Strategic Simulations node utilizes geostrategic simulations and advanced wargaming methodologies to test policy assumptions and reveal emerging risks. We engage directly with global security partners, including the U.S. Congress, NORAD and NORTHCOM, the U.S. Air Force Academy, NATO partners and the British Royal Navy, to model scenarios and deliver actionable, data-driven insights. Our objective is to move beyond theoretical analysis into practical, strategic decision support."
+        "text": "The Strategic Simulations node utilizes geostrategic simulations and advanced wargaming methodologies to test policy assumptions and reveal emerging risks. We engage directly with global security partners, including the U.S. Congress, NORAD and NORTHCOM, the U.S. Air Force Academy, NATO partners and the British Royal Navy, to model scenarios and deliver actionable, data-driven insights. Our objective is to move beyond theoretical analysis into practical, strategic decision support.",
+        "blurb": "Wargaming with Congress, NORAD, NATO, and the Royal Navy."
       },
       {
         "name": "Arctic Security",
-        "text": "The Arctic Security node focuses on strategic competition in the High North, examining the security of critical infrastructure like subsea cables, military basing and ports. We host high-level policy engagement to bridge academic research with global policy needs. Our work delivers tailored insights on navigating this rapidly evolving geopolitical domain."
+        "text": "The Arctic Security node focuses on strategic competition in the High North, examining the security of critical infrastructure like subsea cables, military basing and ports. We host high-level policy engagement to bridge academic research with global policy needs. Our work delivers tailored insights on navigating this rapidly evolving geopolitical domain.",
+        "blurb": "Subsea cables, basing, and ports in the High North."
       }
     ],
     "image": "/pictures/research/geopolitics.jpg",
@@ -124,11 +134,13 @@
     "nodes": [
       {
         "name": "Space Cybersecurity",
-        "text": "The Space Cybersecurity node examines the protection of satellites, ground stations, and the data links between them. Building on work in the Aerospace Adversary Lab, it addresses vulnerabilities across critical space infrastructure and the international standards emerging to govern it."
+        "text": "The Space Cybersecurity node examines the protection of satellites, ground stations, and the data links between them. Building on work in the Aerospace Adversary Lab, it addresses vulnerabilities across critical space infrastructure and the international standards emerging to govern it.",
+        "blurb": "Satellites, ground stations, and the links between them."
       },
       {
         "name": "Commercial Space and Armed Conflict",
-        "text": "The Commercial Space and Armed Conflict node investigates what follows when privately owned constellations become essential to military operations, from questions of targeting and neutrality to the terms on which states depend on companies they do not control."
+        "text": "The Commercial Space and Armed Conflict node investigates what follows when privately owned constellations become essential to military operations, from questions of targeting and neutrality to the terms on which states depend on companies they do not control.",
+        "blurb": "When private constellations become military assets."
       }
     ],
     "image": "/pictures/research/space.jpg",
