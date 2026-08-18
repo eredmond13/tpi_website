@@ -9,12 +9,12 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
 ---
 <section class="page-hero">
   <p class="eyebrow">Our research</p>
-  <h1>Publications.</h1>
+  <h1>Publications</h1>
   <p class="dek">Research written for policymakers and practitioners, alongside a
   year-by-year account of the institute itself.</p>
 </section>
 
-<section class="page-block" id="research">
+<section class="page-block is-lead-in" id="research">
   <div class="block-header">
     <p class="section-label">Research</p>
     <h2>Reports, briefs, and op-eds</h2>
@@ -23,7 +23,7 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
   </div>
 </section>
 
-<section class="publication-layout">
+<section class="publication-layout is-follow-on">
 {%- for post in collections.article | newest %}
 {%- if post.data.category in pubCategories and post.fileSlug not in annualReports %}
   <article class="publication-feature">

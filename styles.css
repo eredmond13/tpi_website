@@ -3371,3 +3371,14 @@ body.is-entering main {
 .hub-hero {
   margin-bottom: 0;
 }
+
+/* A heading block that introduces the list directly beneath it. Both carried a
+   full 4rem of padding, which left a large gap between a heading and the thing
+   it was heading. */
+.page-block.is-lead-in {
+  padding-bottom: 0;
+}
+
+.is-follow-on {
+  padding-top: 1.4rem;
+}
