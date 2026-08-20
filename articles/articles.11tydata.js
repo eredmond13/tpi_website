@@ -31,7 +31,18 @@ export default {
   tags: "article",
   permalink: "/articles/{{ page.fileSlug }}.html",
   eleventyComputed: {
-    image:    (data) => data.image || byName[data.page.fileSlug] || undefined,
+    // An interview's photo lives with the transcript. Its short announcement in
+    // the news feed is a separate file, so it borrows the same photo rather
+    // than needing a second copy or a second edit.
+    image: (data) => {
+      if (data.image) return data.image;
+      if (byName[data.page.fileSlug]) return byName[data.page.fileSlug];
+      if (data.interviewLink) {
+        const slug = data.interviewLink.split("/").pop().replace(/\.html$/, "");
+        if (byName[slug]) return byName[slug];
+      }
+      return undefined;
+    },
     imageAlt: (data) => data.imageAlt || data.title,
     navId:     (data) => (isPublication(data) ? "publications" : "news"),
     backHref:  (data) =>
