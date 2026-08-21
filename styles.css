@@ -2169,13 +2169,21 @@ body.is-entering main {
   /* On a phone an absolutely positioned panel runs off the side of the screen,
      which is why the menus looked missing. Below this width the panel drops
      into the flow instead and takes a full row of the wrapped nav. */
-  .nav-group[open] {
-    flex-basis: 100%;
+  /* The panel drops below the whole nav as a full-width sheet rather than
+     taking a row of its own. That way the nav items never move when a menu
+     opens, which is what made them scatter across three rows. */
+  .site-header {
+    overflow: visible;
   }
 
-  /* At this width the panel sits in the flow, so opening it reflows the nav and
-     moves the item being pointed at. Below here the menus open on click only,
-     which keeps the nav still. */
+  /* The panel is positioned against the header itself, so it spans the full
+     width of the screen rather than only the nav, and no page content shows
+     down the side of it. */
+  .nav-group {
+    position: static;
+  }
+
+  /* Menus open on click here, since there is no floating panel to hover into. */
   .nav-group:hover .dropdown-menu,
   .nav-group:focus-within .dropdown-menu {
     display: none;
@@ -2193,13 +2201,17 @@ body.is-entering main {
   }
 
   .dropdown-menu {
-    position: static;
-    left: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
     min-width: 0;
-    width: 100%;
-    margin-top: 0.4rem;
-    padding: 0.5rem 0 0.3rem 0.9rem;
-    border-left: 2px solid var(--red);
+    z-index: 60;
+    padding: 0.6rem 0 0.8rem var(--bleed, 1.25rem);
+    background: var(--paper);
+    border-top: 2px solid var(--red);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
     transform: none;
   }
 
