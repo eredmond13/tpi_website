@@ -145,7 +145,11 @@ function hydrateHeaderNavigation() {
     summary.addEventListener("click", (event) => {
       // On a touch screen there is no hover, so the first tap opens the menu
       // and the panel behaves normally. With a mouse, a click navigates.
+      // With no hover, or in the narrow layout where the panel sits in the
+      // flow, the click opens the menu instead of following the link. The
+      // section page is the first item inside it.
       if (!window.matchMedia("(hover: hover)").matches) return;
+      if (!window.matchMedia("(min-width: 901px)").matches) return;
       event.preventDefault();
       const link = summary.querySelector(".nav-top-link");
       if (link) window.location.href = link.getAttribute("href");
@@ -504,12 +508,16 @@ window.setInterval(() => {
    the open state is set directly rather than through a :hover rule. A short
    close delay lets the pointer travel from the label down into the menu. */
 const canHover = window.matchMedia("(hover: hover)").matches;
+const floatsAbove = window.matchMedia("(min-width: 901px)");
 
 document.querySelectorAll(".nav-group").forEach((group) => {
   if (!canHover) return;
   let closeTimer = null;
 
   const open = () => {
+    // Below this width the panel drops into the flow, so opening it on hover
+    // would move the nav item the pointer is on. There, a click opens it.
+    if (!floatsAbove.matches) return;
     window.clearTimeout(closeTimer);
     document.querySelectorAll(".nav-group[open]").forEach((other) => {
       if (other !== group) other.open = false;
@@ -518,6 +526,9 @@ document.querySelectorAll(".nav-group").forEach((group) => {
   };
 
   const close = () => {
+    // In the narrow layout opening the panel reflows the nav, so the pointer
+    // ends up outside the group and this would immediately shut it again.
+    if (!floatsAbove.matches) return;
     closeTimer = window.setTimeout(() => {
       group.open = false;
     }, 120);

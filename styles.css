@@ -2173,6 +2173,25 @@ body.is-entering main {
     flex-basis: 100%;
   }
 
+  /* At this width the panel sits in the flow, so opening it reflows the nav and
+     moves the item being pointed at. Below here the menus open on click only,
+     which keeps the nav still. */
+  .nav-group:hover .dropdown-menu,
+  .nav-group:focus-within .dropdown-menu {
+    display: none;
+  }
+
+  .nav-group[open] .dropdown-menu {
+    display: grid;
+  }
+
+  /* One tap or click opens the menu rather than following the link, on a mouse
+     as well as a touch screen. The section page is reachable from the first
+     item inside, "All News", "All Publications" and so on. */
+  .nav-top-link {
+    pointer-events: none;
+  }
+
   .dropdown-menu {
     position: static;
     left: auto;
