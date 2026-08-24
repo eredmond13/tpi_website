@@ -1,6 +1,6 @@
 ---
 name: "Varija Mehta"
-role: "Junior Fellow"
+role: "Fellow"
 group: "Fellows"
 order: 65
 hubs: ["ai-governance"]
