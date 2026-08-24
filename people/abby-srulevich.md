@@ -1,7 +1,7 @@
 ---
 name: "Abby Srulevich"
 role: "Junior Fellow"
-group: "Junior Fellows"
+group: "Fellows"
 order: 60
 photo: /pictures/people/abby-srulevich.jpg
 ---
