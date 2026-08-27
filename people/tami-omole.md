@@ -1,5 +1,5 @@
 ---
-name: “Tami Omole”
+name: "Tami Omole"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 79.51

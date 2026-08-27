@@ -1,5 +1,5 @@
 ---
-name: “John Karaca”
+name: "John Karaca"
 role: "Junior Fellow"
 group: "Junior Fellows"
 order: 79.5
