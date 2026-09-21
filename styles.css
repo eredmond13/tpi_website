@@ -3262,22 +3262,33 @@ body.is-entering main {
   border-bottom-color: var(--red);
 }
 
-/* The Cornell lockup is the footer mark. Sized by width, with height auto, so
-   it keeps its proportions. */
+/* The footer closes with the institute's own mark, matching the header, rather
+   than the university lockup. */
 .footer-brand {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
   margin-bottom: 1.4rem;
+  color: var(--ink);
+  text-decoration: none;
 }
 
-.footer-cobrand-logo {
+.footer-mark {
   display: block;
-  width: min(19rem, 100%);
+  width: 3.2rem;
   height: auto;
 }
 
+.footer-name {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 @media (max-width: 820px) {
-  .footer-cobrand-logo {
-    width: min(15rem, 100%);
+  .footer-mark {
+    width: 2.6rem;
   }
 }
 
