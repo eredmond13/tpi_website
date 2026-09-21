@@ -128,7 +128,7 @@ eleventyComputed:
 {%- set hubNews = [] %}
 {%- for post in collections.article | newest %}
   {%- if hub.slug in (post.data.hubs or []) %}
-    {%- if post.data.category in ["Report", "Op-ed", "Policy brief", "Policy infographic"] %}
+    {%- if post.data.category in ["Report", "Op-ed", "Policy brief", "Policy infographic", "Blog"] %}
       {%- set hubPubs = (hubPubs.push(post), hubPubs) %}
     {%- else %}
       {%- set hubNews = (hubNews.push(post), hubNews) %}

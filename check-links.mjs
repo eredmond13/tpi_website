@@ -60,7 +60,7 @@ for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
 // A typo would otherwise send it silently to the wrong page.
 const VALID_CATEGORIES = [
   "News", "Policy analysis", "Event", "Interview",
-  "Report", "Op-ed", "Policy brief", "Policy infographic",
+  "Report", "Op-ed", "Policy brief", "Policy infographic", "Blog",
 ];
 
 // Every hub named on an article must be a real hub, or the article quietly

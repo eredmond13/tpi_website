@@ -1,0 +1,56 @@
+---
+layout: base.njk
+navId: publications
+title: Blog
+description: Shorter weekly pieces from the Cornell Brooks Tech Policy Institute.
+permalink: /blog.html
+---
+{#- Every article with category: Blog, newest first. Each opens as its own page,
+    with no PDF attached. -#}
+{%- set blogPosts = [] %}
+{%- for post in collections.article | newest %}
+  {%- if post.data.category == "Blog" %}{% set blogPosts = (blogPosts.push(post), blogPosts) %}{% endif %}
+{%- endfor %}
+
+<section class="page-hero">
+  <p class="eyebrow">Publications</p>
+  <h1>Blog</h1>
+  <p class="dek">Shorter pieces from across the institute's research hubs, published
+  weekly.</p>
+</section>
+
+{% if blogPosts.length %}
+<section class="news-archive blog-archive" id="posts">
+{%- for post in blogPosts %}
+  <article{% if loop.index0 >= 10 %} class="is-extra" hidden{% endif %}>
+    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Blog</span></a>{% endif %}
+    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+    <p class="article-tag">Blog{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</p>
+    <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+    <p>{{ post.data.summary }}</p>
+  </article>
+{%- endfor %}
+</section>
+
+{% if blogPosts.length > 10 %}
+<p class="link-row blog-more"><button type="button" class="show-all">Show all {{ blogPosts.length }} posts</button></p>
+<script>
+/* Everything is already in the page, so with JavaScript off every post is
+   listed and nothing is hidden from anyone. */
+(function () {
+  var btn = document.querySelector(".blog-more .show-all");
+  if (!btn) return;
+  btn.addEventListener("click", function () {
+    document.querySelectorAll(".blog-archive article.is-extra").forEach(function (el) { el.hidden = false; });
+    btn.parentNode.remove();
+  });
+})();
+</script>
+{% endif %}
+
+{% else %}
+<section class="page-block">
+  <p class="filter-empty">The first posts are on their way.</p>
+</section>
+{% endif %}

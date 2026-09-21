@@ -609,3 +609,37 @@ That prints any problem and publishes nothing.
 
 Keep PDFs under about 25 MB. GitHub refuses anything over 100 MB. For anything
 larger, upload it to Cornell Box and link to it instead.
+
+---
+
+## Publishing a blog post
+
+Blog posts are short pieces that open as their own page, with no PDF. They
+appear on the Blog page, and the newest three also appear on the Publications
+page under their own heading.
+
+1. Copy `BLOG-POST-TEMPLATE.md` from the repo root into the `articles` folder.
+   Do this by duplicating it in Finder rather than retyping it.
+2. Rename the copy after the post, lowercase with hyphens, for example
+   `drone-swarms-europe.md`. That name becomes the page address.
+3. Open it and replace everything between the quote marks, and the body text
+   below the second `---`.
+4. Leave `category: Blog` exactly as it is.
+5. Commit and push.
+
+What each line does:
+
+- `title` is the headline.
+- `date` is the publication date, written 2026-09-28. Newest posts show first.
+- `author` shows as "By First Last" on the post and beside it in the lists.
+  Delete the line if a post has no named author.
+- `summary` is the one or two sentences shown in the lists.
+- `hubs` puts the post on those hub pages under Publications. Use the exact hub
+  names from the rest of this guide, or delete the line.
+
+A photo is optional. Save it in `pictures/blog/` with the same name as the post
+file, so `drone-swarms-europe.md` picks up `pictures/blog/drone-swarms-europe.jpg`
+automatically.
+
+Edit posts on github.com or in a code editor, not TextEdit. TextEdit's curly
+quotes stop the build, and it rewrites `.html` files entirely.

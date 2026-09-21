@@ -61,6 +61,7 @@ const navGroups = [
     href: "publications.html",
     links: [
       ["Research", "publications.html#research"],
+      ["Blog", "blog.html"],
       ["Annual Reports", "publications.html#annual-reports"]
     ]
   },

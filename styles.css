@@ -3454,3 +3454,103 @@ body.is-entering main {
 #research.page-block {
   padding-top: 4.2rem;
 }
+
+/* Blog rows stack the date, author, title and summary in one column beside the
+   photo. The news layout splits them across four narrow columns, which has no
+   room for an author's name. Phones keep the single-column layout below. */
+@media (min-width: 561px) {
+  .blog-archive article {
+    grid-template-columns: minmax(6.5rem, 8rem) minmax(0, 1fr);
+    column-gap: 1.8rem;
+  }
+
+  .blog-archive article > time,
+  .blog-archive article > .article-tag,
+  .blog-archive article > h2,
+  .blog-archive article > p:not(.article-tag) {
+    grid-column: 2;
+    grid-row: auto;
+  }
+
+  .blog-archive article > .article-thumb {
+    grid-row: 1 / span 4;
+  }
+
+  .blog-archive article > p:not(.article-tag) {
+    max-width: 44rem;
+  }
+}
+
+/* Phones. The photo sits above the text rather than beside it.
+
+   The desktop rules place the date, label, title and summary in column 2 using
+   selectors like ".news-archive article > time". Those are more specific than
+   the old phone rule ".news-archive article > *", so on a phone the text stayed
+   in column 2, the grid quietly made a second column for it, and the photo
+   column shrank to nothing. Every news photo was invisible on a phone. Naming
+   the same elements here at equal specificity, later in the file, fixes it. */
+@media (max-width: 560px) {
+  .news-archive article {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.45rem;
+  }
+
+  .news-archive article > .article-thumb,
+  .news-archive article > time,
+  .news-archive article > .article-tag,
+  .news-archive article > h2,
+  .news-archive article > p:not(.article-tag) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .news-archive article > .article-thumb {
+    width: 100%;
+    margin-bottom: 0.4rem;
+  }
+
+  .news-archive article > .article-thumb img,
+  .news-archive article > .article-thumb.is-placeholder {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+}
+
+/* The same collision on the shorter lists used by hub pages and the
+   Publications page, which pin their text to column 2 in the same way. */
+@media (max-width: 560px) {
+  .news-list article,
+  .publication-list article {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.45rem;
+  }
+
+  .news-list article > .article-thumb,
+  .news-list article > time,
+  .news-list article > h3,
+  .news-list article > h2,
+  .news-list article > p,
+  .publication-list article > .article-thumb,
+  .publication-list article > span,
+  .publication-list article > h3,
+  .publication-list article > p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .news-list article > .article-thumb,
+  .publication-list article > .article-thumb {
+    margin-bottom: 0.4rem;
+  }
+
+  .news-list article > .article-thumb img,
+  .news-list article > .article-thumb.is-placeholder,
+  .publication-list article > .article-thumb img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+}
