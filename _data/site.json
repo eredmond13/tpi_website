@@ -21,6 +21,11 @@
       "href": "/publications.html"
     },
     {
+      "id": "signals",
+      "label": "Signals",
+      "href": "/signals.html"
+    },
+    {
       "id": "news",
       "label": "News",
       "href": "/news.html"

@@ -61,9 +61,14 @@ const navGroups = [
     href: "publications.html",
     links: [
       ["Research", "publications.html#research"],
-      ["Signals", "signals.html"],
       ["Annual Reports", "publications.html#annual-reports"]
     ]
+  },
+  {
+    id: "signals",
+    label: "Signals",
+    href: "signals.html",
+    links: []
   },
   {
     id: "news",
@@ -126,13 +131,18 @@ function ensureTransitionLayer() {
 function hydrateHeaderNavigation() {
   const html = navGroups
     .map(
-      (group) => `
+      (group) =>
+        group.links && group.links.length
+          ? `
         <details class="nav-group" data-nav="${group.id}">
           <summary><a class="nav-top-link" href="${localPath(group.href)}">${group.label}</a><span aria-hidden="true" class="nav-caret"></span></summary>
           <div class="dropdown-menu">
             ${group.links.map(([label, href]) => `<a href="${localPath(href)}">${label}</a>`).join("")}
           </div>
         </details>
+      `
+          : `
+        <a class="nav-single" data-nav="${group.id}" href="${localPath(group.href)}">${group.label}</a>
       `
     )
     .join("");
@@ -256,6 +266,13 @@ function setActiveNavigation() {
     if (group.dataset.nav === activeGroup) {
       group.classList.add("is-current");
       group.querySelector("summary")?.setAttribute("aria-current", "page");
+    }
+  });
+
+  document.querySelectorAll(".nav-single[data-nav]").forEach((link) => {
+    if (link.dataset.nav === activeGroup) {
+      link.classList.add("is-current");
+      link.setAttribute("aria-current", "page");
     }
   });
 }

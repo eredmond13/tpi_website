@@ -619,8 +619,8 @@ piece. A **note** is short, usually 400 to 600 words, and is what most fellows
 write. A **column** is longer, shows larger on the Signals page, and reads as a
 column on its own page.
 
-Both open as their own page and neither has a PDF. The newest three also appear
-on the Publications page.
+Both open as their own page and neither has a PDF. Signals has its own tab in the
+navigation, beside Publications.
 
 1. Copy either `SIGNALS-NOTE-TEMPLATE.md` or `SIGNALS-COLUMN-TEMPLATE.md` from
    the repo root into the `articles` folder. Duplicate it in Finder rather than

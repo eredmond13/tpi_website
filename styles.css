@@ -3720,3 +3720,14 @@ body.is-entering main {
     display: none;
   }
 }
+
+/* A top-level nav item with no dropdown, such as Signals. A dropdown item is a
+   summary with its own padding wrapped around a link with padding of its own,
+   so a plain link needs both to sit level with its neighbours. The current-page
+   underline is already handled for any link in the nav. */
+.primary-nav .nav-single {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  font-weight: 500;
+}

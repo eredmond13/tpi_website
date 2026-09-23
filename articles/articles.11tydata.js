@@ -53,7 +53,10 @@ export default {
     kicker: (data) =>
       isSignal(data) ? (isColumn(data) ? "Signals · Column" : "Signals")
       : data.category,
-    navId:     (data) => (isPublication(data) || isSignal(data) ? "publications" : "news"),
+    navId:     (data) =>
+      isSignal(data) ? "signals"
+      : isPublication(data) ? "publications"
+      : "news",
     backHref:  (data) =>
       isSignal(data) ? "/signals.html"
       : isPublication(data) ? "/publications.html"
