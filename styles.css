@@ -3455,32 +3455,6 @@ body.is-entering main {
   padding-top: 4.2rem;
 }
 
-/* Blog rows stack the date, author, title and summary in one column beside the
-   photo. The news layout splits them across four narrow columns, which has no
-   room for an author's name. Phones keep the single-column layout below. */
-@media (min-width: 561px) {
-  .blog-archive article {
-    grid-template-columns: minmax(6.5rem, 8rem) minmax(0, 1fr);
-    column-gap: 1.8rem;
-  }
-
-  .blog-archive article > time,
-  .blog-archive article > .article-tag,
-  .blog-archive article > h2,
-  .blog-archive article > p:not(.article-tag) {
-    grid-column: 2;
-    grid-row: auto;
-  }
-
-  .blog-archive article > .article-thumb {
-    grid-row: 1 / span 4;
-  }
-
-  .blog-archive article > p:not(.article-tag) {
-    max-width: 44rem;
-  }
-}
-
 /* Phones. The photo sits above the text rather than beside it.
 
    The desktop rules place the date, label, title and summary in column 2 using
@@ -3552,5 +3526,197 @@ body.is-entering main {
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
+  }
+}
+
+/* ==========================================================================
+   Signals. Two kinds of piece in one chronological list. A note is a short
+   row, the same shape as a news row. A column is a longer piece and is given
+   the width and type size to match.
+   ========================================================================== */
+
+.signals-archive {
+  display: grid;
+  gap: 2.8rem;
+}
+
+.signal-column {
+  display: grid;
+  gap: 1.4rem 2.6rem;
+  padding: 2rem 0 2.2rem;
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+.signal-column .column-media img {
+  display: block;
+  width: 100%;
+  height: clamp(11rem, 22vh, 17rem);
+  object-fit: cover;
+}
+
+.signal-column .article-tag {
+  margin: 0 0 0.5rem;
+  color: var(--red);
+}
+
+.signal-column h2 {
+  margin: 0;
+  max-width: 26ch;
+  font-family: var(--font-head);
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.signal-column .column-dek {
+  margin: 0.9rem 0 0;
+  max-width: 48ch;
+  color: var(--ink-body);
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.signal-column time {
+  display: block;
+  margin-top: 1rem;
+  color: var(--ink-muted);
+  font-family: var(--font-section);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* A column's own page reads as a column, with a narrower measure and slightly
+   larger text than a note. */
+.article-main.is-column .article-prose {
+  max-width: 34rem;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.article-main.is-column .article-prose p + p {
+  margin-top: 1.1rem;
+}
+
+/* A note is a short row: small square photo, then date, author, headline and
+   summary stacked beside it. Defined in full here rather than borrowing the
+   news page's rules, so the two can change independently. */
+.signal-note {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 8rem) minmax(0, 1fr);
+  column-gap: 1.6rem;
+  row-gap: 0.3rem;
+  align-items: start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.signal-note[hidden] {
+  display: none;
+}
+
+.signal-note > .article-thumb {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  width: 100%;
+}
+
+.signal-note > .article-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.signal-note > .article-thumb.is-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  background: var(--paper-soft);
+  border: 1px solid var(--rule);
+}
+
+.signal-note > .article-thumb.is-placeholder span {
+  color: var(--ink-muted);
+  font-family: var(--font-section);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.signal-note > time,
+.signal-note > .article-tag,
+.signal-note > h2,
+.signal-note > p:not(.article-tag) {
+  grid-column: 2;
+  grid-row: auto;
+  margin: 0;
+}
+
+.signal-note > time {
+  color: var(--red);
+  font-family: var(--font-section);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.signal-note > .article-tag {
+  color: var(--ink-muted);
+  font-family: var(--font-section);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.signal-note > h2 {
+  margin-top: 0.15rem;
+  font-family: var(--font-head);
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.signal-note > p:not(.article-tag) {
+  margin-top: 0.3rem;
+  max-width: 52ch;
+  color: var(--ink-body);
+}
+
+@media (max-width: 560px) {
+  .signal-note {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.4rem;
+  }
+
+  /* Named one by one. A wildcard here loses to the rules above that place
+     each element in column 2, which leaves the photo column at zero width. */
+  .signal-note > .article-thumb,
+  .signal-note > time,
+  .signal-note > .article-tag,
+  .signal-note > h2,
+  .signal-note > p:not(.article-tag) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .signal-note > .article-thumb {
+    margin-bottom: 0.4rem;
+  }
+
+  .signal-note > .article-thumb img {
+    aspect-ratio: 16 / 10;
+  }
+
+  /* A note with no photo shows text only on a phone. A full-width grey box
+     takes more room than it is worth on a small screen. */
+  .signal-note > .article-thumb.is-placeholder {
+    display: none;
   }
 }

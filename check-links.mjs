@@ -60,11 +60,15 @@ for (const f of readdirSync("people").filter((n) => n.endsWith(".md"))) {
 // A typo would otherwise send it silently to the wrong page.
 const VALID_CATEGORIES = [
   "News", "Policy analysis", "Event", "Interview",
-  "Report", "Op-ed", "Policy brief", "Policy infographic", "Blog",
+  "Report", "Op-ed", "Policy brief", "Policy infographic", "Signals",
 ];
 
 // Every hub named on an article must be a real hub, or the article quietly
 // appears on no hub page at all.
+// A Signals piece is either a column or, by default, a short note. A typo here
+// would silently turn a column into a note.
+const VALID_FORMATS = ["column"];
+
 const HUBS = JSON.parse(readFileSync("_data/hubs.json", "utf8")).map((h) => h.slug);
 
 // Photos in the homepage highlight band, and where they point.
@@ -119,6 +123,11 @@ try {
 try {
   for (const f of readdirSync("articles").filter((n) => n.endsWith(".md"))) {
     const text = readFileSync(`articles/${f}`, "utf8");
+    const fm = text.match(/^format:\s*"?([^"\n]+)"?/m);
+    if (fm && !VALID_FORMATS.includes(fm[1].trim())) {
+      problems.push(`articles/${f}  ->  format: "${fm[1].trim()}" is not valid. Use: ${VALID_FORMATS.join(", ")}, or remove the line`);
+    }
+
     const m = text.match(/^category:\s*"?([^"\n]+)"?/m);
     if (!m) {
       problems.push(`articles/${f}  ->  no "category:" line (use one of: ${VALID_CATEGORIES.join(", ")})`);

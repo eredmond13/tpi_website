@@ -7,9 +7,9 @@ permalink: /publications.html
 pubCategories: ["Report", "Op-ed", "Policy brief", "Policy infographic"]
 annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-policy-lab-report-2021", "tech-policy-lab-report-2020-21"]
 ---
-{%- set blogPosts = [] %}
+{%- set signals = [] %}
 {%- for post in collections.article | newest %}
-  {%- if post.data.category == "Blog" %}{% set blogPosts = (blogPosts.push(post), blogPosts) %}{% endif %}
+  {%- if post.data.category == "Signals" %}{% set signals = (signals.push(post), signals) %}{% endif %}
 {%- endfor %}
 <section class="page-hero">
   <p class="eyebrow">Our research</p>
@@ -23,8 +23,8 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
   <button type="button" class="filter-chip" data-filter="report" aria-pressed="false">Reports</button>
   <button type="button" class="filter-chip" data-filter="brief" aria-pressed="false">Policy briefs</button>
   <button type="button" class="filter-chip" data-filter="oped" aria-pressed="false">Op-eds</button>
-  {%- if blogPosts.length %}
-  <button type="button" class="filter-chip" data-filter="blog" aria-pressed="false">Blog</button>
+  {%- if signals.length %}
+  <button type="button" class="filter-chip" data-filter="signals" aria-pressed="false">Signals</button>
   {%- endif %}
   <button type="button" class="filter-chip" data-filter="annual" aria-pressed="false">Annual reports</button>
 </div>
@@ -63,26 +63,26 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
 {%- endfor %}
 </section>
 
-{% if blogPosts.length %}
-<section class="page-block" id="blog">
+{% if signals.length %}
+<section class="page-block" id="signals">
   <div class="block-header">
-    <h2>Blog</h2>
-    <p>Shorter pieces from across the institute's research hubs, published weekly.</p>
+    <h2>Signals</h2>
+    <p>Analysis of current events from across the institute's research hubs.</p>
   </div>
 
   <div class="news-list">
-  {%- for post in blogPosts | limit(3) %}
-    <article data-group="blog">
+  {%- for post in signals | limit(3) %}
+    <article data-group="signals">
       {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Blog</span></a>{% endif %}
+      {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Signals</span></a>{% endif %}
       <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-      {% if post.data.author %}<p class="article-tag">{{ post.data.author }}</p>{% endif %}
+      <p class="article-tag">{% if post.data.format == "column" %}Column{% else %}Note{% endif %}{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</p>
       <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
       <p>{{ post.data.summary }}</p>
     </article>
   {%- endfor %}
   </div>
-  <p class="link-row"><a href="{{ "/blog.html" | url }}">All blog posts</a></p>
+  <p class="link-row"><a href="{{ "/signals.html" | url }}">All Signals</a></p>
 </section>
 {% endif %}
 
@@ -124,7 +124,7 @@ annualReports: ["tpi-annual-report-2024-25", "tpi-annual-report-2023-24", "tech-
   var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
   var items = Array.prototype.slice.call(document.querySelectorAll("[data-group]"));
   var empty = document.querySelector(".filter-empty");
-  var blocks = ["research", "blog", "annual-reports"].map(function (id) {
+  var blocks = ["research", "signals", "annual-reports"].map(function (id) {
     return document.getElementById(id);
   });
   var layout = document.querySelector(".publication-layout");

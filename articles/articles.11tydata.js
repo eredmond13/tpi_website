@@ -8,7 +8,7 @@ const PUBLICATION_CATEGORIES = ["Report", "Op-ed", "Policy brief", "Policy infog
 // A photo named after the article is picked up automatically, so adding one is
 // just a matter of dropping the file in with the right name. An explicit
 // "image:" line in the article always wins.
-const PHOTO_DIRS = ["pictures/news", "pictures/publications", "pictures/blog"];
+const PHOTO_DIRS = ["pictures/news", "pictures/publications", "pictures/signals"];
 
 const byName = {};
 for (const dir of PHOTO_DIRS) {
@@ -26,8 +26,10 @@ const isInterview = (data) => data.category === "Interview";
 const isPublication = (data) =>
   PUBLICATION_CATEGORIES.includes(data.category);
 
-// Blog posts sit under Publications in the menu but have their own listing.
-const isBlog = (data) => data.category === "Blog";
+// Signals sit under Publications in the menu but have their own listing. A
+// piece is either a short note, the default, or a longer column.
+const isSignal = (data) => data.category === "Signals";
+const isColumn = (data) => data.format === "column";
 
 export default {
   layout: "article.njk",
@@ -47,14 +49,18 @@ export default {
       return undefined;
     },
     imageAlt: (data) => data.imageAlt || data.title,
-    navId:     (data) => (isPublication(data) || isBlog(data) ? "publications" : "news"),
+    // A column says so above its headline. A note simply says Signals.
+    kicker: (data) =>
+      isSignal(data) ? (isColumn(data) ? "Signals · Column" : "Signals")
+      : data.category,
+    navId:     (data) => (isPublication(data) || isSignal(data) ? "publications" : "news"),
     backHref:  (data) =>
-      isBlog(data) ? "/blog.html"
+      isSignal(data) ? "/signals.html"
       : isPublication(data) ? "/publications.html"
       : isInterview(data) ? "/interviews.html"
       : "/news.html",
     backLabel: (data) =>
-      isBlog(data) ? "All blog posts"
+      isSignal(data) ? "All Signals"
       : isPublication(data) ? "All publications"
       : isInterview(data) ? "All interviews"
       : "All news",

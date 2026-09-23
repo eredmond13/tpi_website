@@ -1,0 +1,72 @@
+---
+layout: base.njk
+navId: publications
+title: Signals
+description: Analysis of current events from the Cornell Brooks Tech Policy Institute.
+permalink: /signals.html
+---
+{#- Every article with category: Signals, newest first. A piece marked
+    format: column renders large. Everything else is a short note. -#}
+{%- set signals = [] %}
+{%- for post in collections.article | newest %}
+  {%- if post.data.category == "Signals" %}{% set signals = (signals.push(post), signals) %}{% endif %}
+{%- endfor %}
+
+<section class="page-hero">
+  <p class="eyebrow">Publications</p>
+  <h1>Signals</h1>
+  <p class="dek">Analysis of current events from across the institute's research
+  hubs. Longer columns alongside shorter notes from our fellows.</p>
+</section>
+
+{% if signals.length %}
+<section class="signals-archive" id="posts">
+{%- for post in signals %}
+{%- set extra = ' is-extra' if loop.index0 >= 12 else '' %}
+{%- set hide = ' hidden' if loop.index0 >= 12 else '' %}
+{%- if post.data.format == "column" %}
+  <article class="signal-column{{ extra }}"{{ hide | safe }}>
+    {% if post.data.image %}
+    <a class="column-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% endif %}
+    <div class="column-body">
+      <p class="article-tag">Column{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</p>
+      <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+      <p class="column-dek">{{ post.data.summary }}</p>
+      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+    </div>
+  </article>
+{%- else %}
+  <article class="signal-note{{ extra }}"{{ hide | safe }}>
+    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Signals</span></a>{% endif %}
+    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+    <p class="article-tag">{% if post.data.author %}{{ post.data.author }}{% else %}Note{% endif %}</p>
+    <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
+    <p>{{ post.data.summary }}</p>
+  </article>
+{%- endif %}
+{%- endfor %}
+</section>
+
+{% if signals.length > 12 %}
+<p class="link-row signals-more"><button type="button" class="show-all">Show all {{ signals.length }} pieces</button></p>
+<script>
+/* Everything is already in the page, so with JavaScript off every piece is
+   listed and nothing is hidden from anyone. */
+(function () {
+  var btn = document.querySelector(".signals-more .show-all");
+  if (!btn) return;
+  btn.addEventListener("click", function () {
+    document.querySelectorAll(".signals-archive .is-extra").forEach(function (el) { el.hidden = false; });
+    btn.parentNode.remove();
+  });
+})();
+</script>
+{% endif %}
+
+{% else %}
+<section class="page-block">
+  <p class="filter-empty">The first pieces are on their way.</p>
+</section>
+{% endif %}

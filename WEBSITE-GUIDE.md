@@ -612,34 +612,42 @@ larger, upload it to Cornell Box and link to it instead.
 
 ---
 
-## Publishing a blog post
+## Publishing to Signals
 
-Blog posts are short pieces that open as their own page, with no PDF. They
-appear on the Blog page, and the newest three also appear on the Publications
-page under their own heading.
+Signals is the institute's analysis of current events. It holds two kinds of
+piece. A **note** is short, usually 400 to 600 words, and is what most fellows
+write. A **column** is longer, shows larger on the Signals page, and reads as a
+column on its own page.
 
-1. Copy `BLOG-POST-TEMPLATE.md` from the repo root into the `articles` folder.
-   Do this by duplicating it in Finder rather than retyping it.
-2. Rename the copy after the post, lowercase with hyphens, for example
-   `drone-swarms-europe.md`. That name becomes the page address.
-3. Open it and replace everything between the quote marks, and the body text
-   below the second `---`.
-4. Leave `category: Blog` exactly as it is.
+Both open as their own page and neither has a PDF. The newest three also appear
+on the Publications page.
+
+1. Copy either `SIGNALS-NOTE-TEMPLATE.md` or `SIGNALS-COLUMN-TEMPLATE.md` from
+   the repo root into the `articles` folder. Duplicate it in Finder rather than
+   retyping it.
+2. Rename the copy after the piece, lowercase with hyphens, for example
+   `export-controls-now.md`. That name becomes the page address.
+3. Replace the text between the quote marks, and the body below the second `---`.
+4. Leave `category: Signals` exactly as it is. On a column, leave
+   `format: column` too. That one line is the only difference between the two.
 5. Commit and push.
 
 What each line does:
 
 - `title` is the headline.
-- `date` is the publication date, written 2026-09-28. Newest posts show first.
-- `author` shows as "By First Last" on the post and beside it in the lists.
-  Delete the line if a post has no named author.
-- `summary` is the one or two sentences shown in the lists.
-- `hubs` puts the post on those hub pages under Publications. Use the exact hub
-  names from the rest of this guide, or delete the line.
+- `date` is the publication date, written 2026-09-28. Newest shows first.
+- `author` shows beside the piece and on its page. Delete the line if there is
+  no named author.
+- `summary` is the sentence or two shown under the headline in the lists.
+- `hubs` puts the piece on those hub pages. Use the exact hub names from this
+  guide, or delete the line.
+- `format: column` appears on columns only. Misspelling it stops the build with
+  a message naming the file, so a column cannot quietly become a note.
 
-A photo is optional. Save it in `pictures/blog/` with the same name as the post
-file, so `drone-swarms-europe.md` picks up `pictures/blog/drone-swarms-europe.jpg`
-automatically.
+A photo is optional. Save it in `pictures/signals/` with the same name as the
+piece, so `export-controls-now.md` picks up
+`pictures/signals/export-controls-now.jpg` automatically. Columns show their
+photo as a wide banner, so a landscape image works best.
 
-Edit posts on github.com or in a code editor, not TextEdit. TextEdit's curly
+Edit these on github.com or in a code editor, not TextEdit. TextEdit's curly
 quotes stop the build, and it rewrites `.html` files entirely.
