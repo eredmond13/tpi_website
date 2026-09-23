@@ -3540,57 +3540,91 @@ body.is-entering main {
   gap: 2.8rem;
 }
 
+/* A column is a featured article in the list, not a page header. Photograph
+   beside the text rather than a banner above it, a headline larger than a note
+   but well short of a page title, and red doing the work of marking it out. */
 .signal-column {
   display: grid;
-  gap: 1.4rem 2.6rem;
-  padding: 2rem 0 2.2rem;
-  border-top: 2px solid var(--ink);
-  border-bottom: 1px solid var(--rule);
+  grid-template-columns: minmax(0, 0.44fr) minmax(0, 1fr);
+  gap: 1.8rem 2.2rem;
+  align-items: start;
+  padding: 1.6rem 0 2rem;
+  border-top: 2px solid var(--red);
 }
 
 .signal-column .column-media img {
   display: block;
   width: 100%;
-  height: clamp(11rem, 22vh, 17rem);
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 }
 
-.signal-column .article-tag {
-  margin: 0 0 0.5rem;
-  color: var(--red);
-}
-
-.signal-column h2 {
-  margin: 0;
-  max-width: 26ch;
-  font-family: var(--font-head);
-  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-}
-
-.signal-column .column-dek {
-  margin: 0.9rem 0 0;
-  max-width: 48ch;
-  color: var(--ink-body);
-  font-size: 1.08rem;
-  line-height: 1.55;
-}
-
-.signal-column time {
-  display: block;
-  margin-top: 1rem;
-  color: var(--ink-muted);
+.signal-column .column-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.7rem;
+  margin: 0 0 0.6rem;
   font-family: var(--font-section);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-/* A column's own page reads as a column, with a narrower measure and slightly
-   larger text than a note. */
+.signal-column .column-kind {
+  padding: 0.2rem 0.5rem;
+  background: var(--red);
+  color: #fff;
+}
+
+.signal-column .column-author {
+  color: var(--red);
+}
+
+.signal-column .column-byline time {
+  color: var(--ink-muted);
+  font-weight: 700;
+}
+
+.signal-column h2 {
+  margin: 0;
+  max-width: 24ch;
+  font-family: var(--font-head);
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.signal-column .column-dek {
+  margin: 0.7rem 0 0;
+  max-width: 52ch;
+  color: var(--ink-body);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.signal-column .link-row {
+  margin-top: 1rem;
+}
+
+/* A column with no photograph keeps the text in one column. */
+.signal-column:not(:has(.column-media)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 720px) {
+  .signal-column {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .signal-column .column-media img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 .article-main.is-column .article-prose {
   max-width: 34rem;
   font-size: 1.08rem;

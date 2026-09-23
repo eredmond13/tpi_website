@@ -30,10 +30,12 @@ permalink: /signals.html
     <a class="column-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% endif %}
     <div class="column-body">
-      <p class="article-tag">Column{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</p>
+      <p class="column-byline">
+        <span class="column-kind">Column</span>{% if post.data.author %}<span class="column-author">{{ post.data.author }}</span>{% endif %}<time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      </p>
       <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
       <p class="column-dek">{{ post.data.summary }}</p>
-      <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
+      <p class="link-row"><a href="{{ post.url | url }}">Read the column</a></p>
     </div>
   </article>
 {%- else %}
