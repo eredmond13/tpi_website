@@ -1,6 +1,6 @@
 ---
 name: "Elizabeth H. Redmond"
-role: "Lead Research Associate"
+role: "Lead Researcher"
 group: "Staff"
 order: 10
 photo: /pictures/people/elizabeth-redmond.jpg
