@@ -15,8 +15,8 @@ permalink: /signals.html
 <section class="page-hero">
   <p class="eyebrow">Analysis</p>
   <h1>Signals</h1>
-  <p class="dek">Analysis of current events from across the institute's research
-  hubs. Longer columns alongside shorter notes from our fellows.</p>
+  <p class="dek">Current events analysis across the institute's research hubs,
+  published weekly.</p>
 </section>
 
 {% if signals.length %}
@@ -30,7 +30,7 @@ permalink: /signals.html
     <a class="column-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% endif %}
     <div class="column-body">
-      <p class="column-byline"><span>Column</span>{% if post.data.author %} &middot; {{ post.data.author }}{% endif %} &middot; <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></p>
+      <p class="column-byline"><span>Column</span>{% if post.data.author %} &middot; {{ post.data.author }}{% if post.data.authorRole %}, {{ post.data.authorRole }}{% endif %}{% endif %} &middot; <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></p>
       <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
       <p class="column-dek">{{ post.data.summary }}</p>
     </div>
@@ -40,7 +40,7 @@ permalink: /signals.html
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Signals</span></a>{% endif %}
     <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">{% if post.data.author %}{{ post.data.author }}{% else %}Note{% endif %}</p>
+    <p class="article-tag">{% if post.data.author %}{{ post.data.author }}{% if post.data.authorRole %}, {{ post.data.authorRole }}{% endif %}{% else %}Note{% endif %}</p>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
   </article>

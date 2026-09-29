@@ -7,14 +7,14 @@ layout: base.njk
   {% if summary %}<p class="dek">{{ summary }}</p>{% endif %}
 
   <p class="article-credits">
-    {% if author %}By {{ author }} &middot; {% endif %}
+    {%- if author %}By {% if authorSlug %}<a href="{{ "/people.html" | url }}#{{ authorSlug }}">{{ author }}</a>{% else %}{{ author }}{% endif %}{% if authorRole %}, <span class="author-role">{{ authorRole }}</span>{% endif %} &middot; {% endif %}
     <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
   </p>
 
   {% if image %}
   <figure class="article-feature-media">
     <img alt="{{ imageAlt or title }}" src="{{ image | url }}">
-    {% if imageCredit %}<figcaption>{{ imageCredit }}</figcaption>{% endif %}
+    {% if imageCredit %}<figcaption>{{ imageCredit | safe }}</figcaption>{% endif %}
   </figure>
   {% else %}
   <div class="article-feature-media is-placeholder" aria-hidden="true"><span>{{ category }}</span></div>

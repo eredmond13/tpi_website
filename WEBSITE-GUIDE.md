@@ -636,13 +636,23 @@ What each line does:
 
 - `title` is the headline.
 - `date` is the publication date, written 2026-09-28. Newest shows first.
-- `author` shows beside the piece and on its page. Delete the line if there is
-  no named author.
+- `author` shows beside the piece and on its page. Write the name as it appears
+  in the `people` folder and the site adds their role automatically and links
+  the name to their profile, so "Sophia Dasser" becomes "Sophia Dasser, Junior
+  Fellow". For someone outside the institute, add an `authorRole` line with
+  whatever should appear instead. Delete `author` if there is no named author.
 - `summary` is the sentence or two shown under the headline in the lists.
 - `hubs` puts the piece on those hub pages. Use the exact hub names from this
   guide, or delete the line.
 - `format: column` appears on columns only. Misspelling it stops the build with
   a message naming the file, so a column cannot quietly become a note.
+
+If a photo needs a credit, add an `imageCredit` line to the settings block. It
+appears in small grey type under the picture and can contain a link:
+
+    imageCredit: 'Photo by Name, <a href="https://example.com">Source</a>, CC BY 2.0'
+
+Note the single quotes around it, since the line itself contains double quotes.
 
 A photo is optional. Save it in `pictures/signals/` with the same name as the
 piece, so `export-controls-now.md` picks up

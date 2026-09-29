@@ -3749,3 +3749,22 @@ body.is-entering main {
   padding: 1rem 0;
   font-weight: 500;
 }
+
+/* Photo credit under an article's header image. Quiet, but present, since a
+   borrowed photograph usually has to name its photographer. */
+.article-feature-media figcaption {
+  margin-top: 0.55rem;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.article-feature-media figcaption a {
+  color: inherit;
+}
+
+/* An author's role beside their name, so a reader knows the standing of the
+   person writing. */
+.article-credits .author-role {
+  color: var(--ink-muted);
+}
