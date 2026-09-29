@@ -1,6 +1,6 @@
 ---
 name: "Kayla Schechter"
-role: "Junior Fellow"
+role: "Distinguished Junior Fellow"
 group: "Junior Fellows"
 order: 63
 hubs: ["geopolitics"]

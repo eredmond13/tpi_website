@@ -1,6 +1,6 @@
 ---
 name: "Eeshaan Chaudhuri"
-role: "Junior Fellow"
+role: "Distinguished Junior Fellow"
 group: "Junior Fellows"
 order: 61
 hubs: ["geopolitics"]
