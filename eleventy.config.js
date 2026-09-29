@@ -12,6 +12,20 @@ export default function (cfg) {
   cfg.addPassthroughCopy("script.js");
   cfg.addPassthroughCopy(".nojekyll");
 
+  // Clean addresses. Pages are still saved as .html files, but every link on
+  // the site is written without the ending, so visitors see /about rather
+  // than /about.html. GitHub Pages finds the .html file on its own.
+  cfg.addTransform("cleanUrls", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(/href="(\/[^"#?]*?)(index)?\.html([#?][^"]*)?"/g,
+      (m, path, index, rest) => {
+        if (index && path.endsWith("/")) return `href="${path}${rest || ""}"`;
+        if (index) path += "index";
+        if (path.endsWith("/research")) path += "/";
+        return `href="${path}${rest || ""}"`;
+      });
+  });
+
   cfg.addFilter("byOrder", (a) =>
     [...a].sort((x, y) => (x.data.order || 99) - (y.data.order || 99)));
 

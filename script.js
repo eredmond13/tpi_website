@@ -22,8 +22,14 @@ const siteRoot = (() => {
   return document.body.dataset.root || "/";
 })();
 
-const rootedHref = (href) =>
-  /^(https?:|mailto:|#|\/)/.test(href) ? href : siteRoot + href;
+const rootedHref = (href) => {
+  const full = /^(https?:|mailto:|#|\/)/.test(href) ? href : siteRoot + href;
+  if (/^(https?:|mailto:|#)/.test(full)) return full;
+  return full
+    .replace(/(^|\/)index\.html(?=$|[#?])/, "$1")
+    .replace(/\.html(?=$|[#?])/, "")
+    .replace(/\/research(?=$|[#?])/, "/research/");
+};
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const navGroups = [
@@ -288,7 +294,7 @@ function normalizeHref(href) {
 function pageFromHref(href) {
   const url = normalizeHref(href);
   if (!url) return "home";
-  const name = url.pathname.split("/").pop() || "index.html";
+  const name = url.pathname.replace(/\/$/, "").split("/").pop() || "index.html";
   if (name === "index.html") return "home";
   if (name.startsWith("report-")) return "publications";
   if (url.pathname.includes("/articles/")) return "news";
