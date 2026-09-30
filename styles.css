@@ -3541,26 +3541,16 @@ body.is-entering main {
   gap: 2.8rem;
 }
 
-/* A column is marked by a pale red wash and a larger headline, and by nothing
-   else. One byline line, no badge, no rule, no read-more link. */
+/* A column is the lead item in the list. No panel behind it, since that reads
+   as a notice rather than an article. A thin red rule above, a byline, a large
+   headline, and the width used properly. */
 .signal-column {
-  display: grid;
-  grid-template-columns: minmax(0, 0.4fr) minmax(0, 1fr);
-  gap: 1.5rem 2.2rem;
-  align-items: center;
-  padding: 2.1rem 2.2rem;
-  background: var(--red-wash);
-}
-
-.signal-column .column-media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  padding: 1.5rem 0 1rem;
+  border-top: 2px solid var(--red);
 }
 
 .signal-column .column-byline {
-  margin: 0 0 0.7rem;
+  margin: 0 0 0.9rem;
   color: var(--ink-muted);
   font-family: var(--font-section);
   font-size: 0.7rem;
@@ -3575,37 +3565,78 @@ body.is-entering main {
 
 .signal-column h2 {
   margin: 0;
-  max-width: 26ch;
   font-family: var(--font-head);
-  font-size: clamp(1.45rem, 2vw, 1.8rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
   font-weight: 800;
-  line-height: 1.16;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 
 .signal-column .column-dek {
-  margin: 0.65rem 0 0;
-  max-width: 54ch;
+  margin: 0;
   color: var(--ink-body);
-  font-size: 0.97rem;
+  font-size: 1.02rem;
   line-height: 1.55;
 }
 
-/* Without a photograph the text runs the full width rather than leaving a gap
-   where the picture would have been. */
-.signal-column:not(:has(.column-media)) {
-  grid-template-columns: minmax(0, 1fr);
+/* With a photograph: picture on the left, the words beside it. */
+.signal-column:has(.column-media) {
+  display: grid;
+  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
+  gap: 1.6rem 2.4rem;
+  align-items: start;
 }
 
-@media (max-width: 720px) {
-  .signal-column {
+.signal-column .column-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.signal-column:has(.column-media) .column-dek {
+  margin-top: 0.8rem;
+  max-width: 52ch;
+}
+
+/* Without one: headline on the left, summary on the right, so the full width
+   is used instead of leaving half the row empty. */
+.signal-column:not(:has(.column-media)) .column-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 0 3rem;
+  align-items: start;
+}
+
+.signal-column:not(:has(.column-media)) .column-byline {
+  grid-column: 1 / -1;
+}
+
+.signal-column:not(:has(.column-media)) h2 {
+  max-width: 18ch;
+}
+
+.signal-column:not(:has(.column-media)) .column-dek {
+  padding-top: 0.3rem;
+}
+
+@media (max-width: 760px) {
+  .signal-column:has(.column-media),
+  .signal-column:not(:has(.column-media)) .column-body {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.1rem;
-    padding: 1.5rem 1.4rem 1.7rem;
+    gap: 1rem;
   }
 
   .signal-column .column-media img {
     aspect-ratio: 16 / 9;
+  }
+
+  .signal-column:not(:has(.column-media)) h2 {
+    max-width: none;
+  }
+
+  .signal-column:not(:has(.column-media)) .column-dek {
+    padding-top: 0.6rem;
   }
 }
 
