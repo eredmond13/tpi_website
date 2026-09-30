@@ -1,6 +1,6 @@
 ---
 title: "Flashpoint Moldova: Navigating Crisis in a New Geopolitical Landscape"
-date: 2025-09-30
+date: 2026-09-30
 category: Policy brief
 summary: A tabletop exercise on a Russian-backed crisis in Moldova, and how a fraying international order constrains America's response.
 image: /pictures/publications/flashpoint-moldova.jpeg
