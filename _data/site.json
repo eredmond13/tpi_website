@@ -65,7 +65,13 @@
   "social": [
     {
       "label": "LinkedIn",
-      "href": "https://www.linkedin.com/company/brooks-tech-policy-institute1/"
+      "href": "https://www.linkedin.com/company/brooks-tech-policy-institute1/",
+      "icon": "linkedin"
+    },
+    {
+      "label": "X",
+      "href": "https://x.com/CornellTPI",
+      "icon": "x"
     }
   ]
 }

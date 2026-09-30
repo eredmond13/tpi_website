@@ -3243,24 +3243,33 @@ body.is-entering main {
 .footer-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
-  margin: 1.4rem 0 0;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 1.3rem 0 0 -0.35rem;
 }
 
+/* Social links are icons. The name is still there for screen readers and as a
+   tooltip, it is simply not drawn. */
 .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.85rem;
+  height: 1.85rem;
   color: inherit;
-  font-family: var(--font-section);
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 2px solid transparent;
+  transition: color 160ms ease;
 }
 
-.footer-social a:hover {
+.footer-social a svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
   color: var(--red);
-  border-bottom-color: var(--red);
 }
 
 /* The footer closes with the institute's own mark, matching the header, rather
