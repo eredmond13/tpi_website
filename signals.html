@@ -26,9 +26,8 @@ permalink: /signals.html
 {%- set hide = ' hidden' if loop.index0 >= 12 else '' %}
 {%- if post.data.format == "column" %}
   <article class="signal-column{{ extra }}"{{ hide | safe }}>
-    {% if post.data.image %}
-    <a class="column-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-    {% endif %}
+    {% if post.data.image %}<a class="column-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="column-media is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Column</span></a>{% endif %}
     <div class="column-body">
       <p class="column-byline"><span>Column</span>{% if post.data.author %} &middot; {{ post.data.author }}{% if post.data.authorRole %}, {{ post.data.authorRole }}{% endif %}{% endif %} &middot; <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></p>
       <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>

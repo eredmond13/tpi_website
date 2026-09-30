@@ -3541,16 +3541,46 @@ body.is-entering main {
   gap: 2.8rem;
 }
 
-/* A column is the lead item in the list. No panel behind it, since that reads
-   as a notice rather than an article. A thin red rule above, a byline, a large
-   headline, and the width used properly. */
+/* A column is the lead item in the list, built around a large picture so it
+   reads as an article rather than as a page heading. Photograph on the left at
+   half the width, the words beside it. */
 .signal-column {
+  display: grid;
+  grid-template-columns: minmax(0, 0.52fr) minmax(0, 1fr);
+  gap: 1.5rem 2.4rem;
+  align-items: start;
   padding: 1.5rem 0 1rem;
   border-top: 2px solid var(--red);
 }
 
+.signal-column .column-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+/* Without a photograph the shape is kept, so a column never collapses into
+   something that looks like a page header. */
+.signal-column .column-media.is-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  background: var(--paper-soft);
+  border: 1px solid var(--rule);
+}
+
+.signal-column .column-media.is-placeholder span {
+  color: var(--ink-muted);
+  font-family: var(--font-section);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .signal-column .column-byline {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.7rem;
   color: var(--ink-muted);
   font-family: var(--font-section);
   font-size: 0.7rem;
@@ -3566,77 +3596,29 @@ body.is-entering main {
 .signal-column h2 {
   margin: 0;
   font-family: var(--font-head);
-  font-size: clamp(1.6rem, 2.6vw, 2.15rem);
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
   font-weight: 800;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
+  line-height: 1.12;
+  letter-spacing: -0.022em;
 }
 
 .signal-column .column-dek {
-  margin: 0;
+  margin: 0.75rem 0 0;
+  max-width: 50ch;
   color: var(--ink-body);
-  font-size: 1.02rem;
+  font-size: 1rem;
   line-height: 1.55;
 }
 
-/* With a photograph: picture on the left, the words beside it. */
-.signal-column:has(.column-media) {
-  display: grid;
-  grid-template-columns: minmax(0, 0.42fr) minmax(0, 1fr);
-  gap: 1.6rem 2.4rem;
-  align-items: start;
-}
-
-.signal-column .column-media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.signal-column:has(.column-media) .column-dek {
-  margin-top: 0.8rem;
-  max-width: 52ch;
-}
-
-/* Without one: headline on the left, summary on the right, so the full width
-   is used instead of leaving half the row empty. */
-.signal-column:not(:has(.column-media)) .column-body {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: 0 3rem;
-  align-items: start;
-}
-
-.signal-column:not(:has(.column-media)) .column-byline {
-  grid-column: 1 / -1;
-}
-
-.signal-column:not(:has(.column-media)) h2 {
-  max-width: 18ch;
-}
-
-.signal-column:not(:has(.column-media)) .column-dek {
-  padding-top: 0.3rem;
-}
-
 @media (max-width: 760px) {
-  .signal-column:has(.column-media),
-  .signal-column:not(:has(.column-media)) .column-body {
+  .signal-column {
     grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
   }
 
-  .signal-column .column-media img {
+  .signal-column .column-media img,
+  .signal-column .column-media.is-placeholder {
     aspect-ratio: 16 / 9;
-  }
-
-  .signal-column:not(:has(.column-media)) h2 {
-    max-width: none;
-  }
-
-  .signal-column:not(:has(.column-media)) .column-dek {
-    padding-top: 0.6rem;
   }
 }
 
