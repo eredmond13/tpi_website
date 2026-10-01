@@ -8,7 +8,7 @@ hubs: ["drones", "space", "geopolitics", "critical-infrastructure"]
 hubLead: ["drones", "space", "geopolitics"]
 ---
 
-Elizabeth H. Redmond is TPI's Lead Research Associate supporting DoD-funded research on
+Elizabeth H. Redmond is TPI's Lead Researcher supporting DoD-funded research on
 semiconductor supply chain security and cybersecurity assessment. She is the hub lead for 
 the Drones & Robotics, Geopolitics & Technology, and Space Security hubs with a particular
 focus on Arctic wargaming. 
