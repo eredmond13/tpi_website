@@ -12,42 +12,50 @@ permalink: /signals.html
   {%- if post.data.category == "Signals" %}{% set signals = (signals.push(post), signals) %}{% endif %}
 {%- endfor %}
 
-<section class="page-hero">
-  <p class="eyebrow">Analysis</p>
+<section class="sig-mast">
   <h1>Signals</h1>
-  <p class="dek">Current events analysis across the institute's research hubs,
-  published weekly.</p>
+  <div class="sig-mast-r">
+    <p>Current events analysis across the institute's research hubs.</p>
+    <p class="sig-mast-meta">Published weekly{% if signals.length %} &middot; {{ signals[0].data.date | readableDate }}{% endif %}</p>
+  </div>
 </section>
 
 {% if signals.length %}
+{%- set lead = signals[0] %}
+{#- The newest piece leads, whoever wrote it, so the page always opens on what
+    is new. A column is marked in the list below rather than by position. -#}
+<article class="sig-lead">
+  <div class="sig-lead-body">
+    <p class="sig-by">{% if lead.data.format == "column" %}<em>Column</em> &middot; {% endif %}{% if lead.data.author %}{{ lead.data.author }}{% if lead.data.authorRole %}, {{ lead.data.authorRole }}{% endif %} &middot; {% endif %}<time datetime="{{ lead.data.date | isoDate }}">{{ lead.data.date | readableDate }}</time></p>
+    <h2><a href="{{ lead.url | url }}">{{ lead.data.title }}</a></h2>
+    <p class="sig-lead-dek">{{ lead.data.summary }}</p>
+    <p class="sig-read"><a href="{{ lead.url | url }}">Read {% if lead.data.format == "column" %}the column{% else %}the piece{% endif %}</a></p>
+  </div>
+  {% if lead.data.image %}<a class="sig-media is-lead" href="{{ lead.url | url }}"><img alt="{{ lead.data.imageAlt }}" src="{{ lead.data.image | url }}"></a>
+  {% else %}<a class="sig-media is-lead is-placeholder" href="{{ lead.url | url }}" aria-hidden="true"><span>Signals</span></a>{% endif %}
+</article>
+
+{% if signals.length > 1 %}
 <section class="signals-archive" id="posts">
 {%- for post in signals %}
-{%- set extra = ' is-extra' if loop.index0 >= 12 else '' %}
-{%- set hide = ' hidden' if loop.index0 >= 12 else '' %}
-{%- if post.data.format == "column" %}
-  <article class="signal-column{{ extra }}"{{ hide | safe }}>
-    {% if post.data.image %}<a class="column-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-    {% else %}<a class="column-media is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Column</span></a>{% endif %}
-    <div class="column-body">
-      <p class="column-byline"><span>Column</span>{% if post.data.author %} &middot; {{ post.data.author }}{% if post.data.authorRole %}, {{ post.data.authorRole }}{% endif %}{% endif %} &middot; <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></p>
+{%- if loop.index0 > 0 %}
+{%- set extra = ' is-extra' if loop.index0 >= 13 else '' %}
+{%- set hide = ' hidden' if loop.index0 >= 13 else '' %}
+  <article class="sig-row{% if post.data.format == "column" %} is-column{% endif %}{{ extra }}"{{ hide | safe }}>
+    {% if post.data.image %}<a class="sig-media" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
+    {% else %}<a class="sig-media is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Signals</span></a>{% endif %}
+    <div class="sig-body">
+      <p class="sig-by">{% if post.data.format == "column" %}<em>Column</em> &middot; {% endif %}{% if post.data.author %}{{ post.data.author }}{% if post.data.authorRole %}, {{ post.data.authorRole }}{% endif %} &middot; {% endif %}<time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time></p>
       <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-      <p class="column-dek">{{ post.data.summary }}</p>
+      <p>{{ post.data.summary }}</p>
     </div>
-  </article>
-{%- else %}
-  <article class="signal-note{{ extra }}"{{ hide | safe }}>
-    {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
-    {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Signals</span></a>{% endif %}
-    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">{% if post.data.author %}{{ post.data.author }}{% if post.data.authorRole %}, {{ post.data.authorRole }}{% endif %}{% else %}Note{% endif %}</p>
-    <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
-    <p>{{ post.data.summary }}</p>
   </article>
 {%- endif %}
 {%- endfor %}
 </section>
+{% endif %}
 
-{% if signals.length > 12 %}
+{% if signals.length > 13 %}
 <p class="link-row signals-more"><button type="button" class="show-all">Show all {{ signals.length }} pieces</button></p>
 <script>
 /* Everything is already in the page, so with JavaScript off every piece is

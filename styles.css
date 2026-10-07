@@ -1127,11 +1127,17 @@ figcaption,
   gap: 2.6rem;
 }
 
+/* Two columns, not four. With four, the headline shared its width with the
+   date, the category and the summary, which dropped it to about twenty
+   characters a line and broke headlines over three lines on a desktop. */
 .news-archive article {
   display: grid;
-  grid-template-columns: minmax(6.5rem, 8rem) minmax(5rem, 0.16fr) minmax(18rem, 0.68fr) minmax(14rem, 0.42fr);
-  gap: 0.4rem 1.6rem;
+  grid-template-columns: minmax(8rem, 11rem) minmax(0, 1fr);
+  gap: 0 1.5rem;
   align-items: start;
+  /* The photo spans all three text rows. Without this the rows stretch to fill
+     its height and the text drifts apart. */
+  align-content: start;
 }
 
 /* The filter hides items with the hidden attribute. The browser default for
@@ -1143,29 +1149,48 @@ figcaption,
 
 .news-archive article > .article-thumb {
   grid-column: 1;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   width: 100%;
 }
 
-.news-archive article > time {
+/* The text sits in one block beside the photo rather than as three separate
+   grid rows. As separate rows the photo, spanning all three, stretched them to
+   its own height and pushed the text apart. */
+.news-archive article > .article-body {
   grid-column: 2;
   grid-row: 1;
 }
 
-.news-archive article > .article-tag {
-  grid-column: 2;
-  grid-row: 2;
+/* Date, category and source on one line above the headline, so the headline
+   has the full column and stops breaking after two or three words. */
+.news-archive .article-meta {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-section);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
 }
 
-.news-archive article > h2 {
-  grid-column: 3;
-  grid-row: 1 / span 2;
-  font-size: 1.4rem;
+.news-archive .article-meta time {
+  color: var(--red);
 }
 
-.news-archive article > p:not(.article-tag) {
-  grid-column: 4;
-  grid-row: 1 / span 2;
+.news-archive .article-meta span {
+  color: var(--field-green, #7b8a74);
+}
+
+.news-archive .article-body h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.news-archive .article-body p:not(.article-meta) {
+  margin: 0.45rem 0 0;
+  max-width: 62ch;
 }
 
 /* The small category label under each date. Same kicker treatment as the
@@ -1805,11 +1830,10 @@ body.is-entering main {
     grid-template-columns: minmax(6rem, 7.5rem) minmax(0, 1fr);
   }
 
-  .news-archive article > time,
-  .news-archive article > .article-tag,
+  .news-archive article > .article-meta,
   .news-archive article > h2,
-  .news-archive article > p:not(.article-tag) {
-    grid-column: 2;
+  .news-archive article > p:not(.article-meta) {
+    grid-column: 1;
     grid-row: auto;
   }
 
@@ -3480,10 +3504,7 @@ body.is-entering main {
   }
 
   .news-archive article > .article-thumb,
-  .news-archive article > time,
-  .news-archive article > .article-tag,
-  .news-archive article > h2,
-  .news-archive article > p:not(.article-tag) {
+  .news-archive article > .article-body {
     grid-column: 1;
     grid-row: auto;
   }
@@ -3539,96 +3560,12 @@ body.is-entering main {
   }
 }
 
-/* ==========================================================================
-   Signals. Two kinds of piece in one chronological list. A note is a short
-   row, the same shape as a news row. A column is a longer piece and is given
-   the width and type size to match.
-   ========================================================================== */
 
-.signals-archive {
-  display: grid;
-  gap: 2.8rem;
-}
 
-/* A column is the lead item in the list, built around a large picture so it
-   reads as an article rather than as a page heading. Photograph on the left at
-   half the width, the words beside it. */
-.signal-column {
-  display: grid;
-  grid-template-columns: minmax(0, 0.52fr) minmax(0, 1fr);
-  gap: 1.5rem 2.4rem;
-  align-items: start;
-  padding: 1.5rem 0 1rem;
-  border-top: 2px solid var(--red);
-}
 
-.signal-column .column-media img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-}
-
-/* Without a photograph the shape is kept, so a column never collapses into
-   something that looks like a page header. */
-.signal-column .column-media.is-placeholder {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 3 / 2;
-  background: var(--paper-soft);
-  border: 1px solid var(--rule);
-}
-
-.signal-column .column-media.is-placeholder span {
-  color: var(--ink-muted);
-  font-family: var(--font-section);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.signal-column .column-byline {
-  margin: 0 0 0.7rem;
-  color: var(--ink-muted);
-  font-family: var(--font-section);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.signal-column .column-byline span {
-  color: var(--red);
-}
-
-.signal-column h2 {
-  margin: 0;
-  font-family: var(--font-head);
-  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -0.022em;
-}
-
-.signal-column .column-dek {
-  margin: 0.75rem 0 0;
-  max-width: 50ch;
-  color: var(--ink-body);
-  font-size: 1rem;
-  line-height: 1.55;
-}
 
 @media (max-width: 760px) {
-  .signal-column {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
-  }
-
-  .signal-column .column-media img,
-  .signal-column .column-media.is-placeholder {
-    aspect-ratio: 16 / 9;
-  }
+  
 }
 
 .article-main.is-column .article-prose {
@@ -3641,124 +3578,10 @@ body.is-entering main {
   margin-top: 1.1rem;
 }
 
-/* A note is a short row: small square photo, then date, author, headline and
-   summary stacked beside it. Defined in full here rather than borrowing the
-   news page's rules, so the two can change independently. */
-.signal-note {
-  display: grid;
-  grid-template-columns: minmax(6.5rem, 8rem) minmax(0, 1fr);
-  column-gap: 1.6rem;
-  row-gap: 0.3rem;
-  align-items: start;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--rule);
-}
 
-.signal-note[hidden] {
-  display: none;
-}
-
-.signal-note > .article-thumb {
-  grid-column: 1;
-  grid-row: 1 / span 4;
-  width: 100%;
-}
-
-.signal-note > .article-thumb img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-}
-
-.signal-note > .article-thumb.is-placeholder {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 1 / 1;
-  background: var(--paper-soft);
-  border: 1px solid var(--rule);
-}
-
-.signal-note > .article-thumb.is-placeholder span {
-  color: var(--ink-muted);
-  font-family: var(--font-section);
-  font-size: 0.62rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.signal-note > time,
-.signal-note > .article-tag,
-.signal-note > h2,
-.signal-note > p:not(.article-tag) {
-  grid-column: 2;
-  grid-row: auto;
-  margin: 0;
-}
-
-.signal-note > time {
-  color: var(--red);
-  font-family: var(--font-section);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.signal-note > .article-tag {
-  color: var(--ink-muted);
-  font-family: var(--font-section);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.signal-note > h2 {
-  margin-top: 0.15rem;
-  font-family: var(--font-head);
-  font-size: 1.28rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-}
-
-.signal-note > p:not(.article-tag) {
-  margin-top: 0.3rem;
-  max-width: 52ch;
-  color: var(--ink-body);
-}
 
 @media (max-width: 560px) {
-  .signal-note {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 0.4rem;
-  }
-
-  /* Named one by one. A wildcard here loses to the rules above that place
-     each element in column 2, which leaves the photo column at zero width. */
-  .signal-note > .article-thumb,
-  .signal-note > time,
-  .signal-note > .article-tag,
-  .signal-note > h2,
-  .signal-note > p:not(.article-tag) {
-    grid-column: 1;
-    grid-row: auto;
-  }
-
-  .signal-note > .article-thumb {
-    margin-bottom: 0.4rem;
-  }
-
-  .signal-note > .article-thumb img {
-    aspect-ratio: 16 / 10;
-  }
-
-  /* A note with no photo shows text only on a phone. A full-width grey box
-     takes more room than it is worth on a small screen. */
-  .signal-note > .article-thumb.is-placeholder {
-    display: none;
-  }
+  
 }
 
 /* A top-level nav item with no dropdown, such as Signals. A dropdown item is a
@@ -3789,4 +3612,221 @@ body.is-entering main {
    person writing. */
 .article-credits .author-role {
   color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   SIGNALS
+   Set as a publication rather than a page: an oversized wordmark against a
+   heavy rule, a lead piece running text-left and image-right, then a list on
+   one grid. A column is marked by a red label and one size of headline, so it
+   reads as a different kind of piece without leaving the shared left edge.
+   ========================================================================== */
+
+.sig-mast {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1.8rem;
+  align-items: flex-end;
+  padding: 2.4rem 0 0.95rem;
+  border-bottom: 3px solid var(--ink);
+}
+
+.sig-mast h1 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(2.6rem, 6.4vw, 4.3rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+}
+
+.sig-mast-r p {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--ink-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sig-mast-r .sig-mast-meta {
+  max-width: none;
+  margin-top: 0.45rem;
+  font-family: var(--font-section);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* ---------- the lead piece ---------- */
+.sig-lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 2.2rem;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sig-lead h2 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.6rem, 2.9vw, 2.05rem);
+  font-weight: 800;
+  letter-spacing: -0.034em;
+  line-height: 1.06;
+}
+
+.sig-lead-dek {
+  margin: 0.6rem 0 0;
+  max-width: 54ch;
+  color: var(--ink-body);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.sig-read {
+  margin: 1rem 0 0;
+}
+
+.sig-read a {
+  display: inline-block;
+  padding-bottom: 0.2rem;
+  border-bottom: 1.5px solid var(--red);
+  color: var(--red);
+  font-family: var(--font-section);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ---------- the list, one grid for both kinds ---------- */
+.signals-archive {
+  display: block;
+}
+
+.sig-row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 10.5rem) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.sig-row[hidden] {
+  display: none;
+}
+
+.sig-row h2 {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+/* A column: the red label above, and one size up. Nothing moves. */
+.sig-row.is-column h2 {
+  font-size: 1.38rem;
+  font-weight: 800;
+  letter-spacing: -0.026em;
+}
+
+.sig-body p:not(.sig-by) {
+  margin: 0.45rem 0 0;
+  max-width: 60ch;
+  color: var(--ink-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.sig-by {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-section);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.sig-by em {
+  font-style: normal;
+  color: var(--red);
+}
+
+/* ---------- images ---------- */
+.sig-media {
+  display: block;
+}
+
+.sig-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.sig-media.is-lead img {
+  aspect-ratio: 3 / 2;
+}
+
+.sig-media.is-placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  background: var(--paper-soft);
+  border: 1px solid var(--rule);
+}
+
+.sig-media.is-lead.is-placeholder {
+  aspect-ratio: 3 / 2;
+}
+
+.sig-media.is-placeholder span {
+  font-family: var(--font-section);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 820px) {
+  .sig-mast {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+  }
+
+  .sig-lead {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.1rem;
+  }
+
+  .sig-lead .sig-media {
+    order: -1;
+  }
+
+  .sig-media.is-lead img,
+  .sig-media.is-lead.is-placeholder {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 560px) {
+  .sig-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .sig-media img,
+  .sig-media.is-placeholder {
+    aspect-ratio: 16 / 10;
+  }
 }

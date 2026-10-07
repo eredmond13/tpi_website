@@ -42,10 +42,11 @@ feedCategories: ["News", "Policy analysis", "Event"]
   <article data-group="{{ group }}">
     {% if post.data.image %}<a class="article-thumb" href="{{ href }}"{{ away | safe }}><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% else %}<a class="article-thumb is-placeholder" href="{{ href }}"{{ away | safe }} aria-hidden="true"><span>{% if post.data.interviewLink %}Interview{% else %}{{ post.data.category }}{% endif %}</span></a>{% endif %}
-    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">{% if post.data.interviewLink %}Interview{% else %}{{ post.data.category }}{% endif %}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</p>
+    <div class="article-body">
+    <p class="article-meta"><time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time> &middot; <span>{% if post.data.interviewLink %}Interview{% else %}{{ post.data.category }}{% endif %}{% if post.data.sourceName %} &middot; {{ post.data.sourceName }}{% endif %}</span></p>
     <h2><a href="{{ href }}"{{ away | safe }}>{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
+    </div>
   </article>
 {%- endif %}
 {%- endfor %}

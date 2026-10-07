@@ -25,10 +25,11 @@ permalink: /blog.html
   <article{% if loop.index0 >= 10 %} class="is-extra" hidden{% endif %}>
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Blog</span></a>{% endif %}
-    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">Blog{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</p>
+    <div class="article-body">
+    <p class="article-meta"><time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time> &middot; <span>Blog{% if post.data.author %} &middot; {{ post.data.author }}{% endif %}</span></p>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
+    </div>
   </article>
 {%- endfor %}
 </section>

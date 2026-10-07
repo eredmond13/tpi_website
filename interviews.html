@@ -18,10 +18,11 @@ permalink: /interviews.html
   <article>
     {% if post.data.image %}<a class="article-thumb" href="{{ post.url | url }}"><img alt="{{ post.data.imageAlt }}" src="{{ post.data.image | url }}"></a>
     {% else %}<a class="article-thumb is-placeholder" href="{{ post.url | url }}" aria-hidden="true"><span>Interview</span></a>{% endif %}
-    <time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time>
-    <p class="article-tag">{% if post.data.interviewer %}By {{ post.data.interviewer }}{% else %}Interview{% endif %}</p>
+    <div class="article-body">
+    <p class="article-meta"><time datetime="{{ post.data.date | isoDate }}">{{ post.data.date | readableDate }}</time> &middot; <span>{% if post.data.interviewer %}By {{ post.data.interviewer }}{% else %}Interview{% endif %}</span></p>
     <h2><a href="{{ post.url | url }}">{{ post.data.title }}</a></h2>
     <p>{{ post.data.summary }}</p>
+    </div>
   </article>
 {%- endif %}
 {%- endfor %}
