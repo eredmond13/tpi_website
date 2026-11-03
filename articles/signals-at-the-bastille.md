@@ -5,6 +5,7 @@ category: Signals
 author: "Paul Kurgan"
 summary: "As France invests in becoming an AI leader, its young people face job insecurity and worry about AI’s effects on their ability to think. Their protests ask whether government will help them meet those challenges."
 hubs: ["ai-governance"]
+image: /pictures/signals/signals-at-the-bastille.jpg
 ---
 
 On October 8, students gathered atop the July Column in Paris’s Place de la
