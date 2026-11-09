@@ -7,9 +7,8 @@ hubs: ["ai-governance"]
 photo: /pictures/people/varija-mehta.jpg
 ---
 
-Varija Mehta is a sophomore in the College of Engineering majoring in Computer Science and pursuing a
-minor in Data Science. On campus she is an engineer for the Cornell Mars Rover project team, director
-of Women in Computing at Cornell, and a member of the Cornell Undergraduate Asia Business Society.
+Varija Mehta is a senior majoring in Computer Science and minoring in Data Science in the Bowers College of Computing and Information of Science. She has also started her Master's of Engineering in Computer Science. 
 
-With past experience as a Cadet in the Civil Air Patrol and as a Cybersecurity Analyst for MassMutual,
-Varija is interested in cybersecurity, technology, and foreign policy.
+After graduation, she will be a Quantitative Developer at Millennium Management. She has had prior experiences working as a Technology Summer Analyst at Apollo Global Management and a Cyber Intern at MassMutual. On campus, she is involved with the Women in Computing at Cornell (WICC) and Undergraduate Student Leadership Council (USLC), among other clubs. 
+
+At the Tech Policy Institute, Varija is involved with the Algorithmic Warfare Research Hub. She is fascinated by how technical decisions encode values and leveraging that to build safer infrastructure. 
